@@ -916,6 +916,19 @@
     text-align: left;
     word-break: break-word;
   }
+  /* Standardmäßig: Mobile-Text verstecken */
+.text-videos-mobile {
+  display: none;
+}
+
+/* Nur auf Handys (unter 768px Breite): Desktop-Text aus, Mobile-Text an */
+@media (max-width: 768px) {
+  .text-videos-desktop {
+    display: none;
+  }
+  .text-videos-mobile {
+    display: block;
+  }
 }
 </style>
 
