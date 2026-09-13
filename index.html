@@ -252,19 +252,33 @@
     .phone-frame.lavender-border { border-color: var(--lavender); }
 
     /* Seitliche Tasten (passen sich nun automatisch der Rahmenfarbe an) */
-    .phone-frame::before {
-      content: "";
-      position: absolute;
-      right: -13px;
-      top: 26%;
-      width: 4px;
-      height: 17%;
-      background: var(--lime);
-      border-radius: 0 3px 3px 0;
-      z-index: 5;
+.phone-frame {
+      position: relative;
+      width: 100%;
+      max-width: 310px;
+      aspect-ratio: 9 / 16;
+      margin: 0 auto;
+      background: #111; /* Hintergrund wieder da */
+      border: 10px solid var(--lime);
+      border-radius: 36px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+      overflow: hidden; /* WICHTIG: Das schneidet alles, was übersteht, sauber ab! */
     }
-    .phone-frame.lavender-border::before {
-      background: var(--lavender);
+    .phone-frame.lavender-border { border-color: var(--lavender); 
+    }
+    .phone-screen { 
+      width: 100%; 
+      height: 100%; 
+      border-radius: 0; /* Kein eigener Radius mehr nötig, da der Frame alles abschneidet */
+      overflow: hidden; 
+      background: #111; 
+      position: relative; 
+    }
+    .phone-screen video { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      display: block; 
     }
 
     .phone-frame::after {
