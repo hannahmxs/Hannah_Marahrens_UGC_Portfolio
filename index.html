@@ -870,6 +870,23 @@
     display: block;
   }
 }
+      /* Standard (Desktop): Desktop-Copyright anzeigen, Mobile-Copyright verstecken */
+.footer-bottom-bar .text-desktop {
+  display: block;
+}
+.footer-bottom-bar .text-mobile {
+  display: none;
+}
+
+/* Nur für die Mobilansicht (Bildschirme unter 768px) */
+@media (max-width: 768px) {
+  .footer-bottom-bar .text-desktop {
+    display: none;
+  }
+  .footer-bottom-bar .text-mobile {
+    display: block;
+  }
+}
     }
   </style>
 </head>
