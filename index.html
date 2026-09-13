@@ -74,11 +74,11 @@
     a { color: var(--ink); text-decoration: none; }
     
     .icon-inline {
-      width: 1.2em;
+      width: 1.05em;
       height: auto;
       aspect-ratio: 1 / 1;
       display: inline-block;
-      vertical-align: -0.2em;
+      vertical-align: -0.15em;
       margin-right: 0.5em;
       object-fit: contain;
     }
@@ -315,7 +315,6 @@
       background: #111; 
       border-radius: 50%; 
       border: 1px solid rgba(255, 255, 255, 0.2); 
-    }
     }
     
     /* Das Mikrofon ist jetzt eine kleine, längliche Pille */
@@ -611,8 +610,46 @@
     }
     .scroll-top-btn:hover { opacity: 0.7; background: rgba(255, 255, 255, 0.5); }
 
+    /* ---------- TOP MENÜLEISTE ---------- */
+    .top-nav {
+      background: var(--lime);
+      width: 100%;
+      padding: 0.7rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      position: relative;
+      z-index: 20;
+    }
+    .top-nav a {
+      font-family: "Nobel", sans-serif;
+      font-weight: 400;
+      color: var(--ink);
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .top-nav a:hover { text-decoration: underline; }
+    @media (max-width: 800px) {
+      .top-nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        gap: 1.3rem;
+        padding: 0.6rem 1.2rem;
+      }
+      .top-nav a { font-size: 13px; }
+    }
+
     /* Mobile-only Umbrüche (Flattersatz-Optimierung) */
     .mobile-br { display: none; }
+
+    /* Desktop-Standard für Text-Umschaltung (wird auf Mobile per @media überschrieben) */
+    .text-videos-desktop { display: block; }
+    .text-videos-mobile { display: none; }
+    .footer-bottom-bar .text-desktop { display: block; }
+    .footer-bottom-bar .text-mobile { display: none; }
 
     /* =========================================================
         EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
@@ -847,50 +884,31 @@
         word-break: normal;
         overflow-wrap: break-word;
       }
-      /* Nur für Mobile: Textblock in der Box nach unten verschieben und Flattersatz aktivieren */
-@media (max-width: 768px) {
-  .ugc-text-box { /* Passe den Klassennamen an, falls dein Container anders heißt */
-    padding-top: 2rem; /* Schiebt den Inhalt in der Box nach unten */
-  }
-  .text-videos-desktop {
-    display: none;
-  }
-  .text-videos-mobile {
-    display: block;
-    text-align: left;
-  }
-}
+      /* 5. Warum-UGC-Textblock innerhalb des lila Blocks nur auf Mobile weiter runtersetzen */
+      .ugc-text-box {
+        padding-top: 2rem;
+      }
 
-/* Auf dem Desktop die Mobile-Version ausblenden */
-@media (min-width: 769px) {
-  .text-videos-mobile {
-    display: none;
-  }
-  .text-videos-desktop {
-    display: block;
-  }
-}
-      /* Standard (Desktop): Desktop-Copyright anzeigen, Mobile-Copyright verstecken */
-.footer-bottom-bar .text-desktop {
-  display: block;
-}
-.footer-bottom-bar .text-mobile {
-  display: none;
-}
+      /* 6. Mobile Varianten von CTA-Text und Footer-Copyright einblenden */
+      .text-videos-desktop { display: none; }
+      .text-videos-mobile { display: block; text-align: left; }
 
-/* Nur für die Mobilansicht (Bildschirme unter 768px) */
-@media (max-width: 768px) {
-  .footer-bottom-bar .text-desktop {
-    display: none;
-  }
-  .footer-bottom-bar .text-mobile {
-    display: block;
-  }
-}
+      .footer-bottom-bar .text-desktop { display: none; }
+      .footer-bottom-bar .text-mobile { display: block; }
     }
   </style>
 </head>
 <body>
+
+<!-- ===================== 0. MENÜLEISTE ===================== -->
+<nav class="top-nav">
+  <a href="#intro">Über mich</a>
+  <a href="#arbeit">Meine Arbeit</a>
+  <a href="#warum-ugc">Warum UGC</a>
+  <a href="#dienstleistungen">Dienstleistungen</a>
+  <a href="#workflow">Workflow</a>
+  <a href="#ugc-fotos">UGC Fotos</a>
+</nav>
 
 <!-- ===================== 1. HERO ===================== -->
 <header class="hero" id="start">
@@ -932,19 +950,6 @@
     display: block;
     text-align: left;
     word-break: break-word;
-  }
-  /* Standardmäßig: Mobile-Text verstecken */
-.text-videos-mobile {
-  display: none;
-}
-
-/* Nur auf Handys (unter 768px Breite): Desktop-Text aus, Mobile-Text an */
-@media (max-width: 768px) {
-  .text-videos-desktop {
-    display: none;
-  }
-  .text-videos-mobile {
-    display: block;
   }
 }
 </style>
@@ -990,7 +995,7 @@
 </section>
 
 <!-- ===================== 3. UGC PORTFOLIO – Beispiele 1 ===================== -->
-<div class="fullscreen-slide">
+<div class="fullscreen-slide" id="arbeit">
   <div class="section-phones-tight">
     <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 20px;">Performance & Review</p>
     <div class="phone-row">
@@ -1067,9 +1072,9 @@
   </div>
 </div>
 <!-- ===================== 8. WHY UGC? ===================== -->
-<section class="bg-lavender fullscreen-slide" style="padding-top: 0 !important;">
+<section class="bg-lavender fullscreen-slide" id="warum-ugc" style="padding-top: 0 !important;">
   <div class="split" style="max-width:1100px; margin:0 auto; height: 100%;">
-    <div style="padding: 3rem 2.5rem 3rem 1rem;">
+    <div class="ugc-text-box" style="padding: 3rem 2.5rem 3rem 1rem;">
       <h2 style="font-size:36px; margin-bottom:0.8rem;">Warum UGC?</h2>
       <p style="font-size:22px; color:var(--muted); margin-bottom:1.2rem;">Klassische Werbung wird oft ignoriert, <br> echter Content schafft Vertrauen.</p>
       <p style="font-weight:400; font-size:22px; margin-bottom:0.4rem;">Fakten über UGC (2026)</p>
@@ -1088,7 +1093,7 @@
 </section>
 
 <!-- ===================== 9. DIENSTLEISTUNGEN ===================== -->
-<section class="fullscreen-slide" style="padding-top: 7.5rem; padding-bottom: 2rem; height: auto !important; min-height: auto !important;">
+<section class="fullscreen-slide" id="dienstleistungen" style="padding-top: 7.5rem; padding-bottom: 2rem; height: auto !important; min-height: auto !important;">
   <div class="services-wrapper">
     <h2 style="font-size: 36px; margin-bottom: 1.5rem;">Dienstleistungen</h2>
     <div class="services-grid">
@@ -1144,7 +1149,7 @@
 </section>
 
 <!-- ===================== 10. WORKFLOW ===================== -->
-<section class="workflow-section">
+<section class="workflow-section" id="workflow">
   <div class="workflow-container">
     <h2>Mein Workflow</h2>
     <div class="workflow-timeline">
@@ -1183,7 +1188,7 @@
 </section>
 
 <!-- ===================== 11. GALERIE STRIP ===================== -->
-<section class="gallery-section">
+<section class="gallery-section" id="ugc-fotos">
   <div class="gallery-grid" style="margin-bottom: 1.5rem;">
     <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 1">
     <img src="bilder/beispiel2.jpg" alt="UGC Beispiel 2">
@@ -1230,10 +1235,10 @@
     <button class="legal-btn" onclick="openModal('datenschutzModal')">Datenschutz</button>
   </div>
    <div class="text-mobile">
-  <p class="closing-copyright">&copy; 2026 Hannah Marahrens. Alle Rechte vorbehalten.</p>
+  <p class="closing-copyright">&copy; 2026 Hannah Marahrens. <br> Alle Rechte vorbehalten.</p>
 </div>
    <div class="text-desktop">
-       <p class="closing-copyright">&copy; 2026 Hannah Marahrens. <br> Alle Rechte vorbehalten.</p>
+       <p class="closing-copyright">&copy; 2026 Hannah Marahrens. Alle Rechte vorbehalten.</p>
 </div>
 
 <!-- ===================== MODALS (IMPRESSUM & DATENSCHUTZ) ===================== -->
