@@ -854,6 +854,25 @@
   @media (min-width: 801px) {
     .hero-contact-right .mobile-only-insta { display: none !important; }
   }
+  /* Standardmäßig (Desktop): Zeigt den normalen Text ohne erzwungene Umbrüche */
+.text-desktop {
+  display: block;
+}
+.text-mobile {
+  display: none;
+}
+
+/* Nur für die Mobilansicht (Bildschirme kleiner als 768px): Desktop aus, Mobile an */
+@media (max-width: 768px) {
+  .text-desktop {
+    display: none;
+  }
+  .text-mobile {
+    display: block;
+    text-align: left;
+    word-break: break-word;
+  }
+}
 </style>
 
 <!-- ===================== 2. INTRODUCTION ===================== -->
@@ -861,8 +880,26 @@
   <div class="intro">
     <div class="intro-text">
       <h2>Warum Sie mit mir<br>arbeiten sollten</h2>
-<p>Moin,<br class="desktop-br"> ich bin Hannah, Creator und Kommunikationsdesignerin<br class="desktop-br">mit einer besonderen Sensibilität für Bildsprache,<br class="desktop-br">Stimmung und die kleinen Details, die eine Marke<br class="desktop-br">fühlbar machen.</p>      <p style="margin-top: 0.5rem;">Mit einem geschulten Auge für Komposition und einem <br> feinen Gespür für Emotionen übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
-    </div>
+<!-- Dieser Text wird NUR auf dem Desktop angezeigt -->
+<div class="text-desktop">
+  <p>Moin, ich bin Hannah, Creator und Kommunikationsdesignerin mit einer besonderen Sensibilität für Bildsprache, Stimmung und die kleinen Details, die eine Marke fühlbar machen.</p>
+  <p>Mit einem geschulten Auge für Komposition und einem feinen Gespür für Emotionen übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
+</div>
+
+<!-- Dieser Text mit deinen festen Umbrüchen wird NUR auf dem Handy angezeigt -->
+<div class="text-mobile">
+  <p>
+    Moin, ich bin Hannah, Creator und Kommunikations-<br>
+    designerinmit einer besonderen Sensibilität für<br>
+    Bildsprache, Stimmung und die kleinen Details,<br>
+    die eine Markefühlbar machen.<br>
+    <br>
+    Mit einem geschulten Auge für Komposition und<br>
+    einem &nbsp;feinen Gespür für Emotionen übersetze<br>
+    ich Marken in Content, der nahbar ist und im<br>
+    Gedächtnis bleibt.
+  </p>
+</div> 
     <div class="intro-img-wrap">
       <img src="bilder/intro.jpg" alt="Hannah Marahrens" class="shifted-right-img">
     </div>
