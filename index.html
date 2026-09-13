@@ -213,7 +213,7 @@
       display: block;
     }
 
-/* ---------- PHONE MOCKUP ---------- */
+/* ---------- PHONE MOCKUP (iPhone 17 / Modern Style) ---------- */
     .section-phones-tight, .section-phones-normal {
       max-width: 1100px;
       margin: 0 auto;
@@ -248,7 +248,7 @@
       margin: 0 auto;
       background: #111;
       border: 10px solid var(--lime);
-      border-radius: 36px;
+      border-radius: 38px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.18);
       overflow: hidden;
     }
@@ -256,14 +256,14 @@
       border-color: var(--lavender); 
     }
 
-    /* Seitliche Tasten (Rechts: Power, Links: Lautstärke / Stummschalter) */
+    /* Seitliche Tasten (Rechts: Power-Button, Links: Action-Button + Lautstärke) */
     .phone-frame::before {
       content: "";
       position: absolute;
       right: -13px;
-      top: 26%;
+      top: 24%;
       width: 4px;
-      height: 17%;
+      height: 12%;
       background: var(--lime);
       border-radius: 0 3px 3px 0;
       z-index: 5;
@@ -276,47 +276,46 @@
       content: "";
       position: absolute;
       left: -13px;
-      top: 15%;
+      top: 18%;
       width: 4px;
-      height: 6%;
+      height: 5%;
       background: var(--lime);
       border-radius: 3px 0 0 3px;
-      box-shadow: 0 9% 0 0 var(--lime), 0 17% 0 0 var(--lime);
+      /* Mehrere Box-Shadows für Action-Button und die beiden Lautstärketasten links */
+      box-shadow: 0 8% 0 0 var(--lime), 0 18% 0 0 var(--lime);
       z-index: 5;
     }
     .phone-frame.lavender-border::after {
       background: var(--lavender);
-      box-shadow: 0 9% 0 0 var(--lavender), 0 17% 0 0 var(--lavender);
+      box-shadow: 0 8% 0 0 var(--lavender), 0 18% 0 0 var(--lavender);
     }
 
+    /* Moderne Dynamic Island statt der alten Notch */
     .phone-notch {
       position: absolute;
-      top: 6px;
+      top: 12px;
       left: 50%;
       transform: translateX(-50%);
       width: 95px;
-      height: 18px;
+      height: 26px;
       background: #000;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
+      border-radius: 20px;
       z-index: 10;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 9px;
+      justify-content: flex-end;
+      padding-right: 8px;
+      box-sizing: border-box;
     }
     .phone-speaker { 
-      width: 30px; 
-      height: 3px; 
-      background: #888; 
-      border-radius: 2px; 
-    }
+      display: none; /* Keine Ohrmuschel mehr beim modernen iPhone */
+    } 
     .phone-camera { 
-      width: 9px; 
-      height: 9px; 
-      background: #444; 
+      width: 10px; 
+      height: 10px; 
+      background: #0a0a0a; 
       border-radius: 50%; 
-      border: 1px solid #999; 
+      border: 1px solid #222; 
     }
     
     .phone-screen { 
@@ -330,7 +329,7 @@
     .phone-screen video { 
       width: 100%; 
       height: 100%; 
-      object-fit: contain; /* Geändert von 'cover' zu 'contain', damit der Player unten nicht mehr abgeschnitten wird */
+      object-fit: contain; 
       display: block; 
     }
     
@@ -347,6 +346,7 @@
       padding-left: 0.9rem; 
       text-align: left; 
     }
+    
     /* ---------- FARBIGE SECTIONS & SPLIT ---------- */
     .bg-lime { background: var(--lime); }
     .bg-lavender { background: var(--lavender); }
