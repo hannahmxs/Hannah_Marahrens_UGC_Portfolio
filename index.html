@@ -290,7 +290,7 @@
       box-shadow: 0 8% 0 0 var(--lavender), 0 18% 0 0 var(--lavender);
     }
 
-    /* Dynamic Island (Pille oben) */
+   /* Dynamic Island (Pille oben) */
     .phone-notch {
       position: absolute;
       top: 10px;
@@ -303,8 +303,8 @@
       z-index: 10;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
-      padding-right: 6px;
+      justify-content: space-between; /* Verteilt Mikrofon (links) und Kamera (rechts) */
+      padding: 0 8px; /* Sorgt für den nötigen Innenabstand zum Rand */
     }
     /* Der kleine Mikrofon-/Sensor-Punkt links */
     .phone-mic { 
