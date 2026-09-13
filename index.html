@@ -290,8 +290,7 @@
       box-shadow: 0 8% 0 0 var(--lavender), 0 18% 0 0 var(--lavender);
     }
 
-   /* Dynamic Island (Pille oben) */
-/* Dynamic Island (Pille oben) */
+/* Dynamic Island (Pille oben - wie beim echten iPhone) */
     .phone-notch {
       position: absolute;
       top: 10px;
@@ -300,12 +299,23 @@
       width: 90px;
       height: 24px;
       background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.15); /* Feiner Rand, damit man sie auch auf schwarz sieht! */
       border-radius: 14px;
       z-index: 10;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 10px;
+      justify-content: flex-end; /* Kamera sitzt dezent rechts in der Pille */
+      padding-right: 8px;
+    }
+
+    /* Nur die Kamera-Linse, realistisch und dezent */
+    .phone-camera { 
+      width: 8px; 
+      height: 8px; 
+      background: #111; 
+      border-radius: 50%; 
+      border: 1px solid rgba(255, 255, 255, 0.2); 
+    }
     }
     
     /* Das Mikrofon ist jetzt eine kleine, längliche Pille */
@@ -315,15 +325,6 @@
       background: #444; 
       border-radius: 2px; 
       border: 1px solid #666;
-    }
-
-    /* Die Kamera */
-    .phone-camera { 
-      width: 8px; 
-      height: 8px; 
-      background: #444; 
-      border-radius: 50%; 
-      border: 1px solid #666; 
     }
     
     .phone-screen { 
