@@ -94,6 +94,23 @@
       font-weight: 400;
     }
 
+    /* ---------- GLOBAL DISPLAY SWITCH CLASSES ---------- */
+    .text-desktop {
+      display: block;
+    }
+    .text-mobile {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .text-desktop {
+        display: none !important;
+      }
+      .text-mobile {
+        display: block !important;
+      }
+    }
+
     /* ---------- FULLSCREEN SECTIONS ---------- */
     .fullscreen-slide {
       position: relative;
@@ -192,10 +209,8 @@
     }
     .intro-text h2 { font-size: 36px; margin-bottom: 1.2rem; line-height: 1.2; }
     .intro-text p { margin: 0 0 1rem; color: var(--muted); font-size: 22px; }
-    .intro-text .Nices-p { margin-top: 0.5rem; margin-bottom: 0.3rem; }
-    .intro-text .niches { color: var(--ink); font-weight: 400; font-size: 22px; margin: 0; }
     
-    .intro-img-wrap, .split-img-wrap {
+    .intro-img-wrap {
       padding: 0 !important;
       display: flex;
       align-items: stretch;
@@ -204,7 +219,6 @@
       height: 100%;
       background: transparent !important;
     }
-    
     .shifted-right-img {
       width: 100%;
       height: 100%;
@@ -213,7 +227,7 @@
       display: block;
     }
 
-/* ---------- MODERNES PHONE MOCKUP (Dynamic Island + Animationen) ---------- */
+    /* ---------- PHONE MOCKUP ---------- */
     .section-phones-tight, .section-phones-normal {
       max-width: 1100px;
       margin: 0 auto;
@@ -227,8 +241,6 @@
       margin-top: 1.5rem;
       justify-items: center;
     }
-    
-    /* WICHTIG: Hier sind die Animationen wieder zurück! */
     .phone-card { 
       text-align: left; 
       width: 100%; 
@@ -241,7 +253,6 @@
       opacity: 1;
       transform: scale(1);
     }
-    
     .phone-frame {
       position: relative;
       width: 100%;
@@ -256,8 +267,6 @@
     .phone-frame.lavender-border { 
       border-color: var(--lavender); 
     }
-
-    /* Seitliche Tasten */
     .phone-frame::before {
       content: "";
       position: absolute;
@@ -269,10 +278,7 @@
       border-radius: 0 3px 3px 0;
       z-index: 5;
     }
-    .phone-frame.lavender-border::before {
-      background: var(--lavender);
-    }
-
+    .phone-frame.lavender-border::before { background: var(--lavender); }
     .phone-frame::after {
       content: "";
       position: absolute;
@@ -289,8 +295,6 @@
       background: var(--lavender);
       box-shadow: 0 8% 0 0 var(--lavender), 0 18% 0 0 var(--lavender);
     }
-
-/* Dynamic Island (Pille oben - wie beim echten iPhone) */
     .phone-notch {
       position: absolute;
       top: 10px;
@@ -299,16 +303,14 @@
       width: 90px;
       height: 24px;
       background: #000;
-      border: 1px solid rgba(255, 255, 255, 0.15); /* Feiner Rand, damit man sie auch auf schwarz sieht! */
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 14px;
       z-index: 10;
       display: flex;
       align-items: center;
-      justify-content: flex-end; /* Kamera sitzt dezent rechts in der Pille */
+      justify-content: flex-end;
       padding-right: 8px;
     }
-
-    /* Nur die Kamera-Linse, realistisch und dezent */
     .phone-camera { 
       width: 8px; 
       height: 8px; 
@@ -316,9 +318,6 @@
       border-radius: 50%; 
       border: 1px solid rgba(255, 255, 255, 0.2); 
     }
-    }
-    
-    /* Das Mikrofon ist jetzt eine kleine, längliche Pille */
     .phone-mic { 
       width: 10px; 
       height: 4px; 
@@ -326,7 +325,6 @@
       border-radius: 2px; 
       border: 1px solid #666;
     }
-    
     .phone-screen { 
       position: absolute;
       top: 0;
@@ -338,14 +336,12 @@
       overflow: hidden; 
       z-index: 1;
     }
-    
     .phone-screen video { 
       width: 100%; 
       height: 100%; 
       object-fit: cover; 
       display: block; 
     }
-    
     .phone-label { 
       margin-top: 0.8rem; 
       font-weight: 400; 
@@ -359,197 +355,8 @@
       padding-left: 0.9rem; 
       text-align: left; 
     }
-    
-    /* ---------- FARBIGE SECTIONS & SPLIT ---------- */
-    .bg-lime { background: var(--lime); }
-    .bg-lavender { background: var(--lavender); }
 
-    .split {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items: stretch;
-      width: 100%;
-      height: 100%;
-    }
-    .split > div { padding: 3rem 2.5rem 3rem 1rem; display: flex; flex-direction: column; justify-content: center; }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin: 1.2rem 0;
-    }
-     .stat .num { 
-      font-family: 'NobelBold', sans-serif;
-      font-size: 36px; 
-      font-weight: 700; 
-    }
-    .stat .lbl { font-size: 17px; color: var(--muted); }
-
-    .facts { padding-left: 1.2rem; margin: 0.6rem 0 1.2rem; font-size: 22px; }
-    .facts li { margin-bottom: 0.4rem; }
-    .fact-bold {
-      font-family: 'NobelBold', sans-serif;
-      font-weight: 700;
-    }
-
-    /* ---------- DIENSTLEISTUNGEN ---------- */
-    .services-wrapper {
-      max-width: 840px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      width: 100%;
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-    }
-    .service-card { padding: 1.8rem 1.4rem; }
-    .service-card h3 { font-size: 22px; margin-bottom: 0.5rem; font-weight: 400; }
-    .service-card p { margin: 0; font-size: 19px; color: #222; }
-    
-    .services-lower {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-      margin-top: 1.2rem;
-    }
-    .service-card-inset { padding: 1.8rem 1.4rem 1.8rem 2.2rem; }
-    .service-card ul { margin: 0.5rem 0 0; padding-left: 1.1rem; font-size: 19px; }
-    .service-card li { margin-bottom: 0.3rem; }
-
-    .cta-row {
-      margin-top: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.0rem;
-      font-size: 22px;
-    }
-    .btn {
-      background: var(--paper);
-      color: var(--ink);
-      border: 2px solid var(--ink);
-      padding: 0.8rem 2rem;
-      font-size: 20px;
-      font-weight: 400;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn:hover { background: #000; color: #fff; }
-
-    /* ---------- WORKFLOW ---------- */
-    .workflow-section {
-      background: var(--lime);
-      padding: 3rem 2rem 5rem 2rem;
-      margin-top: 4rem; 
-      overflow: hidden;
-    }
-    .workflow-container { max-width: 1100px; margin: 0 auto; }
-    .workflow-container h2 { font-size: 36px; margin-bottom: 2.5rem; font-weight: 400; }
-    .workflow-timeline {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-    .workflow-timeline::before {
-      content: "";
-      position: absolute;
-      top: 7px;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--ink);
-      z-index: 1;
-    }
-    .workflow-step { position: relative; z-index: 2; }
-    .workflow-step {
-      opacity: 0;
-      transform: translateX(-25px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .workflow-timeline.in-view .workflow-step {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .workflow-timeline.in-view .workflow-step:nth-child(1) { transition-delay: 0s; }
-    .workflow-timeline.in-view .workflow-step:nth-child(2) { transition-delay: 0.25s; }
-    .workflow-timeline.in-view .workflow-step:nth-child(3) { transition-delay: 0.5s; }
-    .workflow-timeline.in-view .workflow-step:nth-child(4) { transition-delay: 0.75s; }
-    .workflow-step::before {
-      content: "";
-      display: block;
-      width: 15px;
-      height: 15px;
-      background: var(--lime);
-      border: 3px solid var(--ink);
-      border-radius: 50%;
-      margin-bottom: 1.2rem;
-    }
-    .workflow-step h3 { font-size: 22px; font-weight: 400; margin-bottom: 0.8rem; line-height: 1.35; min-height: 54px; }
-    .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 20px; color: #222; }
-    .workflow-step li { margin-bottom: 0.4rem; }
-
-    /* ---------- GALERIE STRIP ---------- */
-    .gallery-section { max-width: 1100px; margin: 6.5rem auto; padding: 0 1.5rem; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    .gallery-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #eee; display: block; }
-
-    /* ---------- TRIO PORTRAIT ---------- */
-    .trio-wrapper { max-width: 100%; margin: 4rem auto 0 auto; padding: 0; }
-    .trio-portrait { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; width: 100%; }
-    .trio-portrait img { width: 100%; height: calc(100vh + 8px); min-height: 770px; object-fit: cover; object-position: 65% center; background: #ddd; display: block; }
-
-    /* ---------- ABSCHLUSS & FOOTER ---------- */
-    .closing-card { width: 100%; background: var(--lime); margin-top: 0; }
-    .closing-img {
-      position: relative;
-      width: 100%;
-      height: calc(100vh + 8px);
-      min-height: 770px;
-      background-image: url("bilder/closing.jpg");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: flex-end;
-    }
-    .closing-img::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.5) 100%);
-    }
-    .closing-text-box {
-      position: relative;
-      z-index: 1;
-      color: var(--paper);
-      font-weight: 400;
-      font-size: 52px;
-      line-height: 1.15;
-      padding: 0 5rem 4rem 8rem;
-    }
-    
-    .closing-bar {
-      background: var(--lime);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 8rem; 
-    }
-    .closing-bar a {
-      color: var(--ink);
-      text-decoration: none;
-      font-family: "NobelLight", sans-serif;
-      font-weight: 300;
-      font-size: 24px;
-      letter-spacing: 0.07em;
-      display: inline-flex;
-      align-items: center;
-    }
-
+    /* ---------- FOOTER BOTTOM BAR ---------- */
     .footer-bottom-bar {
       background: var(--lavender);
       display: flex;
@@ -560,10 +367,10 @@
       gap: 0.8rem;
     }
     .legal-links { display: flex; gap: 2rem; }
-   .legal-btn {
-  font-size: 18px; color: var(--ink); text-decoration: underline; font-weight: 400;
-  background: none; border: none; cursor: pointer; padding: 0;
-  font-family: 'NobelBook', sans-serif;
+    .legal-btn {
+      font-size: 18px; color: var(--ink); text-decoration: underline; font-weight: 400;
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-family: 'NobelBook', sans-serif;
     }
     .legal-btn:hover { color: var(--muted); }
     .closing-copyright { 
@@ -575,6 +382,7 @@
       hyphens: auto;
       -webkit-hyphens: auto;
       overflow-wrap: break-word;
+      text-align: center;
     }
 
     /* Modals */
@@ -594,38 +402,14 @@
       text-decoration: none; color: var(--ink); font-weight: bold; cursor: pointer; background: none; border: none;
     }
 
-    /* SCROLL TO TOP */
-    .scroll-top-btn {
-      position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px;
-      background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(4px);
-      border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 50%; display: flex;
-      align-items: center; justify-content: center; color: var(--ink); font-size: 22px;
-      text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.04); z-index: 999;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease, background 0.3s;
-    }
-    .scroll-top-btn.visible {
-      opacity: 0.5;
-      pointer-events: auto;
-    }
-    .scroll-top-btn:hover { opacity: 0.7; background: rgba(255, 255, 255, 0.5); }
-
-    /* Mobile-only Umbrüche (Flattersatz-Optimierung) */
-    .mobile-br { display: none; }
-
-    /* =========================================================
-        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
-        ========================================================= */
+    /* MOBILE OVERRIDES */
     @media (max-width: 800px) {
       .hero {
         height: 75vh !important;
         min-height: 480px !important;
         margin-bottom: 1rem !important;
       }
-      .hero-img {
-        object-position: 78% 30% !important;
-      }
+      .hero-img { object-position: 78% 30% !important; }
       .hero-top {
         position: absolute !important;
         top: auto !important;
@@ -633,19 +417,9 @@
         left: 1.5rem !important;
         right: 5.5rem !important;  
       }
-      .hero-top .eyebrow {
-        font-size: 1.1rem !important;
-        margin-bottom: 0.2rem !important;
-      }
-      .hero-top h1 {
-        font-size: clamp(36px, calc(8vw + 4px), 54px) !important;
-        line-height: 1.1 !important;
-        margin-bottom: 0 !important;
-      }
-      
-      .hero-contact-left {
-        display: none !important;
-      }
+      .hero-top .eyebrow { font-size: 1.1rem !important; margin-bottom: 0.2rem !important; }
+      .hero-top h1 { font-size: clamp(36px, calc(8vw + 4px), 54px) !important; line-height: 1.1 !important; margin-bottom: 0 !important; }
+      .hero-contact-left { display: none !important; }
       .hero-contact-right {
         position: absolute !important;
         bottom: 1.5rem !important; 
@@ -657,236 +431,20 @@
         align-items: flex-end !important;
         gap: 0.6rem !important;
       }
-
-      .hero-contact-right a {
-        font-size: 0 !important;
-      }
+      .hero-contact-right a { font-size: 0 !important; }
       .hero-contact-right .icon-inline {
         width: 32px !important;
         height: 32px !important;
         margin-right: 0 !important;
         vertical-align: middle !important;
       }
-
-      .fullscreen-slide {
-        height: auto !important;
-        min-height: auto !important;
-        padding: 2.5rem 0 !important;
-        justify-content: center !important;
-      }
-
-      p, li, .intro-text p, .phone-sub, .service-card p, .service-card li {
-        text-align: left !important;
-      }
-
-      .desktop-br { display: none !important; }
-      .mobile-br { display: inline !important; }
-
-      .section-phones-tight { padding-bottom: 0 !important; margin-bottom: -1rem !important; }
-
+      .fullscreen-slide { height: auto !important; min-height: auto !important; padding: 2.5rem 0 !important; justify-content: center !important; }
       .intro { grid-template-columns: 1fr !important; height: auto !important; }
-      .intro-text { 
-        padding: 1.5rem 1.5rem 0.5rem 1.5rem !important; 
-        transform: none !important;
-      }
-
-      .split { grid-template-columns: 1fr !important; height: auto !important; }
-      .split > div { padding: 1.5rem 1.5rem !important; }
-      .split-img-wrap { 
-        width: 100% !important; 
-        aspect-ratio: 4 / 5 !important; 
-        min-height: 380px !important; 
-        background: transparent !important;
-      }
-      .split-img-wrap img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: contain !important; 
-        object-position: center !important;
-        background: transparent !important;
-      }
-
-      .phone-row {
-        grid-template-columns: 1fr !important;
-        gap: 1.8rem !important;
-        margin-top: 1rem !important;
-      }
-      .phone-card {
-        max-width: 100% !important;
-        width: 100% !important;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start !important;
-        text-align: left !important;
-        padding-left: 0.8rem !important; 
-      }
-      .phone-frame {
-        max-width: 74vw !important;
-        width: 74vw !important;
-        margin: 0 auto !important;
-      }
-      .phone-label, .phone-sub {
-        padding-left: 0 !important;
-        text-align: left !important;
-      }
-
-      .services-wrapper { padding: 0 1.5rem !important; }
-      .services-grid { grid-template-columns: 1fr !important; gap: 0.8rem !important; }
-      .services-lower { grid-template-columns: 1fr !important; gap: 0.8rem !important; margin-top: 0.8rem !important; }
-      .service-card-inset { padding: 1.5rem 1.4rem !important; }
-      
-      .cta-row { 
-        flex-direction: column !important; 
-        align-items: flex-start !important; 
-        text-align: left !important; 
-      }
-
-      .workflow-section { padding: 2rem 1.5rem 2.5rem 2rem !important; }
-      .workflow-timeline {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 2rem !important;
-        position: relative !important;
-      }
-      .workflow-timeline::before {
-        content: "" !important;
-        position: absolute !important;
-        top: 7px !important;
-        bottom: 7px !important;
-        left: 7px !important;
-        right: auto !important;
-        width: 3px !important;
-        height: auto !important;
-        background: var(--ink) !important;
-        display: block !important;
-      }
-      .workflow-step {
-        position: relative !important;
-        padding-left: 2rem !important;
-      }
-      .workflow-step::before {
-        content: "" !important;
-        position: absolute !important;
-        left: 0 !important;
-        top: 2px !important;
-        display: block !important;
-        width: 15px !important;
-        height: 15px !important;
-        background: var(--lime) !important;
-        border: 3px solid var(--ink) !important;
-        border-radius: 50% !important;
-        margin-bottom: 0 !important;
-      }
-      .workflow-step h3 { min-height: auto !important; font-size: 20px !important; }
-
-      .trio-portrait { grid-template-columns: 1fr !important; gap: 0 !important; }
-      .trio-portrait img {
-        height: 75vh !important;
-        min-height: 450px !important;
-        object-position: center 20% !important;
-      }
-      .trio-portrait img:nth-child(2) {
-        object-position: center top !important;
-      }
-
-      .closing-img {
-        height: 45vh !important;
-        min-height: 260px !important;
-        background-size: cover !important;
-        background-position: center !important;
-      }
-      .closing-text-box {
-        padding: 0 1.5rem 1.5rem 1.5rem !important;
-        font-size: 32px !important;
-      }
-      
-      .closing-bar {
-        padding: 1.2rem 1.5rem !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 0.8rem !important;
-        text-align: left !important;
-      }
-      .closing-bar a {
-        font-size: 20px !important;
-      }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
-    }
-    @media (max-width: 768px) {
-      /* 1. E-Mail und Instagram im Hero und Closing auf NobelRegular */
-      .hero-contact-left,
-      .hero-contact-right {
-        font-family: "NobelLight", sans-serif !important;
-        font-weight: 350 !important;
-      }
-      .closing-bar a {
-        font-family: "Nobel", sans-serif !important;
-        font-weight: 300 !important;
-      }
-
-      /* 2. Flattersatz für Intro-Text ("Moin, ich bin Hannah...") */
-      .intro-text p {
-        hyphens: auto;
-        -webkit-hyphens: auto;
-        word-break: normal;
-        overflow-wrap: break-word;
-      }
-      
-      /* 3. Abstand der Überschrift "Warum UGC?" zum oberen Rand der Box */
-      .bg-lime.section, .split > div {
-        padding-top: 2.5rem;
-      }
-      .split > div h2 {
-        margin-top: 1rem;
-      }
-
-      /* 4. Flattersatz für CTA ("Benötigen Sie mehr Videos...") */
-      .cta-row p, .cta-row {
-        hyphens: auto;
-        -webkit-hyphens: auto;
-        word-break: normal;
-        overflow-wrap: break-word;
-      }
-      /* Nur für Mobile: Textblock in der Box nach unten verschieben und Flattersatz aktivieren */
-@media (max-width: 768px) {
-  .ugc-text-box { /* Passe den Klassennamen an, falls dein Container anders heißt */
-    padding-top: 2rem; /* Schiebt den Inhalt in der Box nach unten */
-  }
-  .text-videos-desktop {
-    display: none;
-  }
-  .text-videos-mobile {
-    display: block;
-    text-align: left;
-  }
-}
-
-/* Auf dem Desktop die Mobile-Version ausblenden */
-@media (min-width: 769px) {
-  .text-videos-mobile {
-    display: none;
-  }
-  .text-videos-desktop {
-    display: block;
-  }
-}
-      /* Standard (Desktop): Desktop-Copyright anzeigen, Mobile-Copyright verstecken */
-.footer-bottom-bar .text-desktop {
-  display: block;
-}
-.footer-bottom-bar .text-mobile {
-  display: none;
-}
-
-/* Nur für die Mobilansicht (Bildschirme unter 768px) */
-@media (max-width: 768px) {
-  .footer-bottom-bar .text-desktop {
-    display: none;
-  }
-  .footer-bottom-bar .text-mobile {
-    display: block;
-  }
-}
+      .intro-text { padding: 1.5rem 1.5rem 0.5rem 1.5rem !important; transform: none !important; }
+      .phone-row { grid-template-columns: 1fr !important; gap: 1.8rem !important; margin-top: 1rem !important; }
+      .phone-card { max-width: 100% !important; width: 100% !important; display: flex; flex-direction: column; align-items: flex-start !important; text-align: left !important; padding-left: 0.8rem !important; }
+      .phone-frame { max-width: 74vw !important; width: 74vw !important; margin: 0 auto !important; }
+      .phone-label, .phone-sub { padding-left: 0 !important; text-align: left !important; }
     }
   </style>
 </head>
@@ -911,44 +469,6 @@
   </div>
 </header>
 
-<style>
-  @media (min-width: 801px) {
-    .hero-contact-right .mobile-only-insta { display: none !important; }
-  }
-  /* Standardmäßig (Desktop): Zeigt den normalen Text ohne erzwungene Umbrüche */
-.text-desktop {
-  display: block;
-}
-.text-mobile {
-  display: none;
-}
-
-/* Nur für die Mobilansicht (Bildschirme kleiner als 768px): Desktop aus, Mobile an */
-@media (max-width: 768px) {
-  .text-desktop {
-    display: none;
-  }
-  .text-mobile {
-    display: block;
-    text-align: left;
-    word-break: break-word;
-  }
-  /* Standardmäßig: Mobile-Text verstecken */
-.text-videos-mobile {
-  display: none;
-}
-
-/* Nur auf Handys (unter 768px Breite): Desktop-Text aus, Mobile-Text an */
-@media (max-width: 768px) {
-  .text-videos-desktop {
-    display: none;
-  }
-  .text-videos-mobile {
-    display: block;
-  }
-}
-</style>
-
 <!-- ===================== 2. INTRODUCTION ===================== -->
 <section class="fullscreen-slide" id="intro">
   <div class="intro">
@@ -961,7 +481,7 @@
         <p>Mit einem geschulten Auge für Komposition und einem feinen Gespür für Emotionen übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
       </div>
 
-      <!-- Dieser Text mit deinen festen Umbrüchen wird NUR auf dem Handy angezeigt -->
+      <!-- Dieser Text wird NUR auf dem Handy angezeigt -->
       <div class="text-mobile">
         <p>
           Moin,<br>
@@ -971,10 +491,11 @@
           bilität für Bildsprache,<br>
           Stimmung und die kleinen <br>
           Details, die eine Marke <br>
-          fühlbar machen.<br>
-          <p>
+          fühlbar machen.
+        </p>
+        <p>
           Mit einem geschulten Auge für <br>
-          Komposition und einem &nbsp;<br>
+          Komposition und einem <br>
           feinen Gespür für Emotionen <br>
           übersetze ich Marken in Content,<br>
           der nahbar ist und im <br>
