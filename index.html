@@ -213,7 +213,7 @@
       display: block;
     }
 
-    /* ---------- PHONE MOCKUP ---------- */
+/* ---------- PHONE MOCKUP ---------- */
     .section-phones-tight, .section-phones-normal {
       max-width: 1100px;
       margin: 0 auto;
@@ -237,7 +237,7 @@
       opacity: 1;
       transform: scale(1);
     }
-     .phone-frame {
+    .phone-frame {
       position: relative;
       width: 100%;
       max-width: 310px;
@@ -251,7 +251,7 @@
     }
     .phone-frame.lavender-border { border-color: var(--lavender); }
 
-    /* Seitliche Tasten (Power rechts, Stummschalter + Lautstärke links) */
+    /* Seitliche Tasten (passen sich nun automatisch der Rahmenfarbe an) */
     .phone-frame::before {
       content: "";
       position: absolute;
@@ -259,10 +259,14 @@
       top: 26%;
       width: 4px;
       height: 17%;
-      background: #1c1c1c;
+      background: var(--lime);
       border-radius: 0 3px 3px 0;
       z-index: 5;
     }
+    .phone-frame.lavender-border::before {
+      background: var(--lavender);
+    }
+
     .phone-frame::after {
       content: "";
       position: absolute;
@@ -270,11 +274,16 @@
       top: 15%;
       width: 4px;
       height: 6%;
-      background: #1c1c1c;
+      background: var(--lime);
       border-radius: 3px 0 0 3px;
-      box-shadow: 0 9% 0 0 #1c1c1c, 0 17% 0 0 #1c1c1c;
+      box-shadow: 0 9% 0 0 var(--lime), 0 17% 0 0 var(--lime);
       z-index: 5;
     }
+    .phone-frame.lavender-border::after {
+      background: var(--lavender);
+      box-shadow: 0 9% 0 0 var(--lavender), 0 17% 0 0 var(--lavender);
+    }
+
     .phone-notch {
       position: absolute;
       top: 6px;
