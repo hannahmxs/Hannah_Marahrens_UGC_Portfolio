@@ -291,6 +291,7 @@
     }
 
    /* Dynamic Island (Pille oben) */
+/* Dynamic Island (Pille oben) */
     .phone-notch {
       position: absolute;
       top: 10px;
@@ -303,23 +304,26 @@
       z-index: 10;
       display: flex;
       align-items: center;
-      justify-content: space-between; /* Verteilt Mikrofon (links) und Kamera (rechts) */
-      padding: 0 8px; /* Sorgt für den nötigen Innenabstand zum Rand */
+      justify-content: space-between;
+      padding: 0 10px;
     }
-    /* Der kleine Mikrofon-/Sensor-Punkt links */
+    
+    /* Das Mikrofon ist jetzt eine kleine, längliche Pille */
     .phone-mic { 
-      width: 6px; 
-      height: 6px; 
-      background: #333; 
-      border-radius: 50%; 
-      border: 1px solid #444;
+      width: 10px; 
+      height: 4px; 
+      background: #444; 
+      border-radius: 2px; 
+      border: 1px solid #666;
     }
-   .phone-camera { 
-      width: 9px; 
-      height: 9px; 
-      background: #333; /* Helleres Grau für die Linse */
+
+    /* Die Kamera */
+    .phone-camera { 
+      width: 8px; 
+      height: 8px; 
+      background: #444; 
       border-radius: 50%; 
-      border: 1px solid #444; /* Deutlich hellerer Rand */
+      border: 1px solid #666; 
     }
     
     .phone-screen { 
@@ -961,7 +965,7 @@
     <div class="phone-row">
       <div class="phone-card">
         <div class="phone-frame">
-          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
+          <div class="phone-notch"><div class="phone-mic"></div><div class="phone-camera"></div></div>
           <div class="phone-screen">
             <video controls poster="bilder/video1-poster.jpg"><source src="videos/backmischung.mp4" type="video/mp4"></video>
           </div>
@@ -971,7 +975,7 @@
       </div>
       <div class="phone-card">
         <div class="phone-frame">
-          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
+          <div class="phone-notch"><div class="phone-mic"></div><div class="phone-camera"></div></div>
           <div class="phone-screen">
             <video controls poster="bilder/video2-poster.jpg"><source src="videos/omega3.mp4" type="video/mp4"></video>
           </div>
@@ -981,7 +985,7 @@
       </div>
       <div class="phone-card">
         <div class="phone-frame">
-          <div class="phone-notch"><div class="phone-speaker"></div><div class="phone-camera"></div></div>
+          <div class="phone-notch"><div class="phone-mic"></div><div class="phone-camera"></div></div>
           <div class="phone-screen">
             <video controls poster="bilder/video3-poster.jpg"><source src="videos/unboxing.mp4" type="video/mp4"></video>
           </div>
@@ -1000,7 +1004,7 @@
     <div class="phone-row">
       <div class="phone-card">
         <div class="phone-frame lavender-border">
-          <div class="phone-notch"><div class="phone-camera"></div></div>
+          <div class="phone-notch"><div class="phone-mic"></div><div class="phone-camera"></div></div>
           <div class="phone-screen">
             <video controls poster="bilder/video4-poster.jpg"><source src="videos/fashion-strand.mp4" type="video/mp4"></video>
           </div>
@@ -1010,7 +1014,7 @@
       </div>
       <div class="phone-card">
         <div class="phone-frame lavender-border">
-          <div class="phone-notch"><div class="phone-camera"></div></div>
+          <div class="phone-notch"><div class="phone-mic"></div><div class="phone-camera"></div></div>
           <div class="phone-screen">
             <video controls poster="bilder/video5-poster.jpg"><source src="videos/blumenstrauss.mp4" type="video/mp4"></video>
           </div>
@@ -1020,7 +1024,7 @@
       </div>
       <div class="phone-card">
         <div class="phone-frame lavender-border">
-          <div class="phone-notch"><div class="phone-camera"></div></div>
+          <div class="phone-notch"><div class="phone-mic"></div><div class="phone-camera"></div></div>
           <div class="phone-screen">
             <video controls poster="bilder/video6-poster.jpg"><source src="videos/beauty.mp4" type="video/mp4"></video>
           </div>
