@@ -54,14 +54,9 @@
       --muted: #5c5c5c;
     }
     * { box-sizing: border-box; }
-    html { 
-      scroll-behavior: smooth; 
-      height: 100%;
-      background: var(--paper);
-    }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      padding: 0;
       font-family: "Nobel", "Helvetica Neue", Arial, sans-serif;
       font-weight: 400;
       font-size: 20px;
@@ -69,7 +64,6 @@
       background: var(--paper);
       line-height: 1.5;
       letter-spacing: 0.03em;
-      height: 100%;
     }
     .section {
       max-width: 1100px;
@@ -100,30 +94,21 @@
       font-weight: 400;
     }
 
-    /* ---------- SAUBERE ANKER-ABSTÄNDE (STATT NEGATIV-MARGINS) ---------- */
-    #intro,
-    #arbeit,
-    #warum-ugc,
-    #ugc-fotos,
-    #dienstleistungen,
-    #workflow {
-      scroll-margin-top: 70px;
-    }
-
     /* ---------- FULLSCREEN SECTIONS ---------- */
     .fullscreen-slide {
       position: relative;
-      min-height: 100vh;
+      height: calc(100vh + 8px); 
+      min-height: 770px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 4rem 0;
+      justify-content: flex-start;
+      padding-top: 3rem;
     }
 
-    /* ---------- TOP MENÜLEISTE ---------- */
-    .top-nav {
-      position: fixed;
+/* ---------- TOP MENÜLEISTE (IM HERO) ---------- */
+   .top-nav {
+      position: fixed; /* Auf fixed geändert, damit sie beim Scrollen mitkommt */
       top: 0;
       left: 0;
       right: 0;
@@ -138,9 +123,10 @@
       z-index: 30;
       overflow-x: auto; 
       scrollbar-width: none; 
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease; /* Weiche Animation für das Ein- und Ausblenden */
     }
 
+    /* Diese Klasse wird per JavaScript hinzugefügt, um die Leiste nach oben wegzuschieben */
     .top-nav.nav-hidden {
       transform: translateY(-100%);
     }
@@ -149,17 +135,18 @@
       display: none;
     }
 
+   /* Linker Bereich für die runden Icon-Kreise */
     .top-nav-icons {
       display: flex;
       align-items: center;
       gap: 1.5rem;
-      margin-left: 2.5rem;
+      margin-left: 2.5rem; /* Hier kannst du den Abstand vergrößern, um sie weiter nach rechts zu schieben */
     }
 
     .nav-icon-circle {
       width: 30px;
       height: 30px;
-      background: var(--ink);
+      background: var(--ink); /* Schwarzer Kreis */
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -170,20 +157,21 @@
     }
 
     .nav-icon-circle:hover {
-      transform: scale(1.1);
+      transform: scale(1.1); /* Leichter Zoom beim Hovern */
     }
 
     .nav-icon-img {
       width: 17px;
       height: 17px;
       object-fit: contain;
-      filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1); /* Färbt schwarze Icons automatisch weiß ein */
     }
 
+    /* Rechter Bereich für die Menüpunkte */
     .top-nav-links {
       display: flex;
       align-items: center;
-      gap: 3rem;
+      gap: 3rem; /* Abstand zwischen den Menüpunkten */
     }
     
     .top-nav-links a {
@@ -194,7 +182,7 @@
       letter-spacing: 0.08em;
       text-decoration: none;
       white-space: nowrap;
-      text-transform: uppercase;
+      text-transform: uppercase; /* Versalien */
       display: inline-block;
       transition: transform 0.25s ease;
     }
@@ -204,17 +192,29 @@
       transform: scale(1.08); 
     }
 
+    /* Speziell für das Mail-Icon, damit es optisch etwas feiner wirkt */
+    .mail-icon {
+      width: 12px;
+      height: 12px;
+    }
+    /* Auf Mobilgeräten unter 800px bleibt die Menüleiste komplett weg */
     @media (max-width: 800px) {
       .top-nav {
         display: none !important;
+      }
+      
+      .hero-top {
+        top: auto !important;
+        bottom: 1.5rem !important;
       }
     }
 
     /* ---------- HERO ---------- */
     .hero {
       position: relative;
-      height: 100vh;
-      min-height: 700px;
+      height: calc(100vh + 8px);
+      min-height: 770px;
+      margin-bottom: 2rem;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -230,7 +230,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 4%;
+      object-position: center 4%; /* Oben weniger, unten etwas mehr angeschnitten */
       display: block;
     }
     .hero-overlay {
@@ -241,7 +241,7 @@
     }
     .hero-top {
       position: absolute;
-      top: 7rem;
+      top: 7rem; /* Etwas Platz für die absolute Menüleiste oben gelassen */
       left: 5rem;
       right: 5rem;
       z-index: 3;
@@ -274,7 +274,8 @@
     .hero-contact-left { left: 5rem; }
     .hero-contact-right { right: 5rem; }
     .hero-contact-left a,
-    .hero-contact-right a { color: var(--paper); }
+    .hero-contact-right a { color: var(--paper); 
+    }
     
     /* ---------- INTRO & SPLIT ---------- */
     .intro {
@@ -284,15 +285,19 @@
       grid-template-columns: 1.05fr 0.95fr;
       align-items: center;
       width: 100%;
+      height: 100%;
     }
     .intro-text {
       padding: 1.5rem 2.5rem 2.5rem 1rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      transform: translateY(-2.5rem);
     }
     .intro-text h2 { font-size: 36px; margin-bottom: 1.2rem; line-height: 1.2; }
     .intro-text p { margin: 0 0 1rem; color: var(--muted); font-size: 22px; }
+    .intro-text .Nices-p { margin-top: 0.5rem; margin-bottom: 0.3rem; }
+    .intro-text .niches { color: var(--ink); font-weight: 400; font-size: 22px; margin: 0; }
     
     .intro-img-wrap, .split-img-wrap {
       padding: 0 !important;
@@ -301,7 +306,6 @@
       overflow: hidden;
       position: relative;
       height: 100%;
-      min-height: 500px;
       background: transparent !important;
     }
     
@@ -313,7 +317,7 @@
       display: block;
     }
 
-    /* ---------- PHONE MOCKUPS ---------- */
+/* ---------- MODERNES PHONE MOCKUP (Dynamic Island + Animationen) ---------- */
     .section-phones-tight, .section-phones-normal {
       max-width: 1100px;
       margin: 0 auto;
@@ -328,6 +332,7 @@
       justify-items: center;
     }
     
+    /* WICHTIG: Hier sind die Animationen wieder zurück! */
     .phone-card { 
       text-align: left; 
       width: 100%; 
@@ -356,6 +361,7 @@
       border-color: var(--lavender); 
     }
 
+    /* Seitliche Tasten */
     .phone-frame::before {
       content: "";
       position: absolute;
@@ -388,6 +394,7 @@
       box-shadow: 0 8% 0 0 var(--lavender), 0 18% 0 0 var(--lavender);
     }
 
+/* Dynamic Island (Pille oben - wie beim echten iPhone) */
     .phone-notch {
       position: absolute;
       top: 10px;
@@ -401,24 +408,36 @@
       z-index: 10;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 10px;
+      justify-content: space-between; /* Verteilt Sensor links und Kamera rechts exakt gleichmäßig */
+      padding: 0 10px; /* Sorgt für den perfekten Abstand zum linken und rechten Rand der Pille */
     }
 
+    /* Linker Sensor / Mikrofon-Punkt (wie beim iPhone-Original) */
+   /* Linker Sensor / Mikrofon-Punkt */
     .phone-mic { 
-      width: 18px; 
-      height: 5px; 
-      background: #222; 
-      border-radius: 3px; 
-      border: none; 
+      width: 9px; 
+      height: 8px; 
+      background: #111; 
+      border-radius: 50%; 
+      border: 1px solid rgba(255, 255, 255, 0.2); 
+      margin-left: 18px; /* Erhöhe diesen Wert, um das Mikrofon weiter nach rechts Richtung Kamera zu schieben */
     }
     
+    /* Rechte Kamera-Linse */
     .phone-camera { 
       width: 8px; 
       height: 8px; 
       background: #111; 
       border-radius: 50%; 
       border: 1px solid rgba(255, 255, 255, 0.2); 
+    }
+    /* Mikrofon: breiter gemacht und ohne Kontur */
+    .phone-mic { 
+      width: 18px; /* Etwas länger gezogen */
+      height: 5px; 
+      background: #222; /* Dezent dunkler, passend zum Apple-Look */
+      border-radius: 3px; 
+      border: none; /* Kontur komplett entfernt */
     }
     
     .phone-screen { 
@@ -466,6 +485,19 @@
       height: 100%;
     }
     .split > div { padding: 3rem 2.5rem 3rem 1rem; display: flex; flex-direction: column; justify-content: center; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 1.2rem 0;
+    }
+     .stat .num { 
+      font-family: 'NobelBold', sans-serif;
+      font-size: 36px; 
+      font-weight: 700; 
+    }
+    .stat .lbl { font-size: 17px; color: var(--muted); }
 
     .facts { padding-left: 1.2rem; margin: 0.6rem 0 1.2rem; font-size: 22px; }
     .facts li { margin-bottom: 0.4rem; }
@@ -524,7 +556,8 @@
     /* ---------- WORKFLOW ---------- */
     .workflow-section {
       background: var(--lime);
-      padding: 4rem 2rem;
+      padding: 3rem 2rem 5rem 2rem;
+      margin-top: 4rem; 
       overflow: hidden;
     }
     .workflow-container { max-width: 1100px; margin: 0 auto; }
@@ -545,9 +578,8 @@
       background: var(--ink);
       z-index: 1;
     }
+    .workflow-step { position: relative; z-index: 2; }
     .workflow-step {
-      position: relative;
-      z-index: 2;
       opacity: 0;
       transform: translateX(-25px);
       transition: opacity 0.7s ease, transform 0.7s ease;
@@ -575,22 +607,22 @@
     .workflow-step li { margin-bottom: 0.4rem; }
 
     /* ---------- GALERIE STRIP ---------- */
-    .gallery-section { max-width: 1100px; margin: 4rem auto; padding: 0 1.5rem; }
+    .gallery-section { max-width: 1100px; margin: 6.5rem auto; padding: 0 1.5rem; }
     .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
     .gallery-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #eee; display: block; }
 
     /* ---------- TRIO PORTRAIT ---------- */
-    .trio-wrapper { max-width: 100%; margin: 0 auto; padding: 0; }
+    .trio-wrapper { max-width: 100%; margin: 4rem auto 0 auto; padding: 0; }
     .trio-portrait { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; width: 100%; }
-    .trio-portrait img { width: 100%; height: 100vh; min-height: 700px; object-fit: cover; object-position: 65% center; background: #ddd; display: block; }
+    .trio-portrait img { width: 100%; height: calc(100vh + 8px); min-height: 770px; object-fit: cover; object-position: 65% center; background: #ddd; display: block; }
 
     /* ---------- ABSCHLUSS & FOOTER ---------- */
-    .closing-card { width: 100%; background: var(--lime); }
+    .closing-card { width: 100%; background: var(--lime); margin-top: 0; }
     .closing-img {
       position: relative;
       width: 100%;
-      height: 100vh;
-      min-height: 700px;
+      height: calc(100vh + 8px);
+      min-height: 770px;
       background-image: url("bilder/closing.jpg");
       background-size: cover;
       background-position: center;
@@ -641,10 +673,10 @@
       gap: 0.8rem;
     }
     .legal-links { display: flex; gap: 2rem; }
-    .legal-btn {
-      font-size: 18px; color: var(--ink); text-decoration: underline; font-weight: 400;
-      background: none; border: none; cursor: pointer; padding: 0;
-      font-family: 'NobelBook', sans-serif;
+   .legal-btn {
+  font-size: 18px; color: var(--ink); text-decoration: underline; font-weight: 400;
+  background: none; border: none; cursor: pointer; padding: 0;
+  font-family: 'NobelBook', sans-serif;
     }
     .legal-btn:hover { color: var(--muted); }
     .closing-copyright { 
@@ -691,23 +723,26 @@
       pointer-events: auto;
     }
     .scroll-top-btn:hover { opacity: 0.7; background: rgba(255, 255, 255, 0.5); }
+    }
+   
 
+    /* Mobile-only Umbrüche (Flattersatz-Optimierung) */
     .mobile-br { display: none; }
 
+    /* Desktop-Standard für Text-Umschaltung (wird auf Mobile per @media überschrieben) */
     .text-videos-desktop { display: block; }
     .text-videos-mobile { display: none; }
-    .text-desktop { display: block; }
-    .text-mobile { display: none; }
     .footer-bottom-bar .text-desktop { display: block; }
     .footer-bottom-bar .text-mobile { display: none; }
 
     /* =========================================================
-        MOBILE ANPASSUNGEN (max-width: 800px)
+        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
         ========================================================= */
     @media (max-width: 800px) {
       .hero {
         height: 75vh !important;
         min-height: 480px !important;
+        margin-bottom: 1rem !important;
       }
       .hero-img {
         object-position: 78% 30% !important;
@@ -757,7 +792,7 @@
       .fullscreen-slide {
         height: auto !important;
         min-height: auto !important;
-        padding: 3rem 0 !important;
+        padding: 2.5rem 0 !important;
         justify-content: center !important;
       }
 
@@ -768,9 +803,12 @@
       .desktop-br { display: none !important; }
       .mobile-br { display: inline !important; }
 
+      .section-phones-tight { padding-bottom: 0 !important; margin-bottom: -1rem !important; }
+
       .intro { grid-template-columns: 1fr !important; height: auto !important; }
       .intro-text { 
         padding: 1.5rem 1.5rem 0.5rem 1.5rem !important; 
+        transform: none !important;
       }
 
       .split { grid-template-columns: 1fr !important; height: auto !important; }
@@ -824,7 +862,7 @@
         text-align: left !important; 
       }
 
-      .workflow-section { padding: 2rem 1.5rem !important; }
+      .workflow-section { padding: 2rem 1.5rem 2.5rem 2rem !important; }
       .workflow-timeline {
         display: flex !important;
         flex-direction: column !important;
@@ -875,6 +913,8 @@
       .closing-img {
         height: 45vh !important;
         min-height: 260px !important;
+        background-size: cover !important;
+        background-position: center !important;
       }
       .closing-text-box {
         padding: 0 1.5rem 1.5rem 1.5rem !important;
@@ -893,8 +933,8 @@
       }
       .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
     }
-
     @media (max-width: 768px) {
+      /* 1. E-Mail und Instagram im Hero und Closing auf NobelRegular */
       .hero-contact-left,
       .hero-contact-right {
         font-family: "NobelLight", sans-serif !important;
@@ -905,6 +945,7 @@
         font-weight: 300 !important;
       }
 
+      /* 2. Flattersatz für Intro-Text ("Moin, ich bin Hannah...") */
       .intro-text p {
         hyphens: auto;
         -webkit-hyphens: auto;
@@ -912,22 +953,82 @@
         overflow-wrap: break-word;
       }
       
+      /* 3. Abstand der Überschrift "Warum UGC?" zum oberen Rand der Box */
+      .bg-lime.section, .split > div {
+        padding-top: 2.5rem;
+      }
+      .split > div h2 {
+        margin-top: 1rem;
+      }
+
+      /* 4. Flattersatz für CTA ("Benötigen Sie mehr Videos...") */
+      .cta-row p, .cta-row {
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        word-break: normal;
+        overflow-wrap: break-word;
+      }
+      /* 5. Warum-UGC-Textblock innerhalb des lila Blocks nur auf Mobile weiter runtersetzen */
+      .ugc-text-box {
+        padding-top: 2rem;
+      }
+
+      /* 6. Mobile Varianten von CTA-Text und Footer-Copyright einblenden */
       .text-videos-desktop { display: none; }
       .text-videos-mobile { display: block; text-align: left; }
 
       .footer-bottom-bar .text-desktop { display: none; }
       .footer-bottom-bar .text-mobile { display: block; }
-      
-      .text-desktop { display: none; }
-      .text-mobile {
-        display: block;
-        text-align: left;
-        word-break: break-word;
+    }
+    /* Auf Desktop-Ansichten (ab 801px) die alten Hero-Kontakte ausblenden */
+    @media (min-width: 801px) {
+      .hero-contact-left,
+      .hero-contact-right {
+        display: none !important;
       }
+/* ---------- WEISSER STREIFEN AM ENDE BEHEBEN ---------- */
+    html, body {
+      height: 100%;
+      background: var(--paper);
+      margin: 0;
+      padding: 0;
     }
 
-    @media (min-width: 801px) {
-      .hero-contact-right .mobile-only-insta { display: none !important; }
+    /* ---------- INDIVIDUELLE SPRUNGBEREICHE (SCROLL-MARGIN-TOP) ---------- */
+
+    /* 1. Intro: Oberer Rand */
+    #intro {
+      scroll-margin-top: 75px;
+    }
+
+    /* 2. Meine Arbeit: Ein Ticken höher */
+    #arbeit {
+      scroll-margin-top: 40px; 
+    }
+
+    /* 3. Warum UGC: Oberer Rand */
+    #warum-ugc {
+      scroll-margin-top: 75px;
+    }
+
+    /* 4. Dienstleistungen: Wieder exakt mittig */
+    #dienstleistungen {
+      scroll-margin-top: calc(50vh - 150px);
+    }
+
+    /* 5. Workflow: Wieder exakt mittig */
+    #workflow {
+      scroll-margin-top: calc(50vh - 150px);
+    }
+
+    /* 6. UGC Fotos: Oberer Rand */
+    #ugc-fotos {
+      scroll-margin-top: 75px;
+    }
+
+    /* 7. Kontakt: Scrollt die Sktion an das Ende der Seite */
+    #kontakt {
+      scroll-margin-top: calc(100vh - 350px);
     }
   </style>
 </head>
@@ -935,6 +1036,7 @@
 
 <!-- ===================== 0. MENÜLEISTE ===================== -->
 <nav class="top-nav">
+  <!-- Linke Seite: E-Mail & Instagram in runden Kreisen -->
   <div class="top-nav-icons">
     <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#103;&#99;&#46;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;" class="nav-icon-circle" title="E-Mail schreiben">
       <img src="bilder/icon-mail.png" alt="Mail" class="nav-icon-img">
@@ -944,6 +1046,7 @@
     </a>
   </div>
   
+  <!-- Rechte Seite: Deine Menüpunkte -->
   <div class="top-nav-links">
     <a href="#intro">WARUM ICH</a>
     <a href="#arbeit">MEINE ARBEIT</a>
@@ -951,10 +1054,8 @@
     <a href="#dienstleistungen">DIENST</a>
     <a href="#workflow">WORKFLOW</a>
     <a href="#ugc-fotos">UGC FOTOS</a>
-    <a href="#kontakt">KONTAKT</a>
-  </div>
+    <a href="#kontakt">KONTAKT</a>  </div>
 </nav>
-
 <!-- ===================== 1. HERO ===================== -->
 <header class="hero" id="start">
   <div class="hero-bg-wrap">
@@ -974,17 +1075,43 @@
   </div>
 </header>
 
+<style>
+  @media (min-width: 801px) {
+    .hero-contact-right .mobile-only-insta { display: none !important; }
+  }
+  /* Standardmäßig (Desktop): Zeigt den normalen Text ohne erzwungene Umbrüche */
+.text-desktop {
+  display: block;
+}
+.text-mobile {
+  display: none;
+}
+
+/* Nur für die Mobilansicht (Bildschirme kleiner als 768px): Desktop aus, Mobile an */
+@media (max-width: 768px) {
+  .text-desktop {
+    display: none;
+  }
+  .text-mobile {
+    display: block;
+    text-align: left;
+    word-break: break-word;
+
+</style>
+
 <!-- ===================== 2. INTRODUCTION ===================== -->
 <section class="fullscreen-slide" id="intro">
   <div class="intro">
     <div class="intro-text">
       <h2>Warum Sie mit mir<br>arbeiten sollten</h2>
       
+      <!-- Dieser Text wird NUR auf dem Desktop angezeigt -->
       <div class="text-desktop">
         <p>Moin, <br> ich bin Hannah, Creator und Kommunikationsdesignerin mit einer besonderen Sensibilität für Bildsprache, Stimmung und die kleinen Details, die eine Marke<br>fühlbar machen.</p>
         <p>Mit einem geschulten Auge für Komposition und einem feinen Gespür für Emotionen übersetze ich Marken in Content, der nahbar ist und im Gedächtnis bleibt.</p>
       </div>
 
+      <!-- Dieser Text mit deinen festen Umbrüchen wird NUR auf dem Handy angezeigt -->
       <div class="text-mobile">
         <p>
           Moin,<br>
@@ -995,8 +1122,7 @@
           Stimmung und die kleinen <br>
           Details, die eine Marke <br>
           fühlbar machen.<br>
-        </p>
-        <p>
+          <p>
           Mit einem geschulten Auge für <br>
           Komposition und einem &nbsp;<br>
           feinen Gespür für Emotionen <br>
@@ -1055,7 +1181,7 @@
 <!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 ===================== -->
 <div class="fullscreen-slide">
   <div class="section-phones-normal">
-    <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 20px;">Lifestyle & Ästhetik</p>
+    <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 20px;">Lifetyle & Ästhetik</p>
     <div class="phone-row">
       <div class="phone-card">
         <div class="phone-frame lavender-border">
@@ -1090,19 +1216,18 @@
     </div>
   </div>
 </div>
-
-<!-- ===================== 5. WHY UGC? ===================== -->
-<section class="bg-lavender fullscreen-slide" id="warum-ugc">
+<!-- ===================== 8. WHY UGC? ===================== -->
+<section class="bg-lavender fullscreen-slide" id="warum-ugc" style="padding-top: 0 !important;">
   <div class="split" style="max-width:1100px; margin:0 auto; height: 100%;">
     <div class="ugc-text-box" style="padding: 3rem 2.5rem 3rem 1rem;">
       <h2 style="font-size:36px; margin-bottom:0.8rem;">Warum UGC?</h2>
       <p style="font-size:22px; color:var(--muted); margin-bottom:1.2rem;">Klassische Werbung wird oft ignoriert, <br> echter Content schafft Vertrauen.</p>
       <p style="font-weight:400; font-size:22px; margin-bottom:0.4rem;">Fakten über UGC (2026)</p>
-      <ul class="facts">
-        <li><span class="fact-bold">4x</span> höhere Klickrate (CTR)</li>
-        <li><span class="fact-bold">2,4x</span> mehr Aufmerksamkeit</li>
-        <li><span class="fact-bold">+ 28 %</span> Engagement</li>
-        <li><span class="fact-bold">+ 29 %</span> Konversionen</li>
+     <ul class="facts">
+  <li><span class="fact-bold">4x</span> höhere Klickrate (CTR)</li>
+  <li><span class="fact-bold">2,4x</span> mehr Aufmerksamkeit</li>
+  <li><span class="fact-bold">+ 28 %</span> Engagement</li>
+  <li><span class="fact-bold">+ 29 %</span> Konversionen</li>
       </ul>
       <p style="color:var(--muted); font-size:22px; margin-top:0.8rem;">Durch authentischen Content entsteht eine direkte emotionale Verbindung zur Zielgruppe, die messbar zu höheren Abschlussraten führt und die Konversionen-Zahlen maximiert.</p>
     </div>
@@ -1112,8 +1237,8 @@
   </div>
 </section>
 
-<!-- ===================== 6. DIENSTLEISTUNGEN ===================== -->
-<section class="fullscreen-slide" id="dienstleistungen">
+<!-- ===================== 9. DIENSTLEISTUNGEN ===================== -->
+<section class="fullscreen-slide" id="dienstleistungen" style="padding-top: 7.5rem; padding-bottom: 2rem; height: auto !important; min-height: auto !important;">
   <div class="services-wrapper">
     <h2 style="font-size: 36px; margin-bottom: 1.5rem;">Dienstleistungen</h2>
     <div class="services-grid">
@@ -1151,22 +1276,24 @@
       </div>
     </div>
     <div class="cta-row">
-      <div class="text-videos-desktop">
-        <p>Benötigen Sie mehr Videos? Kontaktieren Sie mich für monatliche Preise.</p>
-      </div>
-      <div class="text-videos-mobile">
-        <p>
-          Benötigen Sie mehr Videos?<br>
-          Kontaktieren Sie mich für<br>
-          monatliche Preise.
-        </p>
-      </div>
-      <a class="btn" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#103;&#99;&#46;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;">Kontakt aufnehmen</a>
+<!-- Desktop-Ansicht -->
+<div class="text-videos-desktop">
+  <p>Benötigen Sie mehr Videos? Kontaktieren Sie mich für monatliche Preise.</p>
+</div>
+
+<!-- Mobile-Ansicht mit deinen exakten Umbrüchen -->
+<div class="text-videos-mobile">
+  <p>
+    Benötigen Sie mehr Videos?<br>
+    Kontaktieren Sie mich für<br>
+    monatliche Preise.
+  </p>
+</div>      <a class="btn" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#103;&#99;&#46;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;">Kontakt aufnehmen</a>
     </div>
   </div>
 </section>
 
-<!-- ===================== 7. WORKFLOW ===================== -->
+<!-- ===================== 10. WORKFLOW ===================== -->
 <section class="workflow-section" id="workflow">
   <div class="workflow-container">
     <h2>Mein Workflow</h2>
@@ -1205,7 +1332,7 @@
   </div>
 </section>
 
-<!-- ===================== 8. GALERIE STRIP ===================== -->
+<!-- ===================== 11. GALERIE STRIP ===================== -->
 <section class="gallery-section" id="ugc-fotos">
   <div class="gallery-grid" style="margin-bottom: 1.5rem;">
     <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 1">
@@ -1221,7 +1348,7 @@
   </div>
 </section>
 
-<!-- ===================== 9. TRIO PORTRAIT ===================== -->
+<!-- ===================== 12. TRIO PORTRAIT ===================== -->
 <div class="trio-wrapper">
   <div class="trio-portrait">
     <img src="bilder/portrait1.jpg" alt="UGC Portrait 1">
@@ -1230,8 +1357,8 @@
   </div>
 </div>
 
-<!-- ===================== 10. ABSCHLUSS & FOOTER ===================== -->
-<div class="closing-card" id="kontakt">
+<!-- ===================== 13. ABSCHLUSS & FOOTER ===================== -->
+<div class="closing-card">
   <div class="closing-img">
     <div class="closing-text-box">
       Lust auf eine<br>Zusammenarbeit?
@@ -1252,15 +1379,14 @@
     <button class="legal-btn" onclick="openModal('impressumModal')">Impressum</button>
     <button class="legal-btn" onclick="openModal('datenschutzModal')">Datenschutz</button>
   </div>
-  <div class="text-mobile">
-    <p class="closing-copyright">&copy; 2026 Hannah Marahrens. <br> Alle Rechte vorbehalten.</p>
-  </div>
-  <div class="text-desktop">
-    <p class="closing-copyright">&copy; 2026 Hannah Marahrens. Alle Rechte vorbehalten.</p>
-  </div>
+   <div class="text-mobile">
+  <p class="closing-copyright">&copy; 2026 Hannah Marahrens. <br> Alle Rechte vorbehalten.</p>
+</div>
+   <div class="text-desktop">
+       <p class="closing-copyright">&copy; 2026 Hannah Marahrens. Alle Rechte vorbehalten.</p>
 </div>
 
-<!-- ===================== MODALS ===================== -->
+<!-- ===================== MODALS (IMPRESSUM & DATENSCHUTZ) ===================== -->
 <div id="impressumModal" class="modal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('impressumModal')">&times;</button>
@@ -1288,8 +1414,10 @@
   
     <p style="margin-top: 1rem;"><strong>Quellenangabe (Font)</strong></p>
     <p style="font-size: 16px; color: var(--muted);">Font made from <a href="https://www.onlinewebfonts.com" target="_blank" rel="noopener" style="text-decoration: underline; color: var(--ink);">Online Web Fonts</a> is licensed by CC BY 4.0</p>
+    </div>
+  
   </div>
-</div>
+</div> <!-- <-- HIER FEHLTE DIESER SCHLIESSENDE DIV-TAG -->
   
 <div id="datenschutzModal" class="modal">
   <div class="modal-content">
@@ -1364,18 +1492,21 @@
         timeline.classList.add('in-view');
       }
     });
-  });
-
-  // Top Nav Ein- und Ausblenden beim Scrollen
+  }); /* <-- HIER FEHLTE DIE SCHLIESSENDE KLAMMER UND KLAMMER-ZU FÜR DEN EVENT-LISTENER */
+</script>
+    }
+    <script>
   let lastScrollTop = 0;
   const topNav = document.querySelector('.top-nav');
 
   window.addEventListener('scroll', function() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
+    // Wenn man nach unten scrollt und weiter als 100px weg ist -> Leiste verstecken
     if (scrollTop > lastScrollTop && scrollTop > 100) {
       topNav.classList.add('nav-hidden');
     } else {
+      // Wenn man nach oben scrollt -> Leiste einblenden
       topNav.classList.remove('nav-hidden');
     }
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
