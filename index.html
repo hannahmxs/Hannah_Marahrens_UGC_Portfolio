@@ -994,42 +994,26 @@
       padding: 0;
     }
 
-    /* ---------- INDIVIDUELLE SPRUNGBEREICHE (SCROLL-MARGIN-TOP) ---------- */
+  /* ---------- SAUBERE ANKER-ABSTÄNDE ---------- */
 
-    /* 1. Intro: Oberer Rand */
-    #intro {
-      scroll-margin-top: 75px;
-    }
+  /* 1. Sektionen, die ganz an den oberen Rand springen sollen */
+  #intro,
+  #arbeit,
+  #warum-ugc {
+    scroll-margin-top: 70px; /* Exakt unter der fixierten Navigationsleiste */
+  }
 
-    /* 2. Meine Arbeit: Ein Ticken höher */
-    #arbeit {
-      scroll-margin-top: 40px; 
-    }
+  /* 2. Sektionen, die ein Stück weiter unten starten sollen */
+  #dienstleistungen,
+  #workflow,
+  #ugc-fotos {
+    scroll-margin-top: 130px; /* Gibt der Sektion etwas Luft nach oben */
+  }
 
-    /* 3. Warum UGC: Oberer Rand */
-    #warum-ugc {
-      scroll-margin-top: 75px;
-    }
-
-    /* 4. Dienstleistungen: Wieder exakt mittig */
-    #dienstleistungen {
-      scroll-margin-top: calc(50vh - 150px);
-    }
-
-    /* 5. Workflow: Wieder exakt mittig */
-    #workflow {
-      scroll-margin-top: calc(50vh - 150px);
-    }
-
-    /* 6. UGC Fotos: Oberer Rand */
-    #ugc-fotos {
-      scroll-margin-top: 75px;
-    }
-
-    /* 7. Kontakt: Scrollt die Sktion an das Ende der Seite */
-    #kontakt {
-      scroll-margin-top: calc(100vh - 350px);
-    }
+  /* 3. Kontakt soll ans Ende der Seite scrollen */
+  #kontakt {
+    scroll-margin-top: calc(100vh - 350px);
+  }
   </style>
 </head>
 <body>
