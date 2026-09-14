@@ -995,9 +995,9 @@
 
     /* ---------- INDIVIDUELLE SPRUNGBEREICHE (SCROLL-MARGIN-TOP) ---------- */
 
-    /* Über mich: springt exakt an den oberen Rand des Intro-Bildes (überspringt das Section-Padding von 3rem) */
+    /* Über mich: minimal weiter runter, sodass das Intro-Bild mittig im Fenster steht */
     #intro {
-      scroll-margin-top: -48px;
+      scroll-margin-top: -24px;
     }
 
     /* Oberer Rand, ganz am Anfang der Seite: Meine Arbeit, Warum UGC */
@@ -1006,9 +1006,9 @@
       scroll-margin-top: 0;
     }
 
-    /* Dienstleistungen: einen kleinen Tick weiter unten als der obere Rand */
+    /* Dienstleistungen: mittig im Fenster platziert */
     #dienstleistungen {
-      scroll-margin-top: 40px;
+      scroll-margin-top: calc(50vh - 150px);
     }
 
     /* Ein Stück weiter runter (nicht ganz am oberen Rand): Workflow, UGC Fotos */
@@ -1487,7 +1487,6 @@
     });
   }); /* <-- HIER FEHLTE DIE SCHLIESSENDE KLAMMER UND KLAMMER-ZU FÜR DEN EVENT-LISTENER */
 </script>
-    }
     <script>
   let lastScrollTop = 0;
   const topNav = document.querySelector('.top-nav');
