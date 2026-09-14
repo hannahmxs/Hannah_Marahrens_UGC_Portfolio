@@ -117,21 +117,56 @@
       width: 100%;
       padding: 0.6rem 2.5rem;
       display: flex;
-      justify-content: flex-end; /* Rechtsbündig */
+      justify-content: space-between; /* Links die Icons, rechts die Menüpunkte */
       align-items: center;
       flex-wrap: nowrap;
-      gap: 2rem; /* Kleinere Abstände */
       z-index: 30;
-      overflow-x: auto; /* Verhindert, dass Punkte abgeschnitten werden, falls es zu eng wird */
-      scrollbar-width: none; /* Firefox Scrollbar verstecken */
+      overflow-x: auto; 
+      scrollbar-width: none; 
     }
 
-    /* Scrollbar für Chrome/Safari verstecken */
     .top-nav::-webkit-scrollbar {
       display: none;
     }
+
+    /* Linker Bereich für die runden Icon-Kreise */
+    .top-nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .nav-icon-circle {
+      width: 38px;
+      height: 38px;
+      background: var(--paper); /* Weißer Kreis */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      text-decoration: none;
+    }
+
+    .nav-icon-circle:hover {
+      transform: scale(1.1); /* Leichter Zoom beim Hovern */
+    }
+
+    .nav-icon-circle img {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+    }
+
+    /* Rechter Bereich für die Menüpunkte */
+    .top-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem; /* Abstand zwischen den Menüpunkten */
+    }
     
-    .top-nav a {
+    .top-nav-links a {
       font-family: "Nobel", sans-serif;
       font-weight: 400;
       color: var(--ink);
@@ -144,8 +179,7 @@
       transition: transform 0.25s ease;
     }
 
-    /* Beim Hovern leicht vergrößern */
-    .top-nav a:hover { 
+    .top-nav-links a:hover { 
       text-decoration: none; 
       transform: scale(1.08); 
     }
@@ -929,12 +963,23 @@
 
 <!-- ===================== 0. MENÜLEISTE ===================== -->
 <nav class="top-nav">
-  <a href="#intro">WARUM ICH</a>
-  <a href="#arbeit">MEINE ARBEIT</a>
-  <a href="#warum-ugc">WARUM UGC</a>
-  <a href="#dienstleistungen">DIENST</a>
-  <a href="#workflow">WORKFLOW</a>
-  <a href="#ugc-fotos">UGC FOTOS</a>
+  <!-- Linke Seite: E-Mail & Instagram in runden Kreisen -->
+  <div class="top-nav-icons">
+    <a href="mailto:deine-email@domain.de" class="nav-icon-circle" title="E-Mail schreiben">
+      <img src="bilder/mail-icon.png" alt="Mail" class="footer-icon">
+    </a>
+    <a href="https://instagram.com/deinname" target="_blank" class="nav-icon-circle" title="Instagram">
+      <img src="bilder/instagram-icon.png" alt="Instagram" class="footer-icon">
+    </a>
+  </div>
+  
+<!-- Rechte Seite: Deine Menüpunkte -->
+  <div class="top-nav-links">    <a href="#intro">WARUM ICH</a>
+    <a href="#arbeit">MEINE ARBEIT</a>
+    <a href="#warum-ugc">WARUM UGC</a>
+    <a href="#dienstleistungen">DIENST</a>
+    <a href="#workflow">WORKFLOW</a>
+    <a href="#ugc-fotos">UGC FOTOS</a>
 </nav>
 
 <!-- ===================== 1. HERO ===================== -->
