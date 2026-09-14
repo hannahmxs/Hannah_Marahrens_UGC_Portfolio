@@ -984,6 +984,31 @@
       .hero-contact-right {
         display: none !important;
       }
+      /* ---------- INDIVIDUELLE SPRUNGBEREICHE (SCROLL-MARGIN-TOP) ---------- */
+    /* 1. Intro: Standard am oberen Rand (unter der Menüleiste) */
+    #intro {
+      scroll-margin-top: 75px;
+    }
+    /* 2. Meine Arbeit: Ein Ticken höher landen als der Standard */
+    #arbeit {
+      scroll-margin-top: 40px; 
+    }
+    /* 3. Warum UGC: Standard am oberen Rand */
+    #warum-ugc {
+      scroll-margin-top: 75px;
+    }
+    /* 4. Dienstleistungen: Genau mittig im Bildschirm landen */
+    #dienstleistungen {
+      scroll-margin-top: calc(50vh - 150px);
+    }
+    /* 5. Workflow: Genau mittig im Bildschirm landen */
+    #workflow {
+      scroll-margin-top: calc(50vh - 150px);
+    }
+    /* 6. UGC Fotos: Standard am oberen Rand */
+    #ugc-fotos {
+      scroll-margin-top: 75px;
+    }
   </style>
 </head>
 <body>
@@ -1051,33 +1076,7 @@
     display: block;
     text-align: left;
     word-break: break-word;
-  }
-  /* ---------- INDIVIDUELLE SPRUNGBEREICHE (SCROLL-MARGIN-TOP) ---------- */
-    /* 1. Intro: Standard am oberen Rand (unter der Menüleiste) */
-    #intro {
-      scroll-margin-top: 75px;
-    }
-    /* 2. Meine Arbeit: Ein Ticken höher landen als der Standard */
-    #arbeit {
-      scroll-margin-top: 40px; 
-    }
-    /* 3. Warum UGC: Standard am oberen Rand */
-    #warum-ugc {
-      scroll-margin-top: 75px;
-    }
-    /* 4. Dienstleistungen: Genau mittig im Bildschirm landen */
-    #dienstleistungen {
-      scroll-margin-top: calc(50vh - 150px);
-    }
-    /* 5. Workflow: Genau mittig im Bildschirm landen */
-    #workflow {
-      scroll-margin-top: calc(50vh - 150px);
-    }
-    /* 6. UGC Fotos: Standard am oberen Rand */
-    #ugc-fotos {
-      scroll-margin-top: 75px;
-    }
-}
+
 </style>
 
 <!-- ===================== 2. INTRODUCTION ===================== -->
