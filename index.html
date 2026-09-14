@@ -107,9 +107,8 @@
     }
 
 /* ---------- TOP MENÜLEISTE (IM HERO) ---------- */
-    /* ---------- TOP MENÜLEISTE (IM HERO) ---------- */
-    .top-nav {
-      position: fixed; /* FIXIERT: Bleibt beim Scrollen immer oben stehen */
+   .top-nav {
+      position: fixed; /* Auf fixed geändert, damit sie beim Scrollen mitkommt */
       top: 0;
       left: 0;
       right: 0;
@@ -118,12 +117,18 @@
       width: 100%;
       padding: 0.6rem 2.5rem;
       display: flex;
-      justify-content: space-between; 
+      justify-content: space-between;
       align-items: center;
       flex-wrap: nowrap;
-      z-index: 999; /* Sehr hoch gesetzt, damit sie immer im Vordergrund bleibt */
+      z-index: 30;
       overflow-x: auto; 
       scrollbar-width: none; 
+      transition: transform 0.3s ease; /* Weiche Animation für das Ein- und Ausblenden */
+    }
+
+    /* Diese Klasse wird per JavaScript hinzugefügt, um die Leiste nach oben wegzuschieben */
+    .top-nav.nav-hidden {
+      transform: translateY(-100%);
     }
 
     .top-nav::-webkit-scrollbar {
@@ -982,6 +987,23 @@
     }
   </style>
 </head>
+  <script>
+  let lastScrollTop = 0;
+  const topNav = document.querySelector('.top-nav');
+
+  window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Wenn man nach unten scrollt und weiter als 100px weg ist -> Leiste verstecken
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+      topNav.classList.add('nav-hidden');
+    } else {
+      // Wenn man nach oben scrollt -> Leiste einblenden
+      topNav.classList.remove('nav-hidden');
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }, false);
+</script>
 <body>
 
 <!-- ===================== 0. MENÜLEISTE ===================== -->
