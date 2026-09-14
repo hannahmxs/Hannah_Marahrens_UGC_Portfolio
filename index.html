@@ -52,18 +52,23 @@
       --ink: #000000;
       --paper: #FFFFFF;
       --muted: #5c5c5c;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Nobel", "Helvetica Neue", Arial, sans-serif;
-      font-weight: 400;
-      font-size: 20px;
-      color: var(--ink);
-      background: var(--paper);
-      line-height: 1.5;
-      letter-spacing: 0.03em;
+    html { 
+  scroll-behavior: smooth; 
+  height: 100%;
+  background: var(--lavender); /* Auf die Farbe des Fußbereichs angepasst, verhindert weiße Blitzer */
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Nobel", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  min-height: 100%; /* Stellt sicher, dass der Body immer mindestens die volle Bildschirmhöhe einnimmt */
+}
     }
     .section {
       max-width: 1100px;
