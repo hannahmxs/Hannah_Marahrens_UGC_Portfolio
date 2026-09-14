@@ -406,6 +406,7 @@
   }
 
   /* Dynamic Island (Pille oben - etwas kürzer gemacht) */
+  /* Dynamic Island (Pille oben) */
   .phone-notch {
     position: absolute;
     top: 10px;
@@ -419,16 +420,17 @@
     z-index: 10;
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding: 0 8px; /* Sorgt für den nötigen Innenabstand */
   }
 
-  /* Kamera-Linse in der Dynamic Island */
+  /* Kamera-Linse nach rechts geschoben */
   .phone-camera { 
     width: 8px; 
     height: 8px; 
     background: #222; 
     border-radius: 50%; 
     border: none; 
+    margin-left: auto; /* Schiebt die Kamera ganz nach rechts */
   }
   
   .phone-screen { 
