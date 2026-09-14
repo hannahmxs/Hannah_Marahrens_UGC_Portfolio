@@ -984,30 +984,49 @@
       .hero-contact-right {
         display: none !important;
       }
-      /* ---------- INDIVIDUELLE SPRUNGBEREICHE (SCROLL-MARGIN-TOP) ---------- */
-    /* 1. Intro: Standard am oberen Rand (unter der Menüleiste) */
+/* ---------- WEISSER STREIFEN AM ENDE BEHEBEN ---------- */
+    html, body {
+      height: 100%;
+      background: var(--paper);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ---------- INDIVIDUELLE SPRUNGBEREICHE (SCROLL-MARGIN-TOP) ---------- */
+
+    /* 1. Intro: Oberer Rand */
     #intro {
       scroll-margin-top: 75px;
     }
-    /* 2. Meine Arbeit: Ein Ticken höher landen als der Standard */
+
+    /* 2. Meine Arbeit: Ein Ticken höher */
     #arbeit {
       scroll-margin-top: 40px; 
     }
-    /* 3. Warum UGC: Standard am oberen Rand */
+
+    /* 3. Warum UGC: Oberer Rand */
     #warum-ugc {
       scroll-margin-top: 75px;
     }
-    /* 4. Dienstleistungen: Genau mittig im Bildschirm landen */
+
+    /* 4. Dienstleistungen: Wieder exakt mittig */
     #dienstleistungen {
-      scroll-margin-top: 80px;
+      scroll-margin-top: calc(50vh - 150px);
     }
-    /* 5. Workflow: Genau mittig im Bildschirm landen */
+
+    /* 5. Workflow: Wieder exakt mittig */
     #workflow {
-      scroll-margin-top: 80px;
+      scroll-margin-top: calc(50vh - 150px);
     }
-/* 6. UGC Fotos: Weiter vom oberen Rand nach unten versetzt */
+
+    /* 6. UGC Fotos: Oberer Rand */
     #ugc-fotos {
-      scroll-margin-top: 80px;
+      scroll-margin-top: 75px;
+    }
+
+    /* 7. Kontakt: Scrollt die Sktion an das Ende der Seite */
+    #kontakt {
+      scroll-margin-top: calc(100vh - 350px);
     }
   </style>
 </head>
