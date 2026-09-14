@@ -365,38 +365,50 @@
     border-color: var(--lavender); 
   }
 
-  /* Seitliche Taste rechts (Power-Button) */
+  /* Seitliche Tasten rechts (Power-Button oben & Camera Control unten) */
   .phone-frame::before {
     content: "";
     position: absolute;
     right: -14px;
-    top: 24%;
+    top: 22%;
     width: 4px;
-    height: 12%;
-    background: var(--lime);
-    border-radius: 0 3px 3px 0;
+    height: 140px;
+    background-image: 
+      linear-gradient(var(--lime), var(--lime)), 
+      linear-gradient(var(--lime), var(--lime));
+    background-size: 4px 34px, 4px 26px;
+    background-position: 0 0, 0 75px;
+    background-repeat: no-repeat;
     z-index: 5;
   }
   .phone-frame.lavender-border::before {
-    background: var(--lavender);
+    background-image: 
+      linear-gradient(var(--lavender), var(--lavender)),
+      linear-gradient(var(--lavender), var(--lavender));
   }
 
-  /* Seitliche Tasten links (3 Tasten: Action-Button + Lauter/Leiser) */
+  /* Seitliche Tasten links (3 Tasten mit individuellen Längen & Abständen) */
   .phone-frame::after {
     content: "";
     position: absolute;
     left: -14px;
     top: 18%;
     width: 4px;
-    height: 4%; 
-    background: var(--lime);
-    border-radius: 3px 0 0 3px;
-    box-shadow: 0 32px 0 0 var(--lime), 0 64px 0 0 var(--lime);
+    height: 140px;
+    background-image: 
+      linear-gradient(var(--lime), var(--lime)), 
+      linear-gradient(var(--lime), var(--lime)), 
+      linear-gradient(var(--lime), var(--lime));
+    background-size: 4px 16px, 4px 28px, 4px 28px; /* 1. kürzerer Action-Button, 2 & 3 längere Lautstärketasten */
+    background-position: 0 0, 0 38px, 0 78px;      /* Abstände zueinander */
+    background-repeat: no-repeat;
     z-index: 5;
   }
   .phone-frame.lavender-border::after {
-    background: var(--lavender);
-    box-shadow: 0 32px 0 0 var(--lavender), 0 64px 0 0 var(--lavender);
+    background-image: 
+      linear-gradient(var(--lavender), var(--lavender)),
+      linear-gradient(var(--lavender), var(--lavender)),
+      linear-gradient(var(--lavender), var(--lavender));
   }
 
   /* Dynamic Island (Pille oben) */
