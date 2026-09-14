@@ -397,16 +397,25 @@
       width: 90px;
       height: 24px;
       background: #000;
-      border: 1px solid rgba(255, 255, 255, 0.15); /* Feiner Rand, damit man sie auch auf schwarz sieht! */
+      border: 1px solid rgba(255, 255, 255, 0.15); 
       border-radius: 14px;
       z-index: 10;
       display: flex;
       align-items: center;
-      justify-content: flex-end; /* Kamera sitzt dezent rechts in der Pille */
-      padding-right: 8px;
+      justify-content: space-between; /* Verteilt Sensor links und Kamera rechts exakt gleichmäßig */
+      padding: 0 10px; /* Sorgt für den perfekten Abstand zum linken und rechten Rand der Pille */
     }
 
-    /* Nur die Kamera-Linse, realistisch und dezent */
+    /* Linker Sensor / Mikrofon-Punkt (wie beim iPhone-Original) */
+    .phone-mic { 
+      width: 8px; 
+      height: 8px; 
+      background: #111; 
+      border-radius: 50%; 
+      border: 1px solid rgba(255, 255, 255, 0.2); 
+    }
+
+    /* Rechte Kamera-Linse */
     .phone-camera { 
       width: 8px; 
       height: 8px; 
@@ -414,7 +423,6 @@
       border-radius: 50%; 
       border: 1px solid rgba(255, 255, 255, 0.2); 
     }
-    
     /* Mikrofon: breiter gemacht und ohne Kontur */
     .phone-mic { 
       width: 18px; /* Etwas länger gezogen */
