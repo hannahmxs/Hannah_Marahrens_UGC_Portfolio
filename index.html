@@ -105,7 +105,43 @@
       justify-content: flex-start;
       padding-top: 3rem;
     }
-
+    
+   /* ---------- TOP MENÜLEISTE (IM HERO) ---------- */
+    .top-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(225, 255, 165, 0.9); /* Schöner, leicht transparenter Limetten-Ton mit Glassmorphism */
+      backdrop-filter: blur(4px);
+      width: 100%;
+      padding: 0.8rem 3rem;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 1rem;
+      z-index: 30;
+    }
+    .top-nav a {
+      font-family: "Nobel", sans-serif;
+      font-weight: 400;
+      color: var(--ink);
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .top-nav a:hover { text-decoration: underline; }
+    @media (max-width: 800px) {
+      .top-nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        gap: 1.3rem;
+        padding: 0.6rem 1.2rem;
+      }
+      .top-nav a { font-size: 13px; 
+      }
+      
    /* ---------- HERO ---------- */
     .hero {
       position: relative;
@@ -127,7 +163,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%; /* Oben weniger, unten etwas mehr angeschnitten */
+      object-position: center 8%; /* Oben weniger, unten etwas mehr angeschnitten */
       display: block;
     }
     .hero-overlay {
@@ -610,40 +646,6 @@
     }
     .scroll-top-btn:hover { opacity: 0.7; background: rgba(255, 255, 255, 0.5); }
 
-   /* ---------- TOP MENÜLEISTE (IM HERO) ---------- */
-    .top-nav {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(225, 255, 165, 0.9); /* Schöner, leicht transparenter Limetten-Ton mit Glassmorphism */
-      backdrop-filter: blur(4px);
-      width: 100%;
-      padding: 0.8rem 3rem;
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      gap: 1rem;
-      z-index: 30;
-    }
-    .top-nav a {
-      font-family: "Nobel", sans-serif;
-      font-weight: 400;
-      color: var(--ink);
-      font-size: 15px;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .top-nav a:hover { text-decoration: underline; }
-    @media (max-width: 800px) {
-      .top-nav {
-        justify-content: flex-start;
-        overflow-x: auto;
-        gap: 1.3rem;
-        padding: 0.6rem 1.2rem;
-      }
-      .top-nav a { font-size: 13px; }
     }
 
     /* Mobile-only Umbrüche (Flattersatz-Optimierung) */
