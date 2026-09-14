@@ -112,7 +112,7 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(225, 255, 165, 0.9);
+      background: rgba(225, 220, 250, 0.9);
       backdrop-filter: blur(4px);
       width: 100%;
       padding: 0.6rem 2.5rem;
@@ -412,17 +412,7 @@
       padding: 0 10px; /* Sorgt für den perfekten Abstand zum linken und rechten Rand der Pille */
     }
 
-    /* Linker Sensor / Mikrofon-Punkt (wie beim iPhone-Original) */
-   /* Linker Sensor / Mikrofon-Punkt */
-    .phone-mic { 
-      width: 9px; 
-      height: 8px; 
-      background: #111; 
-      border-radius: 50%; 
-      border: 1px solid rgba(255, 255, 255, 0.2); 
-      margin-left: 18px; /* Erhöhe diesen Wert, um das Mikrofon weiter nach rechts Richtung Kamera zu schieben */
-    }
-    
+    /* Linker Sensor / Mikrofon-Punkt */
     /* Rechte Kamera-Linse */
     .phone-camera { 
       width: 8px; 
@@ -431,13 +421,14 @@
       border-radius: 50%; 
       border: 1px solid rgba(255, 255, 255, 0.2); 
     }
-    /* Mikrofon: breiter gemacht und ohne Kontur */
+    /* Mikrofon: breiter, angelehnt an das iPhone-17-Design */
     .phone-mic { 
-      width: 18px; /* Etwas länger gezogen */
-      height: 5px; 
+      width: 24px;
+      height: 6px; 
       background: #222; /* Dezent dunkler, passend zum Apple-Look */
       border-radius: 3px; 
       border: none; /* Kontur komplett entfernt */
+      margin-left: 18px; /* Erhöhe diesen Wert, um das Mikrofon weiter nach rechts Richtung Kamera zu schieben */
     }
     
     .phone-screen { 
@@ -987,26 +978,24 @@
         display: none !important;
       }
     }
-/* ---------- WEISSER STREIFEN AM ENDE BEHEBEN ---------- */
     html, body {
       height: 100%;
-      background: var(--lavender);
+      background: var(--paper);
       margin: 0;
       padding: 0;
-      overscroll-behavior-y: none;
     }
 
     /* ---------- INDIVIDUELLE SPRUNGBEREICHE (SCROLL-MARGIN-TOP) ---------- */
 
-    /* Oberer Rand: Intro, Meine Arbeit, Warum UGC */
+    /* Oberer Rand, ganz am Anfang der Seite: Über mich, Meine Arbeit, Warum UGC, Dienstleistungen */
     #intro,
     #arbeit,
-    #warum-ugc {
-      scroll-margin-top: 75px;
+    #warum-ugc,
+    #dienstleistungen {
+      scroll-margin-top: 0;
     }
 
-    /* Ein Stück weiter runter (nicht ganz am oberen Rand): Dienstleistungen, Workflow, UGC Fotos */
-    #dienstleistungen,
+    /* Ein Stück weiter runter (nicht ganz am oberen Rand): Workflow, UGC Fotos */
     #workflow,
     #ugc-fotos {
       scroll-margin-top: 140px;
@@ -1345,7 +1334,7 @@
 </div>
 
 <!-- ===================== 13. ABSCHLUSS & FOOTER ===================== -->
-<div class="closing-card" id="kontakt">
+<div class="closing-card">
   <div class="closing-img">
     <div class="closing-text-box">
       Lust auf eine<br>Zusammenarbeit?
@@ -1361,7 +1350,7 @@
   </div>
 </div>
 
-<div class="footer-bottom-bar">
+<div class="footer-bottom-bar" id="kontakt">
   <div class="legal-links">
     <button class="legal-btn" onclick="openModal('impressumModal')">Impressum</button>
     <button class="legal-btn" onclick="openModal('datenschutzModal')">Datenschutz</button>
