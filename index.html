@@ -996,23 +996,22 @@
 
     /* ---------- INDIVIDUELLE SPRUNGBEREICHE (SCROLL-MARGIN-TOP) ---------- */
 
-    /* 1. Alle Standard-Sektionen direkt unter der Menüleiste starten lassen (ca. 50px) */
+   /* ---------- 100% SICHERE SPRUNGPUNKTE (ANSTATT SCROLL-MARGIN) ---------- */
     #intro,
     #arbeit,
     #warum-ugc,
-    #ugc-fotos {
-      scroll-margin-top: 55px;
-    }
-
-    /* 2. Falls Dienstleistungen und Workflow ebenfalls oben (und nicht in der Bildschirmmitte) landen sollen: */
+    #ugc-fotos,
     #dienstleistungen,
     #workflow {
-      scroll-margin-top: 55px; 
+      scroll-margin-top: 0 !important; /* Sicherheitshalber zurücksetzen */
+      padding-top: 60px !important;    /* Schafft den Platz oben unter der Menüleiste */
+      margin-top: -60px !important;   /* Zieht das Element optisch wieder an die korrekte Position */
     }
 
-    /* 3. Kontakt: Scrollt ganz an das Ende der Seite */
     #kontakt {
-      scroll-margin-top: 0px;
+      scroll-margin-top: 0 !important;
+      padding-top: 0 !important;
+      margin-top: 0 !important;
     }
   </style>
 </head>
