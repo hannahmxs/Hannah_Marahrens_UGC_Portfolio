@@ -107,8 +107,9 @@
     }
 
 /* ---------- TOP MENÜLEISTE (IM HERO) ---------- */
+    /* ---------- TOP MENÜLEISTE (IM HERO) ---------- */
     .top-nav {
-      position: absolute;
+      position: fixed; /* FIXIERT: Bleibt beim Scrollen immer oben stehen */
       top: 0;
       left: 0;
       right: 0;
@@ -117,10 +118,10 @@
       width: 100%;
       padding: 0.6rem 2.5rem;
       display: flex;
-      justify-content: space-between; /* Links die Icons, rechts die Menüpunkte */
+      justify-content: space-between; 
       align-items: center;
       flex-wrap: nowrap;
-      z-index: 30;
+      z-index: 999; /* Sehr hoch gesetzt, damit sie immer im Vordergrund bleibt */
       overflow-x: auto; 
       scrollbar-width: none; 
     }
