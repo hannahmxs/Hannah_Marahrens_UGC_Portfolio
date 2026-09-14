@@ -52,23 +52,18 @@
       --ink: #000000;
       --paper: #FFFFFF;
       --muted: #5c5c5c;
-    html { 
-  scroll-behavior: smooth; 
-  height: 100%;
-  background: var(--lavender); /* Auf die Farbe des Fußbereichs angepasst, verhindert weiße Blitzer */
-}
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Nobel", "Helvetica Neue", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  color: var(--ink);
-  background: var(--paper);
-  line-height: 1.5;
-  letter-spacing: 0.03em;
-  min-height: 100%; /* Stellt sicher, dass der Body immer mindestens die volle Bildschirmhöhe einnimmt */
-}
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Nobel", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+      letter-spacing: 0.03em;
     }
     .section {
       max-width: 1100px;
@@ -727,9 +722,9 @@ body {
       opacity: 0.5;
       pointer-events: auto;
     }
-    .scroll-top-btn:hover { opacity: 0.7; background: rgba(255, 255, 255, 0.5); }
+    .scroll-top-btn:hover { opacity: 0.7; background: rgba(255, 255, 255, 0.5); 
     }
-   
+    
 
     /* Mobile-only Umbrüche (Flattersatz-Optimierung) */
     .mobile-br { display: none; }
@@ -991,34 +986,36 @@ body {
       .hero-contact-right {
         display: none !important;
       }
+    }
 /* ---------- WEISSER STREIFEN AM ENDE BEHEBEN ---------- */
     html, body {
       height: 100%;
-      background: var(--paper);
+      background: var(--lavender);
       margin: 0;
       padding: 0;
+      overscroll-behavior-y: none;
     }
 
-  /* ---------- SAUBERE ANKER-ABSTÄNDE ---------- */
+    /* ---------- INDIVIDUELLE SPRUNGBEREICHE (SCROLL-MARGIN-TOP) ---------- */
 
-  /* 1. Sektionen, die ganz an den oberen Rand springen sollen */
-  #intro,
-  #arbeit,
-  #warum-ugc {
-    scroll-margin-top: 70px; /* Exakt unter der fixierten Navigationsleiste */
-  }
+    /* Oberer Rand: Intro, Meine Arbeit, Warum UGC */
+    #intro,
+    #arbeit,
+    #warum-ugc {
+      scroll-margin-top: 75px;
+    }
 
-  /* 2. Sektionen, die ein Stück weiter unten starten sollen */
-  #dienstleistungen,
-  #workflow,
-  #ugc-fotos {
-    scroll-margin-top: 130px; /* Gibt der Sektion etwas Luft nach oben */
-  }
+    /* Ein Stück weiter runter (nicht ganz am oberen Rand): Dienstleistungen, Workflow, UGC Fotos */
+    #dienstleistungen,
+    #workflow,
+    #ugc-fotos {
+      scroll-margin-top: 140px;
+    }
 
-  /* 3. Kontakt soll ans Ende der Seite scrollen */
-  #kontakt {
-    scroll-margin-top: calc(100vh - 350px);
-  }
+    /* Kontakt: scrollt bis ans Ende der Seite */
+    #kontakt {
+      scroll-margin-top: 0;
+    }
   </style>
 </head>
 <body>
@@ -1085,7 +1082,8 @@ body {
     display: block;
     text-align: left;
     word-break: break-word;
-
+  }
+}
 </style>
 
 <!-- ===================== 2. INTRODUCTION ===================== -->
@@ -1347,7 +1345,7 @@ body {
 </div>
 
 <!-- ===================== 13. ABSCHLUSS & FOOTER ===================== -->
-<div class="closing-card">
+<div class="closing-card" id="kontakt">
   <div class="closing-img">
     <div class="closing-text-box">
       Lust auf eine<br>Zusammenarbeit?
