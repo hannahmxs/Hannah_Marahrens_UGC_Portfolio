@@ -365,29 +365,23 @@
     border-color: var(--lavender); 
   }
 
-  /* Seitliche Tasten rechts (Power-Button oben & Camera Control unten) */
+  /* Seitliche Taste rechts (nur der Power-Button) */
   .phone-frame::before {
     content: "";
     position: absolute;
     right: -14px;
-    top: 22%;
+    top: 24%;
     width: 4px;
-    height: 140px;
-    background-image: 
-      linear-gradient(var(--lime), var(--lime)), 
-      linear-gradient(var(--lime), var(--lime));
-    background-size: 4px 34px, 4px 26px;
-    background-position: 0 0, 0 75px;
-    background-repeat: no-repeat;
+    height: 12%;
+    background: var(--lime);
+    border-radius: 0 3px 3px 0;
     z-index: 5;
   }
   .phone-frame.lavender-border::before {
-    background-image: 
-      linear-gradient(var(--lavender), var(--lavender)),
-      linear-gradient(var(--lavender), var(--lavender));
+    background: var(--lavender);
   }
 
-  /* Seitliche Tasten links (3 Tasten mit individuellen Längen & Abständen) */
+  /* Seitliche Tasten links (3 Tasten: Action-Button + Lauter/Leiser) */
   .phone-frame::after {
     content: "";
     position: absolute;
@@ -399,8 +393,8 @@
       linear-gradient(var(--lime), var(--lime)), 
       linear-gradient(var(--lime), var(--lime)), 
       linear-gradient(var(--lime), var(--lime));
-    background-size: 4px 16px, 4px 28px, 4px 28px; /* 1. kürzerer Action-Button, 2 & 3 längere Lautstärketasten */
-    background-position: 0 0, 0 38px, 0 78px;      /* Abstände zueinander */
+    background-size: 4px 16px, 4px 28px, 4px 28px; 
+    background-position: 0 0, 0 38px, 0 78px;      
     background-repeat: no-repeat;
     z-index: 5;
   }
@@ -411,13 +405,13 @@
       linear-gradient(var(--lavender), var(--lavender));
   }
 
-  /* Dynamic Island (Pille oben) */
+  /* Dynamic Island (Pille oben - etwas kürzer gemacht) */
   .phone-notch {
     position: absolute;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 90px;
+    width: 82px;
     height: 24px;
     background: #000;
     border: 1px solid rgba(255, 255, 255, 0.15); 
@@ -425,27 +419,16 @@
     z-index: 10;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 10px;
+    justify-content: center;
   }
 
-  /* Rechte Kamera-Linse */
+  /* Kamera-Linse in der Dynamic Island */
   .phone-camera { 
     width: 8px; 
     height: 8px; 
     background: #222; 
     border-radius: 50%; 
     border: none; 
-  }
-  
-  /* Ohr-Lautsprecher (Hörkapsel oben im Notch) */
-  .phone-mic, .phone-speaker { 
-    width: 26px;
-    height: 6px; 
-    background: #222; 
-    border-radius: 3px; 
-    border: none; 
-    margin-left: auto;
   }
   
   .phone-screen { 
