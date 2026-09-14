@@ -1362,12 +1362,13 @@
     <button class="legal-btn" onclick="openModal('impressumModal')">Impressum</button>
     <button class="legal-btn" onclick="openModal('datenschutzModal')">Datenschutz</button>
   </div>
-   <div class="text-mobile">
-  <p class="closing-copyright">&copy; 2026 Hannah Marahrens. <br> Alle Rechte vorbehalten.</p>
-</div>
-   <div class="text-desktop">
-       <p class="closing-copyright">&copy; 2026 Hannah Marahrens. Alle Rechte vorbehalten.</p>
-</div>
+  <div class="text-mobile">
+    <p class="closing-copyright">&copy; 2026 Hannah Marahrens. <br> Alle Rechte vorbehalten.</p>
+  </div>
+  <div class="text-desktop">
+    <p class="closing-copyright">&copy; 2026 Hannah Marahrens. Alle Rechte vorbehalten.</p>
+  </div>
+</div> <!-- Hier wurde der Container korrekt geschlossen -->
 
 <!-- ===================== MODALS (IMPRESSUM & DATENSCHUTZ) ===================== -->
 <div id="impressumModal" class="modal">
@@ -1477,7 +1478,7 @@
     });
   }); /* <-- HIER FEHLTE DIE SCHLIESSENDE KLAMMER UND KLAMMER-ZU FÜR DEN EVENT-LISTENER */
 </script>
-    }
+  
     <script>
   let lastScrollTop = 0;
   const topNav = document.querySelector('.top-nav');
