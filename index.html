@@ -323,151 +323,151 @@
     }
 
 /* ---------- MODERNES PHONE MOCKUP (Dynamic Island + Animationen) ---------- */
-    .section-phones-tight, .section-phones-normal {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      width: 100%;
-    }
-    .phone-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
-      margin-top: 1.5rem;
-      justify-items: center;
-    }
-    
-    /* WICHTIG: Hier sind die Animationen wieder zurück! */
-    .phone-card { 
-      text-align: left; 
-      width: 100%; 
-      max-width: 310px; 
-      opacity: 0;
-      transform: scale(0.85);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .phone-row.in-view .phone-card {
-      opacity: 1;
-      transform: scale(1);
-    }
-    
-    .phone-frame {
-      position: relative;
-      width: 100%;
-      max-width: 310px;
-      aspect-ratio: 9 / 16;
-      margin: 0 auto;
-      background: transparent;
-      border: 10px solid var(--lime);
-      border-radius: 38px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.18);
-    }
-    .phone-frame.lavender-border { 
-      border-color: var(--lavender); 
-    }
+  .section-phones-tight, .section-phones-normal {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    width: 100%;
+  }
+  .phone-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+    justify-items: center;
+  }
+  
+  .phone-card { 
+    text-align: left; 
+    width: 100%; 
+    max-width: 310px; 
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .phone-row.in-view .phone-card {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .phone-frame {
+    position: relative;
+    width: 100%;
+    max-width: 310px;
+    aspect-ratio: 9 / 16;
+    margin: 0 auto;
+    background: transparent;
+    border: 10px solid var(--lime);
+    border-radius: 38px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+  }
+  .phone-frame.lavender-border { 
+    border-color: var(--lavender); 
+  }
 
-    /* Seitliche Tasten */
-    .phone-frame::before {
-      content: "";
-      position: absolute;
-      right: -14px;
-      top: 24%;
-      width: 4px;
-      height: 12%;
-      background: var(--lime);
-      border-radius: 0 3px 3px 0;
-      z-index: 5;
-    }
-    .phone-frame.lavender-border::before {
-      background: var(--lavender);
-    }
+  /* Seitliche Taste rechts (Power-Button) */
+  .phone-frame::before {
+    content: "";
+    position: absolute;
+    right: -14px;
+    top: 24%;
+    width: 4px;
+    height: 12%;
+    background: var(--lime);
+    border-radius: 0 3px 3px 0;
+    z-index: 5;
+  }
+  .phone-frame.lavender-border::before {
+    background: var(--lavender);
+  }
 
-    .phone-frame::after {
-      content: "";
-      position: absolute;
-      left: -14px;
-      top: 18%;
-      width: 4px;
-      height: 5%;
-      background: var(--lime);
-      border-radius: 3px 0 0 3px;
-      box-shadow: 0 8% 0 0 var(--lime), 0 18% 0 0 var(--lime);
-      z-index: 5;
-    }
-    .phone-frame.lavender-border::after {
-      background: var(--lavender);
-      box-shadow: 0 8% 0 0 var(--lavender), 0 18% 0 0 var(--lavender);
-    }
+  /* Seitliche Tasten links (3 Tasten: Action-Button + Lauter/Leiser) */
+  .phone-frame::after {
+    content: "";
+    position: absolute;
+    left: -14px;
+    top: 18%;
+    width: 4px;
+    height: 4%; 
+    background: var(--lime);
+    border-radius: 3px 0 0 3px;
+    box-shadow: 0 32px 0 0 var(--lime), 0 64px 0 0 var(--lime);
+    z-index: 5;
+  }
+  .phone-frame.lavender-border::after {
+    background: var(--lavender);
+    box-shadow: 0 32px 0 0 var(--lavender), 0 64px 0 0 var(--lavender);
+  }
 
-/* Dynamic Island (Pille oben - wie beim echten iPhone) */
-    .phone-notch {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90px;
-      height: 24px;
-      background: #000;
-      border: 1px solid rgba(255, 255, 255, 0.15); 
-      border-radius: 14px;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: space-between; /* Verteilt Sensor links und Kamera rechts exakt gleichmäßig */
-      padding: 0 10px; /* Sorgt für den perfekten Abstand zum linken und rechten Rand der Pille */
-    }
+  /* Dynamic Island (Pille oben) */
+  .phone-notch {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 24px;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    border-radius: 14px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+  }
 
-    /* Linker Sensor / Mikrofon-Punkt */
-    /* Rechte Kamera-Linse */
-    .phone-camera { 
-      width: 8px; 
-      height: 8px; 
-      background: #222; 
-      border-radius: 50%; 
-      border: none; 
-    }
-    /* Mikrofon: breiter, angelehnt an das iPhone-17-Design */
-    .phone-mic { 
-      width: 28px;
-      height: 6px; 
-      background: #222; /* Dezent dunkler, passend zum Apple-Look */
-      border-radius: 3px; 
-      border: none; /* Kontur komplett entfernt */
-      margin-left: 18px; /* Erhöhe diesen Wert, um das Mikrofon weiter nach rechts Richtung Kamera zu schieben */
-    }
-    
-    .phone-screen { 
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%; 
-      height: 100%; 
-      background: #000; 
-      border-radius: 26px; 
-      overflow: hidden; 
-      z-index: 1;
-    }
-    
-    .phone-screen video { 
-      width: 100%; 
-      height: 100%; 
-      object-fit: cover; 
-      display: block; 
-    }
-    
-    .phone-label { 
-      margin-top: 0.8rem; 
-      font-weight: 400; 
-      font-size: 22px; 
-      padding-left: 0.9rem; 
-      text-align: left; 
-    }
-    .phone-sub { 
-      color: var(--muted); 
-      font-size: 19px; 
-      padding-left: 0.9rem; 
-      text-align: left; 
-    }
+  /* Rechte Kamera-Linse */
+  .phone-camera { 
+    width: 8px; 
+    height: 8px; 
+    background: #222; 
+    border-radius: 50%; 
+    border: none; 
+  }
+  
+  /* Ohr-Lautsprecher (Hörkapsel oben im Notch) */
+  .phone-mic, .phone-speaker { 
+    width: 26px;
+    height: 6px; 
+    background: #222; 
+    border-radius: 3px; 
+    border: none; 
+    margin-left: auto;
+  }
+  
+  .phone-screen { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    background: #000; 
+    border-radius: 26px; 
+    overflow: hidden; 
+    z-index: 1;
+  }
+  
+  .phone-screen video { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+  }
+  
+  .phone-label { 
+    margin-top: 0.8rem; 
+    font-weight: 400; 
+    font-size: 22px; 
+    padding-left: 0.9rem; 
+    text-align: left; 
+  }
+  .phone-sub { 
+    color: var(--muted); 
+    font-size: 19px; 
+    padding-left: 0.9rem; 
+    text-align: left; 
+  }
     
     /* ---------- FARBIGE SECTIONS & SPLIT ---------- */
     .bg-lime { background: var(--lime); }
