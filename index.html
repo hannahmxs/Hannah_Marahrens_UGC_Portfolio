@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hannah Marahrens – UGC Portfolio</title>
-  <link rel="icon" type="image/png" href="bilder/favicon.jpg">
+  <link rel="icon" type="image/jpeg" href="bilder/favicon.jpg">
   <link rel="apple-touch-icon" href="bilder/favicon.jpg">
   <style>
     /* ---------- SCHRIFTART NOBEL (Lokale WOFF2 Schnitte) ---------- */
@@ -310,8 +310,13 @@
     }
     
     .shifted-right-img {
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      width: calc(100% + 2px);
+      height: calc(100% + 2px);
       object-fit: cover;
       object-position: 80% center;
       display: block;
@@ -417,9 +422,9 @@
     .phone-camera { 
       width: 8px; 
       height: 8px; 
-      background: #111; 
+      background: #222; 
       border-radius: 50%; 
-      border: 1px solid rgba(255, 255, 255, 0.2); 
+      border: none; 
     }
     /* Mikrofon: breiter, angelehnt an das iPhone-17-Design */
     .phone-mic { 
@@ -978,6 +983,9 @@
         display: none !important;
       }
     }
+    html {
+      overscroll-behavior-y: none;
+    }
     html, body {
       height: 100%;
       background: var(--paper);
@@ -987,12 +995,20 @@
 
     /* ---------- INDIVIDUELLE SPRUNGBEREICHE (SCROLL-MARGIN-TOP) ---------- */
 
-    /* Oberer Rand, ganz am Anfang der Seite: Über mich, Meine Arbeit, Warum UGC, Dienstleistungen */
-    #intro,
+    /* Über mich: springt exakt an den oberen Rand des Intro-Bildes (überspringt das Section-Padding von 3rem) */
+    #intro {
+      scroll-margin-top: -48px;
+    }
+
+    /* Oberer Rand, ganz am Anfang der Seite: Meine Arbeit, Warum UGC */
     #arbeit,
-    #warum-ugc,
-    #dienstleistungen {
+    #warum-ugc {
       scroll-margin-top: 0;
+    }
+
+    /* Dienstleistungen: einen kleinen Tick weiter unten als der obere Rand */
+    #dienstleistungen {
+      scroll-margin-top: 40px;
     }
 
     /* Ein Stück weiter runter (nicht ganz am oberen Rand): Workflow, UGC Fotos */
@@ -1001,9 +1017,10 @@
       scroll-margin-top: 140px;
     }
 
-    /* Kontakt: scrollt bis ans Ende der Seite */
+    /* Kontakt: schließt exakt mit dem unteren Rand des Footers ab, kein Überschuss */
     #kontakt {
       scroll-margin-top: 0;
+      scroll-margin-bottom: 0;
     }
   </style>
 </head>
