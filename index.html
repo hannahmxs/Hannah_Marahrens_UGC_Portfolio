@@ -984,24 +984,6 @@
       .hero-contact-right {
         display: none !important;
       }
-    }
-    <script>
-  let lastScrollTop = 0;
-  const topNav = document.querySelector('.top-nav');
-
-  window.addEventListener('scroll', function() {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    // Wenn man nach unten scrollt und weiter als 100px weg ist -> Leiste verstecken
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-      topNav.classList.add('nav-hidden');
-    } else {
-      // Wenn man nach oben scrollt -> Leiste einblenden
-      topNav.classList.remove('nav-hidden');
-    }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  }, false);
-</script>
   </style>
 </head>
 <body>
@@ -1069,6 +1051,31 @@
     text-align: left;
     word-break: break-word;
   }
+  /* ---------- INDIVIDUELLE SPRUNGBEREICHE (SCROLL-MARGIN-TOP) ---------- */
+    /* 1. Intro: Standard am oberen Rand (unter der Menüleiste) */
+    #intro {
+      scroll-margin-top: 75px;
+    }
+    /* 2. Meine Arbeit: Ein Ticken höher landen als der Standard */
+    #arbeit {
+      scroll-margin-top: 40px; 
+    }
+    /* 3. Warum UGC: Standard am oberen Rand */
+    #warum-ugc {
+      scroll-margin-top: 75px;
+    }
+    /* 4. Dienstleistungen: Genau mittig im Bildschirm landen */
+    #dienstleistungen {
+      scroll-margin-top: calc(50vh - 150px);
+    }
+    /* 5. Workflow: Genau mittig im Bildschirm landen */
+    #workflow {
+      scroll-margin-top: calc(50vh - 150px);
+    }
+    /* 6. UGC Fotos: Standard am oberen Rand */
+    #ugc-fotos {
+      scroll-margin-top: 75px;
+    }
 }
 </style>
 
@@ -1466,6 +1473,24 @@
       }
     });
   }); /* <-- HIER FEHLTE DIE SCHLIESSENDE KLAMMER UND KLAMMER-ZU FÜR DEN EVENT-LISTENER */
+</script>
+    }
+    <script>
+  let lastScrollTop = 0;
+  const topNav = document.querySelector('.top-nav');
+
+  window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Wenn man nach unten scrollt und weiter als 100px weg ist -> Leiste verstecken
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+      topNav.classList.add('nav-hidden');
+    } else {
+      // Wenn man nach oben scrollt -> Leiste einblenden
+      topNav.classList.remove('nav-hidden');
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }, false);
 </script>
 
 </body>
