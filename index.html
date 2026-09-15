@@ -992,6 +992,10 @@
       scroll-margin-top: 0;
       scroll-margin-bottom: 0;
     }
+    img, video {
+  -webkit-touch-callout: none; /* Verhindert das Menü beim langen Drücken auf iOS */
+  pointer-events: none;        /* Verhindert Klicks/Interaktionen direkt auf dem Medium */
+  }
   </style>
 </head>
 
