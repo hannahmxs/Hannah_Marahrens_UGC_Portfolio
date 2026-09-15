@@ -277,64 +277,72 @@
     .hero-contact-right a { color: var(--paper); 
     }
     
-   /* ---------- INTRO & SPLIT (OPTIMIERT FÜR TEXT-STRUKTUR & TABULATOR) ---------- */
-    .intro {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-    }
-    .intro-text {
-      padding: 1.5rem 2.5rem 2.5rem 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      transform: translateY(-2.5rem);
-      color: var(--ink); /* Durchgehend echtes Schwarz */
-    }
-    .intro-text h2 { font-size: 36px; margin-bottom: 1.2rem; line-height: 1.2; }
-    
-    /* Text-Kompaktformatierung mit echtem Bold und hängendem Einzug */
-    .intro-text p { margin: 0 0 1rem; color: var(--ink); font-size: 20px; }
-    .intro-text strong, .intro-text b { font-weight: 700; } /* Echter Noble Bold Schnitt statt Browser-Fett */
-    
-    .intro-text ul {
-      list-style-type: none; /* Entfernt Standard-Bullet, wird manuell gesetzt */
-      padding-left: 0;
-      margin: 0.5rem 0 0 0;
-    }
-    .intro-text li {
-      position: relative;
-      margin-bottom: 0.4rem;
-      font-size: 20px;
-      color: var(--ink);
-    }
-    
-      .intro-img-wrap, .split-img-wrap {
-      padding: 0 !important;
-      display: flex;
-      align-items: stretch;
-      overflow: hidden;
-      position: relative;
-      height: 100%;
-      background: transparent !important;
-    }
-    
-    .shifted-right-img {
-      position: absolute;
-      top: -1px;
-      left: -1px;
-      right: -1px;
-      bottom: -1px;
-      width: calc(100% + 2px);
-      height: calc(100% + 2px);
-      object-fit: cover;
-      object-position: 80% center;
-      display: block;
-    }
+  <!-- ===================== 2. INTRODUCTION ===================== --> 
+<section class="fullscreen-slide" id="intro"> 
+  <div class="intro"> 
+    <div class="intro-text"> 
+      <h2>Warum Ich</h2>
+      
+      <!-- Dieser Text wird NUR auf dem Desktop angezeigt -->  
+      <div class="text-desktop">  
+        <p>Moin,<br>ich bin Hannah (21), Creatorin &<br>Kommunikationsdesignerin aus Hamburg.</p>
+
+        <p>Mit meinem geschulten Auge für Komposition, Bildsprache<br>und Details übersetze ich deine Marke in nahbaren Content, der deine Zielgruppe emotional erreicht, das Engagement messbar steigert und eine treue Community aufbaut.</p>
+
+        <br>
+        <p><strong>Das bringe ich mit:</strong></p>
+
+        <ul>
+          <li><strong>Strategische Markenästhetik:</strong><br>Visuelle Konzepte passend zu deiner Brand Identity</li>  
+          <li><strong>Designwissen:</strong><br>Starkes Gespür für Layout, Typografie & Storytelling</li>  
+          <li><strong>Fokus-Nischen:</strong><br>Lifestyle · Beauty · Food · Travel</li>
+        </ul>
+      </div>
+
+      <!-- Dieser Text mit deinen festen Umbrüchen wird NUR auf dem Handy angezeigt -->  
+      <div class="text-mobile">  
+        <p>  
+          Moin,<br>
+          ich bin Hannah (21),<br>  
+          Creatorin & Kommunikations-<br>  
+          designerin aus Hamburg.  
+        </p>
+
+        <p>  
+          Mit meinem geschulten Auge<br>  
+          für Komposition, Bildsprache<br>  
+          und Details übersetze ich<br>  
+          deine Marke in nahbaren<br>  
+          Content, der deine Zielgruppe<br>  
+          emotional erreicht, das<br>  
+          Engagement messbar steigert<br>  
+          und eine treue Community<br>  
+          aufbaut.  
+        </p>
+
+        <br>
+        <p><strong>Das bringe ich mit:</strong></p>  
+        
+        <ul>  
+          <li><strong>Strategische Markenästhetik:</strong><br>  
+            Visuelle Konzepte passend zu<br>  
+            deiner Brand Identity</li>  
+          <li><strong>Designwissen:</strong><br>  
+            Starkes Gespür für Layout, Typografie<br>  
+            & Storytelling</li>  
+          <li><strong>Fokus-Nischen:</strong><br>  
+            Lifestyle · Beauty · Food ·<br>  
+            Travel</li>  
+        </ul>  
+      </div>  
+    </div>
+
+    <!-- Intro-Bild daneben -->
+    <div class="intro-img-wrap">
+      <img src="bilder/intro.jpg" alt="Hannah Marahrens" class="shifted-right-img">
+    </div>
+  </div> 
+</section>
 
 /* ---------- MODERNES PHONE MOCKUP (Dynamic Island + Animationen) ---------- */
   .section-phones-tight, .section-phones-normal {
