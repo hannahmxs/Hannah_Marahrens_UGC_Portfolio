@@ -610,7 +610,53 @@
     .trio-portrait img { width: 100%; height: calc(100vh + 8px); min-height: 770px; object-fit: cover; object-position: 65% center; background: #ddd; display: block; }
 
     /* ---------- ABSCHLUSS & FOOTER ---------- */
-    .closing-card { width: 100%; background: var(--lime); margin-top: 0; }
+    .closing-card { width: 100%; background: var(--lime); margin-top: 0; position: relative; }
+
+    /* ---------- CLOSING CTA-HINWEIS (Pfeil + "Klick hier") ---------- */
+    .closing-cta-hint {
+      position: absolute;
+      right: 8rem;
+      bottom: -6px;
+      z-index: 25;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      pointer-events: none;
+      text-align: right;
+    }
+    .closing-cta-hint.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .closing-cta-hint .hint-text {
+      font-family: "Nobel", sans-serif;
+      color: var(--lime);
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+      text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+      white-space: nowrap;
+    }
+    .closing-cta-hint svg {
+      width: 64px;
+      height: 64px;
+      display: block;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.35));
+    }
+    @media (max-width: 800px) {
+      .closing-cta-hint {
+        right: 1.5rem;
+        bottom: -4px;
+      }
+      .closing-cta-hint .hint-text { font-size: 0.85rem; }
+      .closing-cta-hint svg { width: 48px; height: 48px; }
+    }
     .closing-img {
       position: relative;
       width: 100%;
@@ -1354,6 +1400,13 @@
       Lust auf eine<br>Zusammenarbeit?
     </div>
   </div>
+  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#103;&#99;&#46;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;" class="closing-cta-hint" id="closingCtaHint" aria-label="E-Mail schreiben">
+    <span class="hint-text">Klick hier</span>
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <path d="M18 14 C 20 34, 34 50, 58 56" stroke="var(--lime)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M46 51 L 59 57 L 55 43" stroke="var(--lime)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
   <div class="closing-bar">
     <a href="https://instagram.com/hannah_marahrens" target="_blank" rel="noopener">
       <img class="icon-inline footer-icon" src="bilder/icon-instagram.png" alt="Instagram">hannah_marahrens
@@ -1500,6 +1553,37 @@
     }
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   }, false);
+</script>
+
+<script>
+  // CTA-Hinweis auf der Abschlussseite: erscheint erst, wenn die Sektion
+  // ein paar Sekunden im Blickfeld war, und bleibt danach sichtbar.
+  (function() {
+    const hint = document.getElementById('closingCtaHint');
+    const closingCard = document.querySelector('.closing-card');
+    if (!hint || !closingCard) return;
+
+    const DELAY_MS = 2500; // Verzögerung, ab wann der Hinweis erscheint
+    let timer = null;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!timer) {
+            timer = setTimeout(() => {
+              hint.classList.add('visible');
+            }, DELAY_MS);
+          }
+        } else {
+          // Wenn man vor Ablauf der Zeit wieder wegscrollt, Timer zurücksetzen
+          clearTimeout(timer);
+          timer = null;
+        }
+      });
+    }, { threshold: 0.6 });
+
+    observer.observe(closingCard);
+  })();
 </script>
 
 </body>
