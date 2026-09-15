@@ -805,9 +805,8 @@
       .split-img-wrap img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: contain !important; 
+        object-fit: cover !important; 
         object-position: center !important;
-        background: transparent !important;
       }
 
       .phone-row {
@@ -992,10 +991,16 @@
       scroll-margin-top: 0;
       scroll-margin-bottom: 0;
     }
-    img, video {
-  -webkit-touch-callout: none; /* Verhindert das Menü beim langen Drücken auf iOS */
-  pointer-events: none;        /* Verhindert Klicks/Interaktionen direkt auf dem Medium */
-  }
+
+    /* SICHERHEIT: Bilder schützen, Videos bedienbar lassen aber Download blockieren */
+    img {
+      -webkit-touch-callout: none;
+      pointer-events: none;
+    }
+    video {
+      -webkit-touch-callout: none;
+      pointer-events: auto; /* Wichtig, damit Steuerung klappt */
+    }
   </style>
 </head>
 
@@ -1121,7 +1126,7 @@ und eine treue Community aufbaut.</pre>
         <div class="phone-frame">
           <div class="phone-notch"><div class="phone-camera"></div></div>
           <div class="phone-screen">
-            <video controls poster="bilder/video1-poster.jpg"><source src="videos/backmischung.mp4" type="video/mp4"></video>
+            <video controls controlslist="nodownload" poster="bilder/video1-poster.jpg"><source src="videos/backmischung.mp4" type="video/mp4"></video>
           </div>
         </div>
         <div class="phone-label">Beauty</div>
@@ -1131,7 +1136,7 @@ und eine treue Community aufbaut.</pre>
         <div class="phone-frame">
           <div class="phone-notch"><div class="phone-camera"></div></div>
           <div class="phone-screen">
-            <video controls poster="bilder/video2-poster.jpg"><source src="videos/omega3.mp4" type="video/mp4"></video>
+            <video controls controlslist="nodownload" poster="bilder/video2-poster.jpg"><source src="videos/omega3.mp4" type="video/mp4"></video>
           </div>
         </div>
         <div class="phone-label">Health & Wellness</div>
@@ -1141,7 +1146,7 @@ und eine treue Community aufbaut.</pre>
         <div class="phone-frame">
           <div class="phone-notch"><div class="phone-camera"></div></div>
           <div class="phone-screen">
-            <video controls poster="bilder/video3-poster.jpg"><source src="videos/unboxing.mp4" type="video/mp4"></video>
+            <video controls controlslist="nodownload" poster="bilder/video3-poster.jpg"><source src="videos/unboxing.mp4" type="video/mp4"></video>
           </div>
         </div>
         <div class="phone-label">Kosmetik</div>
@@ -1160,7 +1165,7 @@ und eine treue Community aufbaut.</pre>
         <div class="phone-frame lavender-border">
           <div class="phone-notch"><div class="phone-camera"></div></div>
           <div class="phone-screen">
-            <video controls poster="bilder/video4-poster.jpg"><source src="videos/fashion-strand.mp4" type="video/mp4"></video>
+            <video controls controlslist="nodownload" poster="bilder/video4-poster.jpg"><source src="videos/fashion-strand.mp4" type="video/mp4"></video>
           </div>
         </div>
         <div class="phone-label">Fashion</div>
@@ -1170,7 +1175,7 @@ und eine treue Community aufbaut.</pre>
         <div class="phone-frame lavender-border">
           <div class="phone-notch"><div class="phone-camera"></div></div>
           <div class="phone-screen">
-            <video controls poster="bilder/video5-poster.jpg"><source src="videos/blumenstrauss.mp4" type="video/mp4"></video>
+            <video controls controlslist="nodownload" poster="bilder/video5-poster.jpg"><source src="videos/blumenstrauss.mp4" type="video/mp4"></video>
           </div>
         </div>
         <div class="phone-label">GRWM</div>
@@ -1180,7 +1185,7 @@ und eine treue Community aufbaut.</pre>
         <div class="phone-frame lavender-border">
           <div class="phone-notch"><div class="phone-camera"></div></div>
           <div class="phone-screen">
-            <video controls poster="bilder/video6-poster.jpg"><source src="videos/beauty.mp4" type="video/mp4"></video>
+            <video controls controlslist="nodownload" poster="bilder/video6-poster.jpg"><source src="videos/beauty.mp4" type="video/mp4"></video>
           </div>
         </div>
         <div class="phone-label">Home & Living</div>
@@ -1468,6 +1473,13 @@ und eine treue Community aufbaut.</pre>
         timeline.classList.add('in-view');
       }
     });
+  });
+
+  // Rechtsklick auf Videos & Bildern global verhindern
+  document.addEventListener('contextmenu', event => {
+    if (event.target.tagName === 'IMG' || event.target.tagName === 'VIDEO') {
+      event.preventDefault();
+    }
   });
 </script>
 
