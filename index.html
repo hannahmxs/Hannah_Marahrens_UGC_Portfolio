@@ -203,6 +203,19 @@
         top: auto !important;
         bottom: 1.5rem !important;
       }
+      /* Fix für Why UGC Bild */
+      .split-img-wrap {
+        width: 100%;
+        height: 100%;
+        min-height: 450px; /* Garantiert eine Mindesthöhe auf dem Handy */
+        position: relative;
+      }
+      .split-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
     }
 
     /* ---------- HERO ---------- */
@@ -1073,15 +1086,49 @@
           </div>
         </div>
       </div>
+<!-- ===================== 2. INTRODUCTION ===================== --> 
+<section class="fullscreen-slide" id="intro"> 
+  <div class="intro" style="display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; width: 100%; max-width: 1100px; margin: 0 auto; height: 100%;"> 
+    <div class="intro-text" style="padding: 0 1.5rem;"> 
+      <h2>Warum Ich</h2>
+      
+      <!-- Desktop Ansicht (unverändert) -->
+      <div class="text-desktop">  
+        <p>Moin,<br>ich bin Hannah (22), Creatorin &<br>Kommunikationsdesignerin aus Hamburg.</p>
 
-      <!-- Für Mobile: Komplett ohne harte <br>-Sprünge, fließt natürlich -->
+        <p>Mit meinem geschulten Auge für Komposition, Bildsprache<br>und Details übersetze ich deine Marke in nahbaren Content,<br>der deine Zielgruppe emotional erreicht, das Engagement<br>messbar steigert und eine treue Community aufbaut.</p>
+
+        <br>
+        <p><strong>Das bringe ich mit:</strong></p>
+
+        <div style="margin-top: 0.5rem;">
+          <div style="margin-bottom: 0.6rem;">
+            <strong>Strategische Markenästhetik</strong><br>Visuelle Konzepte passend zu deiner Brand Identity
+          </div>  
+          <div style="margin-bottom: 0.6rem;">
+            <strong>Designwissen</strong><br>Starkes Gespür für Layout, Typografie & Storytelling
+          </div>  
+          <div style="margin-bottom: 0.6rem;">
+            <strong>Fokus-Nischen</strong><br>Lifestyle · Beauty · Food · Travel
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Ansicht mit deinen exakten Zeilenumbrüchen -->
       <div class="text-mobile">  
         <p>
-          Moin, ich bin Hannah (22), Creatorin & Kommunikationsdesignerin aus Hamburg.
+          Moin,<br>
+          ich bin Hannah (22), Creatorin &<br>
+          Kommunikationsdesignerin aus Hamburg.
         </p>
 
         <p>
-          Mit meinem geschulten Auge für Komposition, Bildsprache und Details übersetze ich deine Marke in nahbaren Content, der deine Zielgruppe emotional erreicht, das Engagement messbar steigert und eine treue Community aufbaut.
+          Mit meinem geschulten Auge für Kompo-<br>
+          sition, Bildsprache und Details übersetze<br>
+          ich deine Marke in nahbaren Content, der<br>
+          deine Zielgruppe emotional erreicht, das<br>
+          Engagement messbar steigert und eine<br>
+          treue Community aufbaut.
         </p>
 
         <br>
@@ -1203,12 +1250,12 @@
       </ul>
       <p style="color:var(--muted); font-size:22px; margin-top:0.8rem;">Durch authentischen Content entsteht eine direkte emotionale Verbindung zur Zielgruppe, die messbar zu höheren Abschlussraten führt und die Konversionen-Zahlen maximiert.</p>
     </div>
-    <div class="split-img-wrap" style="width: 100%; height: 100%;">
-      <img src="bilder/why-ugc.jpg" alt="Why UGC" style="width: 100%; height: 100%; object-fit: cover;">
+    <div class="split-img-wrap">
+      <img src="bilder/why-ugc.jpg" alt="Why UGC">
     </div>
   </div>
 </section>
-
+  
 <!-- ===================== 9. DIENSTLEISTUNGEN ===================== -->
 <section class="fullscreen-slide" id="dienstleistungen" style="padding-top: 7.5rem; padding-bottom: 2rem; height: auto !important; min-height: auto !important;">
   <div class="services-wrapper">
