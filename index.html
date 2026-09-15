@@ -106,9 +106,9 @@
       padding-top: 3rem;
     }
 
-/* ---------- TOP MENÜLEISTE (IM HERO) ---------- */
-   .top-nav {
-      position: fixed; /* Auf fixed geändert, damit sie beim Scrollen mitkommt */
+    /* ---------- TOP MENÜLEISTE (IM HERO) ---------- */
+    .top-nav {
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;
@@ -123,10 +123,9 @@
       z-index: 30;
       overflow-x: auto; 
       scrollbar-width: none; 
-      transition: transform 0.3s ease; /* Weiche Animation für das Ein- und Ausblenden */
+      transition: transform 0.3s ease;
     }
 
-    /* Diese Klasse wird per JavaScript hinzugefügt, um die Leiste nach oben wegzuschieben */
     .top-nav.nav-hidden {
       transform: translateY(-100%);
     }
@@ -135,18 +134,17 @@
       display: none;
     }
 
-   /* Linker Bereich für die runden Icon-Kreise */
     .top-nav-icons {
       display: flex;
       align-items: center;
       gap: 1.5rem;
-      margin-left: 2.5rem; /* Hier kannst du den Abstand vergrößern, um sie weiter nach rechts zu schieben */
+      margin-left: 2.5rem;
     }
 
     .nav-icon-circle {
       width: 30px;
       height: 30px;
-      background: var(--ink); /* Schwarzer Kreis */
+      background: var(--ink);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -157,21 +155,20 @@
     }
 
     .nav-icon-circle:hover {
-      transform: scale(1.1); /* Leichter Zoom beim Hovern */
+      transform: scale(1.1);
     }
 
     .nav-icon-img {
       width: 17px;
       height: 17px;
       object-fit: contain;
-      filter: brightness(0) invert(1); /* Färbt schwarze Icons automatisch weiß ein */
+      filter: brightness(0) invert(1);
     }
 
-    /* Rechter Bereich für die Menüpunkte */
     .top-nav-links {
       display: flex;
       align-items: center;
-      gap: 3rem; /* Abstand zwischen den Menüpunkten */
+      gap: 3rem;
     }
     
     .top-nav-links a {
@@ -182,7 +179,7 @@
       letter-spacing: 0.08em;
       text-decoration: none;
       white-space: nowrap;
-      text-transform: uppercase; /* Versalien */
+      text-transform: uppercase;
       display: inline-block;
       transition: transform 0.25s ease;
     }
@@ -192,12 +189,11 @@
       transform: scale(1.08); 
     }
 
-    /* Speziell für das Mail-Icon, damit es optisch etwas feiner wirkt */
     .mail-icon {
       width: 12px;
       height: 12px;
     }
-    /* Auf Mobilgeräten unter 800px bleibt die Menüleiste komplett weg */
+
     @media (max-width: 800px) {
       .top-nav {
         display: none !important;
@@ -230,7 +226,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 4%; /* Oben weniger, unten etwas mehr angeschnitten */
+      object-position: center 4%;
       display: block;
     }
     .hero-overlay {
@@ -241,7 +237,7 @@
     }
     .hero-top {
       position: absolute;
-      top: 7rem; /* Etwas Platz für die absolute Menüleiste oben gelassen */
+      top: 7rem;
       left: 5rem;
       right: 5rem;
       z-index: 3;
@@ -262,7 +258,7 @@
       text-transform: uppercase;
     }
     .hero-contact-left,
-    .hero-contact-right }
+    .hero-contact-right {
       position: absolute;
       bottom: 3.5rem;
       font-family: "NobelLight", sans-serif;
@@ -270,234 +266,153 @@
       font-size: 24px;
       letter-spacing: 0.07em;
       z-index: 3;
- .hero-contact-left { left: 5rem; }
-.hero-contact-right { 
-      right: 5rem; 
     }
+    .hero-contact-left { left: 5rem; }
+    .hero-contact-right { right: 5rem; }
+    
     .hero-contact-left a,
     .hero-contact-right a { 
       color: var(--paper); 
     }
-  </style>
-</head>
 
-<body>
-  
-<!-- ===================== 2. INTRODUCTION ===================== --> 
-<section class="fullscreen-slide" id="intro"> 
-  <div class="intro"> 
-    <div class="intro-text"> 
-      <h2>Warum Ich</h2>
+    /* ---------- MODERNES PHONE MOCKUP (Dynamic Island + Animationen) ---------- */
+    .section-phones-tight, .section-phones-normal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      width: 100%;
+    }
+    .phone-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 1.5rem;
+      justify-items: center;
+    }
+
+    .phone-card { 
+      text-align: left; 
+      width: 100%; 
+      max-width: 310px; 
+      opacity: 0;
+      transform: scale(0.85);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .phone-row.in-view .phone-card {
+      opacity: 1;
+      transform: scale(1);
+    }
       
-      <!-- Dieser Text wird NUR auf dem Desktop angezeigt -->
-      <div class="text-desktop">  
-        <p>Moin,<br>ich bin Hannah (21), Creatorin &<br>Kommunikationsdesignerin aus Hamburg.</p>
+    .phone-frame {
+      position: relative;
+      width: 100%;
+      max-width: 310px;
+      aspect-ratio: 9 / 16;
+      margin: 0 auto;
+      background: transparent;
+      border: 10px solid var(--lime);
+      border-radius: 38px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+    }
+    .phone-frame.lavender-border { 
+      border-color: var(--lavender); 
+    }
 
-        <p>Mit meinem geschulten Auge für Komposition, Bildsprache und Details übersetze ich deine Marke in nahbaren Content, der deine Zielgruppe emotional erreicht.</p>geschulten Auge für Komposition, Bildsprache<br>und Details übersetze ich deine Marke in nahbaren Content, der deine Zielgruppe emotional erreicht, das Engagement messbar steigert und eine treue Community aufbaut.</p>
+    .phone-frame::before {
+      content: "";
+      position: absolute;
+      right: -14px;
+      top: 24%;
+      width: 4px;
+      height: 12%;
+      background: var(--lime);
+      border-radius: 0 3px 3px 0;
+      z-index: 5;
+    }
+    .phone-frame.lavender-border::before {
+      background: var(--lavender);
+    }
 
-        <br>
-        <p><strong>Das bringe ich mit:</strong></p>
+    .phone-frame::after {
+      content: "";
+      position: absolute;
+      left: -14px;
+      top: 18%;
+      width: 4px;
+      height: 140px;
+      background-image: 
+        linear-gradient(var(--lime), var(--lime)), 
+        linear-gradient(var(--lime), var(--lime)), 
+        linear-gradient(var(--lime), var(--lime));
+      background-size: 4px 16px, 4px 28px, 4px 28px; 
+      background-position: 0 0, 0 38px, 0 78px;      
+      background-repeat: no-repeat;
+      z-index: 5;
+    }
+    .phone-frame.lavender-border::after {
+      background-image: 
+        linear-gradient(var(--lavender), var(--lavender)),
+        linear-gradient(var(--lavender), var(--lavender)),
+        linear-gradient(var(--lavender), var(--lavender));
+    }
 
-        <ul>
-          <li><strong>Strategische Markenästhetik:</strong><br>Visuelle Konzepte passend zu deiner Brand Identity</li>  
-          <li><strong>Designwissen:</strong><br>Starkes Gespür für Layout, Typografie & Storytelling</li>  
-          <li><strong>Fokus-Nischen:</strong><br>Lifestyle · Beauty · Food · Travel</li>
-        </ul>
-      </div> <!-- Ende text-desktop -->
+    .phone-notch {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 82px;
+      height: 24px;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.15); 
+      border-radius: 14px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+    }
 
-      <!-- Dieser Text mit deinen festen Umbrüchen wird NUR auf dem Handy angezeigt -->  
-      <div class="text-mobile">  
-        <p>  
-          Moin,<br>
-          ich bin Hannah (21),<br>  
-          Creatorin & Kommunikations-<br>  
-          designerin aus Hamburg.  
-        </p>
-
-        <p>  
-          Mit meinem geschulten Auge<br>  
-          für Komposition, Bildsprache<br>  
-          und Details übersetze ich<br>  
-          deine Marke in nahbaren<br>  
-          Content, der deine Zielgruppe<br>  
-          emotional erreicht, das<br>  
-          Engagement messbar steigert<br>  
-          und eine treue Community<br>  
-          aufbaut.  
-        </p>
-
-        <br>
-        <p><strong>Das bringe ich mit:</strong></p>  
-        
-        <ul>  
-          <li><strong>Strategische Markenästhetik:</strong><br>  
-            Visuelle Konzepte passend zu<br>  
-            deiner Brand Identity</li>  
-          <li><strong>Designwissen:</strong><br>  
-            Starkes Gespür für Layout, Typografie<br>  
-            & Storytelling</li>  
-          <li><strong>Fokus-Nischen:</strong><br>  
-            Lifestyle · Beauty · Food ·<br>  
-            Travel</li>  
-        </ul>  
-      </div> <!-- Ende text-mobile -->
-
-    </div> <!-- Ende intro-text -->
-
-    <!-- Intro-Bild daneben -->
-    <div class="intro-img-wrap">
-      <img src="bilder/intro.jpg" alt="Hannah Marahrens" class="shifted-right-img">
-    </div>
-
-  </div> <!-- Ende intro Grid -->
-</section>
-
-  <style>
-/* ---------- MODERNES PHONE MOCKUP (Dynamic Island + Animationen) ---------- */
-.section-phones-tight, .section-phones-normal {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  width: 100%;
-}
-.phone-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  margin-top: 1.5rem;
-  justify-items: center;
-}
-
-.phone-card { 
-  text-align: left; 
-  width: 100%; 
-  max-width: 310px; 
-  opacity: 0;
-  transform: scale(0.85);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.phone-row.in-view .phone-card {
-  opacity: 1;
-  transform: scale(1);
-}
-  
-  .phone-frame {
-    position: relative;
-    width: 100%;
-    max-width: 310px;
-    aspect-ratio: 9 / 16;
-    margin: 0 auto;
-    background: transparent;
-    border: 10px solid var(--lime);
-    border-radius: 38px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
-  }
-  .phone-frame.lavender-border { 
-    border-color: var(--lavender); 
-  }
-
-  /* Seitliche Taste rechts (nur der Power-Button) */
-  .phone-frame::before {
-    content: "";
-    position: absolute;
-    right: -14px;
-    top: 24%;
-    width: 4px;
-    height: 12%;
-    background: var(--lime);
-    border-radius: 0 3px 3px 0;
-    z-index: 5;
-  }
-  .phone-frame.lavender-border::before {
-    background: var(--lavender);
-  }
-
-  /* Seitliche Tasten links (3 Tasten: Action-Button + Lauter/Leiser) */
-  .phone-frame::after {
-    content: "";
-    position: absolute;
-    left: -14px;
-    top: 18%;
-    width: 4px;
-    height: 140px;
-    background-image: 
-      linear-gradient(var(--lime), var(--lime)), 
-      linear-gradient(var(--lime), var(--lime)), 
-      linear-gradient(var(--lime), var(--lime));
-    background-size: 4px 16px, 4px 28px, 4px 28px; 
-    background-position: 0 0, 0 38px, 0 78px;      
-    background-repeat: no-repeat;
-    z-index: 5;
-  }
-  .phone-frame.lavender-border::after {
-    background-image: 
-      linear-gradient(var(--lavender), var(--lavender)),
-      linear-gradient(var(--lavender), var(--lavender)),
-      linear-gradient(var(--lavender), var(--lavender));
-  }
-
-  /* Dynamic Island (Pille oben - etwas kürzer gemacht) */
-  /* Dynamic Island (Pille oben) */
-  .phone-notch {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 82px;
-    height: 24px;
-    background: #000;
-    border: 1px solid rgba(255, 255, 255, 0.15); 
-    border-radius: 14px;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    padding: 0 8px; /* Sorgt für den nötigen Innenabstand */
-  }
-
-  /* Kamera-Linse nach rechts geschoben */
-  .phone-camera { 
-    width: 8px; 
-    height: 8px; 
-    background: #222; 
-    border-radius: 50%; 
-    border: none; 
-    margin-left: auto; /* Schiebt die Kamera ganz nach rechts */
-  }
-  
-  .phone-screen { 
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; 
-    height: 100%; 
-    background: #000; 
-    border-radius: 26px; 
-    overflow: hidden; 
-    z-index: 1;
-  }
-  
-  .phone-screen video { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    display: block; 
-  }
-  
-  .phone-label { 
-    margin-top: 0.8rem; 
-    font-weight: 400; 
-    font-size: 22px; 
-    padding-left: 0.9rem; 
-    text-align: left; 
-  }
-  .phone-sub { 
-    color: var(--muted); 
-    font-size: 19px; 
-    padding-left: 0.9rem; 
-    text-align: left; 
-  }
-  
-    <style>   
+    .phone-camera { 
+      width: 8px; 
+      height: 8px; 
+      background: #222; 
+      border-radius: 50%; 
+      border: none; 
+      margin-left: auto; 
+    }
+    
+    .phone-screen { 
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; 
+      height: 100%; 
+      background: #000; 
+      border-radius: 26px; 
+      overflow: hidden; 
+      z-index: 1;
+    }
+    
+    .phone-screen video { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      display: block; 
+    }
+    
+    .phone-label { 
+      margin-top: 0.8rem; 
+      font-weight: 400; 
+      font-size: 22px; 
+      padding-left: 0.9rem; 
+      text-align: left; 
+    }
+    .phone-sub { 
+      color: var(--muted); 
+      font-size: 19px; 
+      padding-left: 0.9rem; 
+      text-align: left; 
+    }
     
     /* ---------- FARBIGE SECTIONS & SPLIT ---------- */
     .bg-lime { background: var(--lime); }
@@ -518,7 +433,7 @@
       gap: 1.5rem;
       margin: 1.2rem 0;
     }
-     .stat .num { 
+    .stat .num { 
       font-family: 'NobelBold', sans-serif;
       font-size: 36px; 
       font-weight: 700; 
@@ -604,8 +519,9 @@
       background: var(--ink);
       z-index: 1;
     }
-    .workflow-step { position: relative; z-index: 2; }
-    .workflow-step {
+    .workflow-step { 
+      position: relative; 
+      z-index: 2; 
       opacity: 0;
       transform: translateX(-25px);
       transition: opacity 0.7s ease, transform 0.7s ease;
@@ -645,7 +561,6 @@
     /* ---------- ABSCHLUSS & FOOTER ---------- */
     .closing-card { width: 100%; background: var(--lime); margin-top: 0; position: relative; }
 
-    /* ---------- CLOSING CTA-HINWEIS (Pfeil + "Klick hier") ---------- */
     .closing-cta-hint {
       position: absolute;
       right: 8rem;
@@ -745,10 +660,10 @@
       gap: 0.8rem;
     }
     .legal-links { display: flex; gap: 2rem; }
-   .legal-btn {
-  font-size: 18px; color: var(--ink); text-decoration: underline; font-weight: 400;
-  background: none; border: none; cursor: pointer; padding: 0;
-  font-family: 'NobelBook', sans-serif;
+    .legal-btn {
+      font-size: 18px; color: var(--ink); text-decoration: underline; font-weight: 400;
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-family: 'NobelBook', sans-serif;
     }
     .legal-btn:hover { color: var(--muted); }
     .closing-copyright { 
@@ -794,22 +709,18 @@
       opacity: 0.5;
       pointer-events: auto;
     }
-    .scroll-top-btn:hover { opacity: 0.7; background: rgba(255, 255, 255, 0.5); 
-    }
-    
+    .scroll-top-btn:hover { opacity: 0.7; background: rgba(255, 255, 255, 0.5); }
 
-    /* Mobile-only Umbrüche (Flattersatz-Optimierung) */
     .mobile-br { display: none; }
 
-    /* Desktop-Standard für Text-Umschaltung (wird auf Mobile per @media überschrieben) */
     .text-videos-desktop { display: block; }
     .text-videos-mobile { display: none; }
     .footer-bottom-bar .text-desktop { display: block; }
     .footer-bottom-bar .text-mobile { display: none; }
 
-    /* =========================================================
-        EXKLUSIVE MOBILE ANPASSUNGEN (max-width: 800px)
-        ========================================================= */
+    .text-desktop { display: block; }
+    .text-mobile { display: none; }
+
     @media (max-width: 800px) {
       .hero {
         height: 75vh !important;
@@ -1006,7 +917,6 @@
       .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
     }
     @media (max-width: 768px) {
-      /* 1. E-Mail und Instagram im Hero und Closing auf NobelRegular */
       .hero-contact-left,
       .hero-contact-right {
         font-family: "NobelLight", sans-serif !important;
@@ -1017,7 +927,6 @@
         font-weight: 300 !important;
       }
 
-      /* 2. Flattersatz für Intro-Text ("Moin, ich bin Hannah...") */
       .intro-text p {
         hyphens: auto;
         -webkit-hyphens: auto;
@@ -1025,7 +934,6 @@
         overflow-wrap: break-word;
       }
       
-      /* 3. Abstand der Überschrift "Warum UGC?" zum oberen Rand der Box */
       .bg-lime.section, .split > div {
         padding-top: 2.5rem;
       }
@@ -1033,31 +941,28 @@
         margin-top: 1rem;
       }
 
-      /* 4. Flattersatz für CTA ("Benötigen Sie mehr Videos...") */
       .cta-row p, .cta-row {
         hyphens: auto;
         -webkit-hyphens: auto;
         word-break: normal;
         overflow-wrap: break-word;
       }
-      /* 5. Warum-UGC-Textblock innerhalb des lila Blocks nur auf Mobile weiter runtersetzen */
       .ugc-text-box {
         padding-top: 2rem;
       }
 
-      /* 6. Mobile Varianten von CTA-Text und Footer-Copyright einblenden */
       .text-videos-desktop { display: none; }
       .text-videos-mobile { display: block; text-align: left; }
 
       .footer-bottom-bar .text-desktop { display: none; }
       .footer-bottom-bar .text-mobile { display: block; }
     }
-    /* Auf Desktop-Ansichten (ab 801px) die alten Hero-Kontakte ausblenden */
     @media (min-width: 801px) {
       .hero-contact-left,
       .hero-contact-right {
         display: none !important;
       }
+      .hero-contact-right .mobile-only-insta { display: none !important; }
     }
     html {
       overscroll-behavior-y: none;
@@ -1069,37 +974,31 @@
       padding: 0;
     }
 
-    /* ---------- INDIVIDUELLE SPRUNGBEREICHE (SCROLL-MARGIN-TOP) ---------- */
-
-    /* Über mich: minimal weiter runter, sodass das Intro-Bild mittig im Fenster steht */
     #intro {
       scroll-margin-top: -24px;
     }
-    /* Oberer Rand, ganz am Anfang der Seite: Meine Arbeit, Warum UGC */
     #arbeit,
     #warum-ugc {
       scroll-margin-top: 0;
     }
-    /* Dienstleistungen: mittig im Fenster platziert */
-   #dienstleistungen {
-  scroll-margin-top: calc(50vh - 450px); /* Erhöhe den Wert (z.B. auf 350px oder 400px), um weiter nach unten zu scrollen */
+    #dienstleistungen {
+      scroll-margin-top: calc(50vh - 450px);
     }
-    /* Ein Stück weiter runter (nicht ganz am oberen Rand): Workflow, UGC Fotos */
     #workflow,
     #ugc-fotos {
       scroll-margin-top: 140px;
     }
-    /* Kontakt: schließt exakt mit dem unteren Rand des Footers ab, kein Überschuss */
     #kontakt {
       scroll-margin-top: 0;
       scroll-margin-bottom: 0;
     }
   </style>
-</body>
+</head>
+
+<body>
 
 <!-- ===================== 0. MENÜLEISTE ===================== -->
 <nav class="top-nav">
-  <!-- Linke Seite: E-Mail & Instagram in runden Kreisen -->
   <div class="top-nav-icons">
     <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#103;&#99;&#46;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;" class="nav-icon-circle" title="E-Mail schreiben">
       <img src="bilder/icon-mail.png" alt="Mail" class="nav-icon-img">
@@ -1109,7 +1008,6 @@
     </a>
   </div>
   
-  <!-- Rechte Seite: Deine Menüpunkte -->
   <div class="top-nav-links">
     <a href="#intro">WARUM ICH</a>
     <a href="#arbeit">MEINE ARBEIT</a>
@@ -1117,8 +1015,10 @@
     <a href="#dienstleistungen">DIENST</a>
     <a href="#workflow">WORKFLOW</a>
     <a href="#ugc-fotos">UGC FOTOS</a>
-    <a href="#kontakt">KONTAKT</a>  </div>
+    <a href="#kontakt">KONTAKT</a>
+  </div>
 </nav>
+
 <!-- ===================== 1. HERO ===================== -->
 <header class="hero" id="start">
   <div class="hero-bg-wrap">
@@ -1138,37 +1038,12 @@
   </div>
 </header>
 
-<style>
-  @media (min-width: 801px) {
-    .hero-contact-right .mobile-only-insta { display: none !important; }
-  }
-  /* Standardmäßig (Desktop): Zeigt den normalen Text ohne erzwungene Umbrüche */
-.text-desktop {
-  display: block;
-}
-.text-mobile {
-  display: none;
-}
-
-/* Nur für die Mobilansicht (Bildschirme kleiner als 768px): Desktop aus, Mobile an */
-@media (max-width: 768px) {
-  .text-desktop {
-    display: none;
-  }
-  .text-mobile {
-    display: block;
-    text-align: left;
-    word-break: break-word;
-  }
-}
-</style>
 <!-- ===================== 2. INTRODUCTION ===================== --> 
 <section class="fullscreen-slide" id="intro"> 
-  <div class="intro"> 
-    <div class="intro-text"> 
+  <div class="intro" style="display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; width: 100%; max-width: 1100px; margin: 0 auto; height: 100%;"> 
+    <div class="intro-text" style="padding: 0 1.5rem;"> 
       <h2>Warum Ich</h2>
       
-      <!-- Dieser Text wird NUR auf dem Desktop angezeigt -->  
       <div class="text-desktop">  
         <p>Moin,<br><br>ich bin Hannah (21), Creatorin &<br>Kommunikationsdesignerin aus Hamburg.</p>
 
@@ -1184,7 +1059,6 @@
         </ul>
       </div>
 
-      <!-- Dieser Text mit deinen festen Umbrüchen wird NUR auf dem Handy angezeigt -->  
       <div class="text-mobile">  
         <p>  
           Moin,<br><br>
@@ -1222,9 +1096,8 @@
       </div>  
     </div>
 
-    <!-- Intro-Bild daneben -->
-    <div class="intro-img-wrap">
-      <img src="bilder/intro.jpg" alt="Hannah" class="shifted-right-img">
+    <div class="intro-img-wrap" style="width: 100%; height: 100%;">
+      <img src="bilder/intro.jpg" alt="Hannah" class="shifted-right-img" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
   </div> 
 </section>
@@ -1236,7 +1109,7 @@
     <div class="phone-row">
       <div class="phone-card">
         <div class="phone-frame">
-          <div class="phone-notch"><div class="phone-mic"></div><div class="phone-camera"></div></div>
+          <div class="phone-notch"><div class="phone-camera"></div></div>
           <div class="phone-screen">
             <video controls poster="bilder/video1-poster.jpg"><source src="videos/backmischung.mp4" type="video/mp4"></video>
           </div>
@@ -1246,7 +1119,7 @@
       </div>
       <div class="phone-card">
         <div class="phone-frame">
-          <div class="phone-notch"><div class="phone-mic"></div><div class="phone-camera"></div></div>
+          <div class="phone-notch"><div class="phone-camera"></div></div>
           <div class="phone-screen">
             <video controls poster="bilder/video2-poster.jpg"><source src="videos/omega3.mp4" type="video/mp4"></video>
           </div>
@@ -1256,7 +1129,7 @@
       </div>
       <div class="phone-card">
         <div class="phone-frame">
-          <div class="phone-notch"><div class="phone-mic"></div><div class="phone-camera"></div></div>
+          <div class="phone-notch"><div class="phone-camera"></div></div>
           <div class="phone-screen">
             <video controls poster="bilder/video3-poster.jpg"><source src="videos/unboxing.mp4" type="video/mp4"></video>
           </div>
@@ -1275,7 +1148,7 @@
     <div class="phone-row">
       <div class="phone-card">
         <div class="phone-frame lavender-border">
-          <div class="phone-notch"><div class="phone-mic"></div><div class="phone-camera"></div></div>
+          <div class="phone-notch"><div class="phone-camera"></div></div>
           <div class="phone-screen">
             <video controls poster="bilder/video4-poster.jpg"><source src="videos/fashion-strand.mp4" type="video/mp4"></video>
           </div>
@@ -1285,7 +1158,7 @@
       </div>
       <div class="phone-card">
         <div class="phone-frame lavender-border">
-          <div class="phone-notch"><div class="phone-mic"></div><div class="phone-camera"></div></div>
+          <div class="phone-notch"><div class="phone-camera"></div></div>
           <div class="phone-screen">
             <video controls poster="bilder/video5-poster.jpg"><source src="videos/blumenstrauss.mp4" type="video/mp4"></video>
           </div>
@@ -1295,7 +1168,7 @@
       </div>
       <div class="phone-card">
         <div class="phone-frame lavender-border">
-          <div class="phone-notch"><div class="phone-mic"></div><div class="phone-camera"></div></div>
+          <div class="phone-notch"><div class="phone-camera"></div></div>
           <div class="phone-screen">
             <video controls poster="bilder/video6-poster.jpg"><source src="videos/beauty.mp4" type="video/mp4"></video>
           </div>
@@ -1306,6 +1179,7 @@
     </div>
   </div>
 </div>
+
 <!-- ===================== 8. WHY UGC? ===================== -->
 <section class="bg-lavender fullscreen-slide" id="warum-ugc" style="padding-top: 0 !important;">
   <div class="split" style="max-width:1100px; margin:0 auto; height: 100%;">
@@ -1313,16 +1187,16 @@
       <h2 style="font-size:36px; margin-bottom:0.8rem;">Warum UGC?</h2>
       <p style="font-size:22px; color:var(--muted); margin-bottom:1.2rem;">Klassische Werbung wird oft ignoriert, <br> echter Content schafft Vertrauen.</p>
       <p style="font-weight:400; font-size:22px; margin-bottom:0.4rem;">Fakten über UGC (2026)</p>
-     <ul class="facts">
-  <li><span class="fact-bold">4x</span> höhere Klickrate (CTR)</li>
-  <li><span class="fact-bold">2,4x</span> mehr Aufmerksamkeit</li>
-  <li><span class="fact-bold">+ 28 %</span> Engagement</li>
-  <li><span class="fact-bold">+ 29 %</span> Konversionen</li>
+      <ul class="facts">
+        <li><span class="fact-bold">4x</span> höhere Klickrate (CTR)</li>
+        <li><span class="fact-bold">2,4x</span> mehr Aufmerksamkeit</li>
+        <li><span class="fact-bold">+ 28 %</span> Engagement</li>
+        <li><span class="fact-bold">+ 29 %</span> Konversionen</li>
       </ul>
       <p style="color:var(--muted); font-size:22px; margin-top:0.8rem;">Durch authentischen Content entsteht eine direkte emotionale Verbindung zur Zielgruppe, die messbar zu höheren Abschlussraten führt und die Konversionen-Zahlen maximiert.</p>
     </div>
-    <div class="split-img-wrap">
-      <img src="bilder/why-ugc.jpg" alt="Why UGC" class="shifted-right-img">
+    <div class="split-img-wrap" style="width: 100%; height: 100%;">
+      <img src="bilder/why-ugc.jpg" alt="Why UGC" class="shifted-right-img" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
   </div>
 </section>
@@ -1366,19 +1240,17 @@
       </div>
     </div>
     <div class="cta-row">
-<!-- Desktop-Ansicht -->
-<div class="text-videos-desktop">
-  <p>Benötigen Sie mehr Videos? Kontaktieren Sie mich für monatliche Preise.</p>
-</div>
-
-<!-- Mobile-Ansicht mit deinen exakten Umbrüchen -->
-<div class="text-videos-mobile">
-  <p>
-    Benötigen Sie mehr Videos?<br>
-    Kontaktieren Sie mich für<br>
-    monatliche Preise.
-  </p>
-</div>      <a class="btn" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#103;&#99;&#46;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;">Kontakt aufnehmen</a>
+      <div class="text-videos-desktop">
+        <p>Benötigen Sie mehr Videos? Kontaktieren Sie mich für monatliche Preise.</p>
+      </div>
+      <div class="text-videos-mobile">
+        <p>
+          Benötigen Sie mehr Videos?<br>
+          Kontaktieren Sie mich für<br>
+          monatliche Preise.
+        </p>
+      </div>      
+      <a class="btn" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#103;&#99;&#46;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;">Kontakt aufnehmen</a>
     </div>
   </div>
 </section>
@@ -1476,11 +1348,12 @@
     <button class="legal-btn" onclick="openModal('impressumModal')">Impressum</button>
     <button class="legal-btn" onclick="openModal('datenschutzModal')">Datenschutz</button>
   </div>
-   <div class="text-mobile">
-  <p class="closing-copyright">&copy; 2026 Hannah Marahrens. <br> Alle Rechte vorbehalten.</p>
-</div>
-   <div class="text-desktop">
-       <p class="closing-copyright">&copy; 2026 Hannah Marahrens. Alle Rechte vorbehalten.</p>
+  <div class="text-mobile">
+    <p class="closing-copyright">&copy; 2026 Hannah Marahrens. <br> Alle Rechte vorbehalten.</p>
+  </div>
+  <div class="text-desktop">
+    <p class="closing-copyright">&copy; 2026 Hannah Marahrens. Alle Rechte vorbehalten.</p>
+  </div>
 </div>
 
 <!-- ===================== MODALS (IMPRESSUM & DATENSCHUTZ) ===================== -->
@@ -1511,10 +1384,8 @@
   
     <p style="margin-top: 1rem;"><strong>Quellenangabe (Font)</strong></p>
     <p style="font-size: 16px; color: var(--muted);">Font made from <a href="https://www.onlinewebfonts.com" target="_blank" rel="noopener" style="text-decoration: underline; color: var(--ink);">Online Web Fonts</a> is licensed by CC BY 4.0</p>
-    </div>
-  
   </div>
-</div> <!-- <-- HIER FEHLTE DIESER SCHLIESSENDE DIV-TAG -->
+</div>
   
 <div id="datenschutzModal" class="modal">
   <div class="modal-content">
@@ -1549,7 +1420,6 @@
 
 <!-- ===================== JAVASCRIPT ===================== -->
 <script>
-  // Modals öffnen/schließen
   function openModal(id) {
     document.getElementById(id).classList.add('active');
   }
@@ -1562,7 +1432,6 @@
     }
   }
 
-  // Scroll Animations & Scroll-to-Top Button Steuerung
   const phoneRows = document.querySelectorAll('.phone-row');
   const workflowTimelines = document.querySelectorAll('.workflow-timeline');
   const scrollTopBtn = document.getElementById('scrollTopBtn');
@@ -1589,20 +1458,19 @@
         timeline.classList.add('in-view');
       }
     });
-  }); /* <-- HIER FEHLTE DIE SCHLIESSENDE KLAMMER UND KLAMMER-ZU FÜR DEN EVENT-LISTENER */
+  });
 </script>
-    <script>
+
+<script>
   let lastScrollTop = 0;
   const topNav = document.querySelector('.top-nav');
 
   window.addEventListener('scroll', function() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
-    // Wenn man nach unten scrollt und weiter als 100px weg ist -> Leiste verstecken
     if (scrollTop > lastScrollTop && scrollTop > 100) {
       topNav.classList.add('nav-hidden');
     } else {
-      // Wenn man nach oben scrollt -> Leiste einblenden
       topNav.classList.remove('nav-hidden');
     }
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -1610,14 +1478,12 @@
 </script>
 
 <script>
-  // CTA-Hinweis auf der Abschlussseite: erscheint erst, wenn die Sektion
-  // ein paar Sekunden im Blickfeld war, und bleibt danach sichtbar.
   (function() {
     const hint = document.getElementById('closingCtaHint');
     const closingCard = document.querySelector('.closing-card');
     if (!hint || !closingCard) return;
 
-    const DELAY_MS = 2500; // Verzögerung, ab wann der Hinweis erscheint
+    const DELAY_MS = 2500;
     let timer = null;
 
     const observer = new IntersectionObserver((entries) => {
@@ -1629,7 +1495,6 @@
             }, DELAY_MS);
           }
         } else {
-          // Wenn man vor Ablauf der Zeit wieder wegscrollt, Timer zurücksetzen
           clearTimeout(timer);
           timer = null;
         }
