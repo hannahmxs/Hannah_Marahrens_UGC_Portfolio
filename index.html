@@ -1155,56 +1155,50 @@
       
       <!-- Dieser Text wird NUR auf dem Desktop angezeigt -->
       <div class="text-desktop">
-        Moin,
-        ich bin Hannah (21) – Creatorin &
-        Kommunikationsdesignerin aus Hamburg. <p>
-        
-        Mit meinem geschulten Auge für Komposition, <br>
-        Bildsprache und Emotionen übersetze ich deine<br>
-        Marke in nahbaren Content, der deine Zielgruppe<br>
-        emotional erreicht, das Engagement messbar steigert <br>
-        und eine treue Community aufbaut. <p>
-          
-        <strong>Das bringe ich mit:</strong><br>
-  <ul>
-    <li>· <strong>Strategische Markenästhetik:</strong> Visuelle Konzepte <br>
-          passend zu deiner Brand Identity</li>
-    <li>· <strong>Design-Blick:</strong> Starkes Gespür für Layout,<br>
-          Typografie & Storytelling</li>
-    <li>· <strong>Fokus-Nischen:</strong> Lifestyle · Beauty · Food · Travel</li>
-  </ul>
+        <p>Moin, ich bin Hannah (21) – Creatorin & Kommunikationsdesignerin aus Hamburg.</p>
+
+        <p>Mit meinem geschulten Auge für Komposition, Bildsprache und Emotionen übersetze ich deine Marke in nahbaren Content, der deine Zielgruppe emotional erreicht, das Engagement messbar steigert und eine treue Community aufbaut.</p>
+
+        <p><strong>Das bringe ich mit:</strong></p>
+        <ul>
+          <li>· <strong>Strategische Markenästhetik:</strong> Visuelle Konzepte passend zu deiner Brand Identity</li>
+          <li>· <strong>Design-Blick:</strong> Starkes Gespür für Layout, Typografie & Storytelling</li>
+          <li>· <strong>Fokus-Nischen:</strong> Lifestyle · Beauty · Food · Travel</li>
+        </ul>
+      </div>
 
       <!-- Dieser Text mit deinen festen Umbrüchen wird NUR auf dem Handy angezeigt -->
       <div class="text-mobile">
         <p>
-          Moin,
-          ich bin Hannah (21) –
-          Creatorin & Kommunikations-
-          designerin aus Hamburg. <p>
-        
-          Mit meinem geschulten Auge für
-          Komposition, Bildsprache und
-          Emotionen übersetze ich deine<br>
-          Brand in nahbaren Content und 
-          helfe dir dabei,deine Zielgruppe
-          emotional zu erreichen, das<br>
-          Engagement messbar zu steigern
-          und eine treue Community aufzubauen. <p>
-          
-          Das bringe ich mit:<p>
-          
-        · Strategische Markenästhetik:<br>
-          Visuelle Konzepte,die zu deiner<br>
-          Brand Identity passen<br>
-        · Fundiertes Design-Wissen: Verständnis<br>
-          für Layout, Typografie und moderne<br>
-          Markenführung<br>
-        · Liebe zum Detail: Perfekte Komposition<br>
-          und starkes Storytelling<br>
-        · <strong>Zuhause in den Nischen:</strong><br>
-          Lifestyle · Beauty · Food · Travel
-            
+          Moin, ich bin Hannah (21) –<br>
+          Creatorin & Kommunikations-<br>
+          designerin aus Hamburg.
         </p>
+
+        <p>
+          Mit meinem geschulten Auge<br>
+          für Komposition, Bildsprache<br>
+          und Emotionen übersetze ich<br>
+          deine Marke in nahbaren<br>
+          Content, der deine Zielgruppe<br>
+          emotional erreicht, das<br>
+          Engagement messbar steigert<br>
+          und eine treue Community<br>
+          aufbaut.
+        </p>
+
+        <p><strong>Das bringe ich mit:</strong></p>
+        <ul>
+          <li>· <strong>Strategische Markenästhetik:</strong><br>
+            Visuelle Konzepte passend zu<br>
+            deiner Brand Identity</li>
+          <li>· <strong>Design-Blick:</strong> Starkes<br>
+            Gespür für Layout, Typografie<br>
+            & Storytelling</li>
+          <li>· <strong>Fokus-Nischen:</strong><br>
+            Lifestyle · Beauty · Food ·<br>
+            Travel</li>
+        </ul>
       </div>
     </div>
     
@@ -1592,6 +1586,37 @@
     }
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   }, false);
+</script>
+
+<script>
+  // CTA-Hinweis auf der Abschlussseite: erscheint erst, wenn die Sektion
+  // ein paar Sekunden im Blickfeld war, und bleibt danach sichtbar.
+  (function() {
+    const hint = document.getElementById('closingCtaHint');
+    const closingCard = document.querySelector('.closing-card');
+    if (!hint || !closingCard) return;
+
+    const DELAY_MS = 2500; // Verzögerung, ab wann der Hinweis erscheint
+    let timer = null;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!timer) {
+            timer = setTimeout(() => {
+              hint.classList.add('visible');
+            }, DELAY_MS);
+          }
+        } else {
+          // Wenn man vor Ablauf der Zeit wieder wegscrollt, Timer zurücksetzen
+          clearTimeout(timer);
+          timer = null;
+        }
+      });
+    }, { threshold: 0.6 });
+
+    observer.observe(closingCard);
+  })();
 </script>
 
 </body>
