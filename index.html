@@ -277,7 +277,7 @@
     .hero-contact-right a { color: var(--paper); 
     }
     
-    /* ---------- INTRO & SPLIT ---------- */
+   /* ---------- INTRO & SPLIT (OPTIMIERT FÜR TEXT-STRUKTUR & TABULATOR) ---------- */
     .intro {
       max-width: 1100px;
       margin: 0 auto;
@@ -293,11 +293,27 @@
       flex-direction: column;
       justify-content: center;
       transform: translateY(-2.5rem);
+      color: var(--ink); /* Durchgehend echtes Schwarz */
     }
     .intro-text h2 { font-size: 36px; margin-bottom: 1.2rem; line-height: 1.2; }
-    .intro-text p { margin: 0 0 1rem; color: var(--muted); font-size: 22px; }
-    .intro-text .Nices-p { margin-top: 0.5rem; margin-bottom: 0.3rem; }
-    .intro-text .niches { color: var(--ink); font-weight: 400; font-size: 22px; margin: 0; }
+    
+    /* Text-Kompaktformatierung mit echtem Bold und hängendem Einzug */
+    .intro-text p { margin: 0 0 1rem; color: var(--ink); font-size: 20px; }
+    .intro-text strong, .intro-text b { font-weight: 700; } /* Echter Noble Bold Schnitt statt Browser-Fett */
+    
+    .intro-text ul {
+      list-style-type: none; /* Entfernt Standard-Bullet, wird manuell gesetzt */
+      padding-left: 0;
+      margin: 0.5rem 0 0 0;
+    }
+    .intro-text li {
+      position: relative;
+      padding-left: 22px; /* Platz für den Punkt */
+      text-indent: -22px; /* Hängender Einzug (InDesign-Tabulator-Äquivalent für Zeilenumbrüche) */
+      margin-bottom: 0.4rem;
+      font-size: 20px;
+      color: var(--ink);
+    }
     
     .intro-img-wrap, .split-img-wrap {
       padding: 0 !important;
