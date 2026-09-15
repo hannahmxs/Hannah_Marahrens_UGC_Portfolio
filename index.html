@@ -1306,8 +1306,8 @@
         <ul>
           <li>Raw Aufnahme</li>
           <li>Zusätzliche Hooks</li>
+          <li>UGC Fotografie</li>
           <li>Whitelisting</li>
-          <li>UGC Produktfotografie</li>
         </ul>
       </div>
     </div>
@@ -1553,37 +1553,6 @@
     }
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   }, false);
-</script>
-
-<script>
-  // CTA-Hinweis auf der Abschlussseite: erscheint erst, wenn die Sektion
-  // ein paar Sekunden im Blickfeld war, und bleibt danach sichtbar.
-  (function() {
-    const hint = document.getElementById('closingCtaHint');
-    const closingCard = document.querySelector('.closing-card');
-    if (!hint || !closingCard) return;
-
-    const DELAY_MS = 2500; // Verzögerung, ab wann der Hinweis erscheint
-    let timer = null;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          if (!timer) {
-            timer = setTimeout(() => {
-              hint.classList.add('visible');
-            }, DELAY_MS);
-          }
-        } else {
-          // Wenn man vor Ablauf der Zeit wieder wegscrollt, Timer zurücksetzen
-          clearTimeout(timer);
-          timer = null;
-        }
-      });
-    }, { threshold: 0.6 });
-
-    observer.observe(closingCard);
-  })();
 </script>
 
 </body>
