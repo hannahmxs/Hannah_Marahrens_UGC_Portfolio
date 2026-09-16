@@ -106,16 +106,16 @@
       padding-top: 3rem;
     }
 
-    /* ---------- TOP MENÜLEISTE (IM HERO) ---------- */
+    /* ---------- TOP MENÜLEISTE (IMMENS FLEXIBEL) ---------- */
     .top-nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(225, 220, 250, 0.9);
+      background: rgba(225, 220, 250, 0.95);
       backdrop-filter: blur(4px);
       width: 100%;
-      padding: 0.6rem 2.5rem;
+      padding: 0.5rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -123,11 +123,6 @@
       z-index: 30;
       overflow-x: auto; 
       scrollbar-width: none; 
-      transition: transform 0.3s ease;
-    }
-
-    .top-nav.nav-hidden {
-      transform: translateY(-100%);
     }
 
     .top-nav::-webkit-scrollbar {
@@ -137,14 +132,14 @@
     .top-nav-icons {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      margin-left: 2.5rem;
+      gap: 1rem;
+      margin-left: 0.5rem;
       flex-shrink: 0;
     }
 
     .nav-icon-circle {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       background: var(--ink);
       border-radius: 50%;
       display: flex;
@@ -160,8 +155,8 @@
     }
 
     .nav-icon-img {
-      width: 17px;
-      height: 17px;
+      width: 15px;
+      height: 15px;
       object-fit: contain;
       filter: brightness(0) invert(1);
     }
@@ -169,7 +164,7 @@
     .top-nav-links {
       display: flex;
       align-items: center;
-      gap: clamp(1rem, 2vw, 3rem);
+      gap: clamp(0.5rem, 1.5vw, 2.5rem);
       flex-shrink: 1;
       overflow: hidden;
     }
@@ -178,8 +173,8 @@
       font-family: "Nobel", sans-serif;
       font-weight: 400;
       color: var(--ink);
-      font-size: 14px;
-      letter-spacing: 0.08em;
+      font-size: clamp(12px, 1.2vw, 14px);
+      letter-spacing: 0.06em;
       text-decoration: none;
       white-space: nowrap;
       text-transform: uppercase;
@@ -195,17 +190,6 @@
     .mail-icon {
       width: 12px;
       height: 12px;
-    }
-
-    @media (max-width: 1100px) {
-      .top-nav {
-        display: none !important;
-      }
-      
-      .hero-top {
-        top: auto !important;
-        bottom: 1.5rem !important;
-      }
     }
 
     /* ---------- HERO ---------- */
@@ -278,7 +262,7 @@
       color: var(--paper); 
     }
 
-    /* ---------- MODERNES PHONE MOCKUP (Dynamic Island + Animationen) ---------- */
+    /* ---------- MODERNES PHONE MOCKUP ---------- */
     .section-phones-tight, .section-phones-normal {
       max-width: 1100px;
       margin: 0 auto;
@@ -417,7 +401,7 @@
       text-align: left; 
     }
     
-    /* ---------- FARBIGE SECTIONS & SPLIT (1:1 GEWICHTET FÜR BREITERE BILDER) ---------- */
+    /* ---------- FARBIGE SECTIONS & SPLIT ---------- */
     .bg-lime { background: var(--lime); }
     .bg-lavender { background: var(--lavender); }
 
@@ -443,6 +427,11 @@
       object-fit: cover;
       object-position: center center;
       display: block;
+    }
+
+    /* Spezieller Ausschnitt für Intro-Bild (weniger rechts, mehr links) */
+    .intro-img-wrap img {
+      object-position: 28% center;
     }
 
     .stats-grid {
@@ -753,6 +742,12 @@
         justify-content: center !important;
       }
 
+      /* Spezifische Anpassung für Why-UGC Sektion auf Mobile */
+      #warum-ugc.fullscreen-slide {
+        height: auto !important;
+        min-height: auto !important;
+      }
+
       p, li, .intro-text p, .phone-sub, .service-card p, .service-card li {
         text-align: left !important;
       }
@@ -1041,8 +1036,8 @@
       </div>
 
       <div class="text-mobile">  
-        <p>Moin, ich bin Hannah (22), Creatorin &amp; Kommunikationsdesignerin aus Hamburg.</p>
-        <p>Mit meinem geschulten Auge für Komposition, Bildsprache und Details übersetze ich deine Marke in nahbaren Content, der deine Zielgruppe emotional erreicht, das Engagement messbar steigert und eine treue Community aufbaut.</p>
+        <p>Moin, ich bin Hannah (22),<br>Creatorin &amp; Kommunikations<br>designerin aus Hamburg.</p>
+        <p>Mit meinem geschulten Auge für<br>Komposition, Bildsprache und<br>Details übersetze ich deine Marke<br>in nahbaren Content, der deine<br>Zielgruppe emotional erreicht,<br>das Engagement steigert und<br>eine Community aufbaut.</p>
         <br>
         <p><strong>Das bringe ich mit:</strong></p>  
         <div style="margin-top: 0.5rem;">  
@@ -1060,7 +1055,7 @@
     </div>
 
     <div class="intro-img-wrap split-img-wrap">
-      <img src="bilder/intro.jpg" alt="Hannah" class="shifted-right-img">
+      <img src="bilder/intro.jpg" alt="Hannah">
     </div>
   </div> 
 </section>
@@ -1144,9 +1139,9 @@
 </div>
 
 <!-- ===================== 8. WHY UGC? ===================== -->
-<section class="bg-lavender fullscreen-slide" id="warum-ugc">
+<section class="bg-lavender fullscreen-slide" id="warum-ugc" style="height: auto !important; min-height: auto !important;">
   <div class="split">
-    <div class="ugc-text-box">
+    <div class="ugc-text-box" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
       <h2 style="font-size:36px; margin-bottom:0.8rem;">Warum UGC?</h2>
       <p style="font-size:22px; color:var(--muted); margin-bottom:1.2rem;">Klassische Werbung wird oft ignoriert, <br> echter Content schafft Vertrauen.</p>
       <p style="font-weight:400; font-size:22px; margin-bottom:0.4rem;">Fakten über UGC (2026)</p>
@@ -1415,22 +1410,6 @@
       }
     });
   });
-</script>
-
-<script>
-  let lastScrollTop = 0;
-  const topNav = document.querySelector('.top-nav');
-
-  window.addEventListener('scroll', function() {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-      topNav.classList.add('nav-hidden');
-    } else {
-      topNav.classList.remove('nav-hidden');
-    }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  }, false);
 </script>
 
 </body>
