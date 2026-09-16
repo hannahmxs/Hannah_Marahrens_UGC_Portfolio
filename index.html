@@ -106,7 +106,7 @@
       padding-top: 3rem;
     }
 
-    /* ---------- TOP MENÜLEISTE (IMMENS FLEXIBEL) ---------- */
+    /* ---------- TOP MENÜLEISTE ---------- */
     .top-nav {
       position: fixed;
       top: 0;
@@ -127,38 +127,6 @@
 
     .top-nav::-webkit-scrollbar {
       display: none;
-    }
-
-    .top-nav-icons {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-left: 0.5rem;
-      flex-shrink: 0;
-    }
-
-    .nav-icon-circle {
-      width: 28px;
-      height: 28px;
-      background: var(--ink);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.25s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      text-decoration: none;
-    }
-
-    .nav-icon-circle:hover {
-      transform: scale(1.1);
-    }
-
-    .nav-icon-img {
-      width: 15px;
-      height: 15px;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
     }
 
     .top-nav-links {
@@ -185,6 +153,38 @@
     .top-nav-links a:hover { 
       text-decoration: none; 
       transform: scale(1.08); 
+    }
+
+    .top-nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-left: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .nav-icon-circle {
+      width: 28px;
+      height: 28px;
+      background: var(--ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      text-decoration: none;
+    }
+
+    .nav-icon-circle:hover {
+      transform: scale(1.1);
+    }
+
+    .nav-icon-img {
+      width: 15px;
+      height: 15px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
     }
 
     .mail-icon {
@@ -429,23 +429,9 @@
       display: block;
     }
 
-    /* Spezieller Ausschnitt für Intro-Bild (weniger rechts, mehr links) */
     .intro-img-wrap img {
       object-position: 28% center;
     }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin: 1.2rem 0;
-    }
-    .stat .num { 
-      font-family: 'NobelBold', sans-serif;
-      font-size: 36px; 
-      font-weight: 700; 
-    }
-    .stat .lbl { font-size: 17px; color: var(--muted); }
 
     .facts { padding-left: 1.2rem; margin: 0.6rem 0 1.2rem; font-size: 22px; }
     .facts li { margin-bottom: 0.4rem; }
@@ -685,6 +671,11 @@
     .text-mobile { display: none; }
 
     @media (max-width: 800px) {
+      /* Icons in der Menüleiste ausblenden, sobald das Hero-Bild die Kontaktdaten anzeigt */
+      .top-nav-icons {
+        display: none !important;
+      }
+
       .hero {
         height: 75vh !important;
         min-height: 480px !important;
@@ -963,23 +954,25 @@
 
 <!-- ===================== 0. MENÜLEISTE ===================== -->
 <nav class="top-nav">
-  <div class="top-nav-icons">
-    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#103;&#99;&#46;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;" class="nav-icon-circle" title="E-Mail schreiben">
-      <img src="bilder/icon-mail.png" alt="Mail" class="nav-icon-img">
-    </a>
-    <a href="https://instagram.com/hannah_marahrens" target="_blank" class="nav-icon-circle" title="Instagram">
-      <img src="bilder/icon-instagram.png" alt="Instagram" class="nav-icon-img">
-    </a>
-  </div>
-  
-  <div class="top-nav-links">
-    <a href="#intro">WARUM ICH</a>
-    <a href="#arbeit">MEINE ARBEIT</a>
-    <a href="#warum-ugc">WARUM UGC</a>
-    <a href="#dienstleistungen">DIENST</a>
-    <a href="#workflow">WORKFLOW</a>
-    <a href="#ugc-fotos">UGC FOTOS</a>
-    <a href="#kontakt">KONTAKT</a>
+  <div class="top-nav-container">
+    <div class="top-nav-links">
+      <a href="#intro">WARUM ICH</a>
+      <a href="#arbeit">MEINE ARBEIT</a>
+      <a href="#warum-ugc">WARUM UGC</a>
+      <a href="#dienstleistungen">DIENST</a>
+      <a href="#workflow">WORKFLOW</a>
+      <a href="#ugc-fotos">UGC FOTOS</a>
+      <a href="#kontakt">KONTAKT</a>
+    </div>
+
+    <div class="top-nav-icons">
+      <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#103;&#99;&#46;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#114;&#110;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;" class="nav-icon-circle" title="E-Mail schreiben">
+        <img src="bilder/icon-mail.png" alt="Mail" class="nav-icon-img">
+      </a>
+      <a href="https://instagram.com/hannah_marahrens" target="_blank" class="nav-icon-circle" title="Instagram">
+        <img src="bilder/icon-instagram.png" alt="Instagram" class="nav-icon-img">
+      </a>
+    </div>
   </div>
 </nav>
 
