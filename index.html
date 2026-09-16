@@ -115,17 +115,22 @@
       background: rgba(225, 220, 250, 0.95);
       backdrop-filter: blur(4px);
       width: 100%;
-      padding: 0.5rem 1.5rem;
+      z-index: 30;
+    }
+
+    .top-nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.5rem 5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: nowrap;
-      z-index: 30;
       overflow-x: auto; 
       scrollbar-width: none; 
     }
 
-    .top-nav::-webkit-scrollbar {
+    .top-nav-container::-webkit-scrollbar {
       display: none;
     }
 
@@ -159,7 +164,6 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin-left: 1.5rem;
       flex-shrink: 0;
     }
 
@@ -955,6 +959,15 @@
 <!-- ===================== 0. MENÜLEISTE ===================== -->
 <nav class="top-nav">
   <div class="top-nav-container">
+    <div class="top-nav-icons">
+      <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#103;&#99;&#46;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;" class="nav-icon-circle" title="E-Mail schreiben">
+        <img src="bilder/icon-mail.png" alt="Mail" class="nav-icon-img">
+      </a>
+      <a href="https://instagram.com/hannah_marahrens" target="_blank" class="nav-icon-circle" title="Instagram">
+        <img src="bilder/icon-instagram.png" alt="Instagram" class="nav-icon-img">
+      </a>
+    </div>
+
     <div class="top-nav-links">
       <a href="#intro">WARUM ICH</a>
       <a href="#arbeit">MEINE ARBEIT</a>
@@ -963,15 +976,6 @@
       <a href="#workflow">WORKFLOW</a>
       <a href="#ugc-fotos">UGC FOTOS</a>
       <a href="#kontakt">KONTAKT</a>
-    </div>
-
-    <div class="top-nav-icons">
-      <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#103;&#99;&#46;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#114;&#110;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;" class="nav-icon-circle" title="E-Mail schreiben">
-        <img src="bilder/icon-mail.png" alt="Mail" class="nav-icon-img">
-      </a>
-      <a href="https://instagram.com/hannah_marahrens" target="_blank" class="nav-icon-circle" title="Instagram">
-        <img src="bilder/icon-instagram.png" alt="Instagram" class="nav-icon-img">
-      </a>
     </div>
   </div>
 </nav>
