@@ -197,7 +197,7 @@
       height: 12px;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 1100px) {
       .top-nav {
         display: none !important;
       }
@@ -417,20 +417,33 @@
       text-align: left; 
     }
     
-    /* ---------- FARBIGE SECTIONS & SPLIT ---------- */
+    /* ---------- FARBIGE SECTIONS & SPLIT (1:1 GEWICHTET FÜR BREITERE BILDER) ---------- */
     .bg-lime { background: var(--lime); }
     .bg-lavender { background: var(--lavender); }
 
     .split {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
       width: 100%;
       height: 100%;
       max-width: 1100px;
       margin: 0 auto;
     }
     .split > div { padding: 0 1.5rem; display: flex; flex-direction: column; justify-content: center; }
+
+    .split-img-wrap {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .split-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
 
     .stats-grid {
       display: grid;
@@ -765,7 +778,7 @@
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important; 
-        object-position: center !important;
+        object-position: top center !important;
       }
 
       .phone-row {
@@ -915,7 +928,7 @@
       .footer-bottom-bar .text-desktop { display: none; }
       .footer-bottom-bar .text-mobile { display: block; }
     }
-    @media (min-width: 801px) {
+    @media (min-width: 1101px) {
       .hero-contact-left,
       .hero-contact-right {
         display: none !important;
@@ -1007,7 +1020,7 @@
       <h2>Warum Ich</h2>
       
       <div class="text-desktop">  
-        <p>Moin,<br>ich bin Hannah (22), Creatorin &<br>Kommunikationsdesignerin aus Hamburg.</p>
+        <p>Moin,<br>ich bin Hannah (22), Creatorin &amp;<br>Kommunikationsdesignerin aus Hamburg.</p>
 
         <p>Mit meinem geschulten Auge für Komposition, Bildsprache<br>und Details übersetze ich deine Marke in nahbaren Content,<br>der deine Zielgruppe emotional erreicht, das Engagement<br>messbar steigert und eine treue Community aufbaut.</p>
 
@@ -1019,7 +1032,7 @@
             <strong>Strategische Markenästhetik</strong><br>Visuelle Konzepte passend zu deiner Brand Identity
           </div>  
           <div style="margin-bottom: 0.6rem;">
-            <strong>Designwissen</strong><br>Starkes Gespür für Layout, Typografie & Storytelling
+            <strong>Designwissen</strong><br>Starkes Gespür für Layout, Typografie &amp; Storytelling
           </div>  
           <div style="margin-bottom: 0.6rem;">
             <strong>Fokus-Nischen</strong><br>Lifestyle · Beauty · Food · Travel
@@ -1028,44 +1041,26 @@
       </div>
 
       <div class="text-mobile">  
-        <p>  
-          Moin,<br>
-          ich bin Hannah (22), Creatorin &<br>
-          Kommunikationsdesignerin aus Hamburg.  
-        </p>
-
-        <pre style="font-family: inherit; font-size: inherit; line-height: inherit; color: inherit; margin: 0; white-space: pre-wrap; background: transparent; padding: 0;">Mit meinem geschulten Auge für Kompo-
-sition, Bildsprache und Details
-übersetze ich deine Marke in nahbaren
-Content, der deine Zielgruppe emotional
-erreicht, das Engagement messbar steigert
-und eine treue Community aufbaut.</pre>
-
+        <p>Moin, ich bin Hannah (22), Creatorin &amp; Kommunikationsdesignerin aus Hamburg.</p>
+        <p>Mit meinem geschulten Auge für Komposition, Bildsprache und Details übersetze ich deine Marke in nahbaren Content, der deine Zielgruppe emotional erreicht, das Engagement messbar steigert und eine treue Community aufbaut.</p>
         <br>
         <p><strong>Das bringe ich mit:</strong></p>  
-        
         <div style="margin-top: 0.5rem;">  
           <div style="margin-bottom: 0.6rem;">  
-            <strong>Strategische Markenästhetik</strong><br>  
-            Visuelle Konzepte passend zu<br>  
-            deiner Brand Identity
+            <strong>Strategische Markenästhetik</strong><br>Visuelle Konzepte passend zu deiner Brand Identity
           </div>  
           <div style="margin-bottom: 0.6rem;">  
-            <strong>Designwissen</strong><br>  
-            Starkes Gespür für Layout, Typografie<br>  
-            & Storytelling
+            <strong>Designwissen</strong><br>Starkes Gespür für Layout, Typografie &amp; Storytelling
           </div>  
           <div style="margin-bottom: 0.6rem;">  
-            <strong>Fokus-Nischen</strong><br>  
-            Lifestyle · Beauty · Food ·<br>  
-            Travel
+            <strong>Fokus-Nischen</strong><br>Lifestyle · Beauty · Food · Travel
           </div>  
         </div>  
       </div>  
     </div>
 
-    <div class="intro-img-wrap split-img-wrap" style="width: 100%; height: 100%;">
-      <img src="bilder/intro.jpg" alt="Hannah" class="shifted-right-img" style="width: 100%; height: 100%; object-fit: cover;">
+    <div class="intro-img-wrap split-img-wrap">
+      <img src="bilder/intro.jpg" alt="Hannah" class="shifted-right-img">
     </div>
   </div> 
 </section>
@@ -1092,7 +1087,7 @@ und eine treue Community aufbaut.</pre>
             <video controls poster="bilder/video2-poster.jpg"><source src="videos/omega3.mp4" type="video/mp4"></video>
           </div>
         </div>
-        <div class="phone-label">Health & Wellness</div>
+        <div class="phone-label">Health &amp; Wellness</div>
         <div class="phone-sub">Testimonial</div>
       </div>
       <div class="phone-card">
@@ -1112,7 +1107,7 @@ und eine treue Community aufbaut.</pre>
 <!-- ===================== 4. UGC PORTFOLIO – Beispiele 2 ===================== -->
 <div class="fullscreen-slide">
   <div class="section-phones-normal">
-    <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 20px;">Lifetyle & Ästhetik</p>
+    <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 20px;">Lifestyle &amp; Ästhetik</p>
     <div class="phone-row">
       <div class="phone-card">
         <div class="phone-frame lavender-border">
@@ -1141,7 +1136,7 @@ und eine treue Community aufbaut.</pre>
             <video controls poster="bilder/video6-poster.jpg"><source src="videos/beauty.mp4" type="video/mp4"></video>
           </div>
         </div>
-        <div class="phone-label">Home & Living</div>
+        <div class="phone-label">Home &amp; Living</div>
         <div class="phone-sub">Storytelling</div>
       </div>
     </div>
@@ -1163,8 +1158,8 @@ und eine treue Community aufbaut.</pre>
       </ul>
       <p style="color:var(--muted); font-size:22px; margin-top:0.8rem;">Durch authentischen Content entsteht eine direkte emotionale Verbindung zur Zielgruppe, die messbar zu höheren Abschlussraten führt und die Konversionen-Zahlen maximiert.</p>
     </div>
-    <div class="split-img-wrap" style="width: 100%; height: 100%;">
-      <img src="bilder/why-ugc.jpg" alt="Why UGC" style="width: 100%; height: 100%; object-fit: cover;">
+    <div class="split-img-wrap">
+      <img src="bilder/why-ugc.jpg" alt="Why UGC">
     </div>
   </div>
 </section>
