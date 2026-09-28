@@ -945,6 +945,19 @@
       .footer-bottom-bar .text-desktop { display: none; }
       .footer-bottom-bar .text-mobile { display: block; }
     }
+    /* ---------- INTRO-TEXT: Mobil-Variante statt Desktop-Variante ---------- */
+    @media (max-width: 800px) {
+      .intro-text .text-desktop { display: none !important; }
+      .intro-text .text-mobile  { display: block !important; }
+      .intro-text .text-mobile p {
+        hyphens: manual;
+        -webkit-hyphens: manual;
+        word-break: normal;
+        overflow-wrap: break-word;
+        text-wrap: pretty;
+      }
+      .intro-text .text-mobile .balance { text-wrap: balance; }
+    }
     @media (min-width: 1101px) {
       .hero-contact-left,
       .hero-contact-right {
@@ -1064,7 +1077,7 @@
 
       <div class="text-mobile">
         <p class="balance">Moin,<br>ich bin Hannah&nbsp;(22), Creatorin &amp; Kommunikations&shy;designerin aus Hamburg.</p>
-        <p>Mit meinem geschulten Auge für Komposition, Bildsprache und Details übersetze ich deine Marke in nahbaren Content, der deine Zielgruppe emotional erreicht, das Engagement steigert und eine Community aufbaut.</p>
+        <p>Mit meinem geschulten Auge für Kom&shy;position, Bild&shy;sprache und Details übersetze ich deine Marke in nahbaren Content, der deine Ziel&shy;gruppe emo&shy;tional erreicht, das Engage&shy;ment messbar steigert und eine treue Community aufbaut.</p>
         <br>
         <p><strong>Das bringe ich mit:</strong></p>
         <div style="margin-top: 0.5rem;">
@@ -1455,7 +1468,7 @@
     const els = document.querySelectorAll('.text-mobile p, .text-mobile .balance');
     els.forEach(el => {
       el.style.maxWidth = '';
-      if (window.innerWidth > 768 || el.offsetParent === null) return;
+      if (window.innerWidth > 800 || el.offsetParent === null) return;
       const targetHeight = el.offsetHeight;
       let lo = 0, hi = el.clientWidth;
       while (hi - lo > 1) {
