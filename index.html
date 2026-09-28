@@ -901,7 +901,7 @@
         -webkit-hyphens: manual;
         word-break: normal;
         overflow-wrap: break-word;
-        text-wrap: pretty;             /* vermeidet Einzelwörter in der letzten Zeile, gleichmäßigerer Flattersatz */
+        text-wrap: pretty;             /* vermeidet Einzelwörter in der letzten Zeile */
       }
       .text-mobile .balance {
         text-wrap: balance;            /* möglichst gleich lange Zeilen */
@@ -946,16 +946,19 @@
       margin: 0;
       padding: 0;
     }
+
+    /* ---------- SPRUNGZIELE DER MENÜLEISTE ---------- */
     :root { --nav-h: 49px; }
 
     /* Unterkante der Menüleiste = Oberkante des Intro-Bildes
-   (das Bild beginnt 3rem unterhalb des Section-Anfangs) */
-    #intro { scroll-margin-top: calc(var(--nav-h) - 3rem);
-    }
+       (das Bild beginnt 3rem unterhalb des Section-Anfangs) */
+    #intro { scroll-margin-top: calc(var(--nav-h) - 3rem); }
+
     #arbeit { scroll-margin-top: 0; }
-   /* Unterkante der Menüleiste = Oberkante des Why-UGC-Bildes */
+
+    /* Unterkante der Menüleiste = Oberkante des Why-UGC-Bildes */
     #warum-ugc { scroll-margin-top: var(--nav-h); }
-    }
+
     #dienstleistungen {
       scroll-margin-top: calc(50vh - 450px);
     }
@@ -1044,23 +1047,24 @@
         </div>
       </div>
 
-     <div class="text-mobile">
-  <p class="balance">Moin,<br>ich bin Hannah&nbsp;(22), Creatorin &amp; Kommunikations&shy;designerin aus Hamburg.</p>
-  <p>Mit meinem geschulten Auge für Komposition, Bildsprache und Details übersetze ich deine Marke in nahbaren Content, der deine Zielgruppe emotional erreicht, das Engagement steigert und eine Community aufbaut.</p>
-  <br>
-  <p><strong>Das bringe ich mit:</strong></p>
-  <div style="margin-top: 0.5rem;">
-    <div class="balance" style="margin-bottom: 0.6rem;">
-      <strong>Strategische Markenästhetik</strong><br>Visuelle Konzepte passend zu deiner Brand&nbsp;Identity
-    </div>
-    <div class="balance" style="margin-bottom: 0.6rem;">
-      <strong>Designwissen</strong><br>Starkes Gespür für Layout, Typografie &amp; Storytelling
-    </div>
-    <div class="balance" style="margin-bottom: 0.6rem;">
-      <strong>Fokus-Nischen</strong><br>Lifestyle&nbsp;·&nbsp;Beauty&nbsp;·&nbsp;Food&nbsp;·&nbsp;Travel
-    </div>
-  </div>
-</div>
+      <div class="text-mobile">
+        <p class="balance">Moin,<br>ich bin Hannah&nbsp;(22), Creatorin &amp; Kommunikations&shy;designerin aus Hamburg.</p>
+        <p>Mit meinem geschulten Auge für Komposition, Bildsprache und Details übersetze ich deine Marke in nahbaren Content, der deine Zielgruppe emotional erreicht, das Engagement steigert und eine Community aufbaut.</p>
+        <br>
+        <p><strong>Das bringe ich mit:</strong></p>
+        <div style="margin-top: 0.5rem;">
+          <div class="balance" style="margin-bottom: 0.6rem;">
+            <strong>Strategische Markenästhetik</strong><br>Visuelle Konzepte passend zu deiner Brand&nbsp;Identity
+          </div>
+          <div class="balance" style="margin-bottom: 0.6rem;">
+            <strong>Designwissen</strong><br>Starkes Gespür für Layout, Typografie &amp; Storytelling
+          </div>
+          <div class="balance" style="margin-bottom: 0.6rem;">
+            <strong>Fokus-Nischen</strong><br>Lifestyle&nbsp;·&nbsp;Beauty&nbsp;·&nbsp;Food&nbsp;·&nbsp;Travel
+          </div>
+        </div>
+      </div>
+    </div><!-- /intro-text -->
 
     <div class="intro-img-wrap split-img-wrap">
       <img src="bilder/intro.jpg" alt="Hannah">
@@ -1071,7 +1075,7 @@
 <!-- ===================== 3. UGC PORTFOLIO – Beispiele 1 ===================== -->
 <div class="fullscreen-slide" id="arbeit">
   <div class="section-phones-tight">
-    <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 20px;">Performance & Review</p>
+    <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 20px;">Performance &amp; Review</p>
     <div class="phone-row">
       <div class="phone-card">
         <div class="phone-frame">
@@ -1416,15 +1420,19 @@
       if (rect.top < window.innerHeight * 0.85) {
         timeline.classList.add('in-view');
       }
-      document.querySelectorAll('a[href="#kontakt"]').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const bar = document.querySelector('.closing-bar');   // gelbe Kontaktzeile
-    const bottom = bar.getBoundingClientRect().bottom + window.scrollY;
-    window.scrollTo({ top: bottom - window.innerHeight, behavior: 'smooth' });
+    });
   });
-});
 
+  /* "Kontakt" im Menü: so scrollen, dass die gelbe Kontaktzeile
+     voll sichtbar ist und der lila Footer knapp außerhalb liegt */
+  document.querySelectorAll('a[href="#kontakt"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const bar = document.querySelector('.closing-bar');
+      const bottom = bar.getBoundingClientRect().bottom + window.scrollY;
+      window.scrollTo({ top: bottom - window.innerHeight, behavior: 'smooth' });
+    });
+  });
 </script>
 
 </body>
