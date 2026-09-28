@@ -1437,6 +1437,13 @@
   const workflowTimelines = document.querySelectorAll('.workflow-timeline');
   const scrollTopBtn = document.getElementById('scrollTopBtn');
 
+/* Nach dem Abspielen: Video zurücksetzen und Titelbild (Poster) wieder anzeigen */
+document.querySelectorAll('.phone-screen video').forEach(video => {
+  video.addEventListener('ended', () => {
+    video.load(); // setzt das Video auf Anfang und blendet das Poster wieder ein
+  });
+});
+  
   window.addEventListener('scroll', () => {
     const scrollPos = window.scrollY;
 
