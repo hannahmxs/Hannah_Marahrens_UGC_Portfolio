@@ -896,12 +896,15 @@
         font-family: "Nobel", sans-serif !important;
         font-weight: 300 !important;
       }
-
       .intro-text p {
-        hyphens: auto;
-        -webkit-hyphens: auto;
+        hyphens: manual;               /* Silbentrennung nur an den &shy;-Stellen */
+        -webkit-hyphens: manual;
         word-break: normal;
         overflow-wrap: break-word;
+        text-wrap: pretty;             /* vermeidet Einzelwörter in der letzten Zeile, gleichmäßigerer Flattersatz */
+      }
+      .text-mobile .balance {
+        text-wrap: balance;            /* möglichst gleich lange Zeilen */
       }
       
       .bg-lime.section, .split > div {
@@ -943,13 +946,15 @@
       margin: 0;
       padding: 0;
     }
+    :root { --nav-h: 49px; }
 
-    #intro {
-      scroll-margin-top: -24px;
+    /* Unterkante der Menüleiste = Oberkante des Intro-Bildes
+   (das Bild beginnt 3rem unterhalb des Section-Anfangs) */
+    #intro { scroll-margin-top: calc(var(--nav-h) - 3rem);
     }
-    #arbeit,
-    #warum-ugc {
-      scroll-margin-top: 0;
+    #arbeit { scroll-margin-top: 0; }
+   /* Unterkante der Menüleiste = Oberkante des Why-UGC-Bildes */
+    #warum-ugc { scroll-margin-top: var(--nav-h); }
     }
     #dienstleistungen {
       scroll-margin-top: calc(50vh - 450px);
@@ -1039,24 +1044,23 @@
         </div>
       </div>
 
-      <div class="text-mobile">  
-        <p>Moin, ich bin Hannah (22),<br>Creatorin &amp; Kommunikations<br>designerin aus Hamburg.</p>
-        <p>Mit meinem geschulten Auge für<br>Komposition, Bildsprache und<br>Details übersetze ich deine Marke<br>in nahbaren Content, der deine<br>Zielgruppe emotional erreicht,<br>das Engagement steigert und<br>eine Community aufbaut.</p>
-        <br>
-        <p><strong>Das bringe ich mit:</strong></p>  
-        <div style="margin-top: 0.5rem;">  
-          <div style="margin-bottom: 0.6rem;">  
-            <strong>Strategische Markenästhetik</strong><br>Visuelle Konzepte passend zu deiner Brand Identity
-          </div>  
-          <div style="margin-bottom: 0.6rem;">  
-            <strong>Designwissen</strong><br>Starkes Gespür für Layout, Typografie &amp; Storytelling
-          </div>  
-          <div style="margin-bottom: 0.6rem;">  
-            <strong>Fokus-Nischen</strong><br>Lifestyle · Beauty · Food · Travel
-          </div>  
-        </div>  
-      </div>  
+     <div class="text-mobile">
+  <p class="balance">Moin,<br>ich bin Hannah&nbsp;(22), Creatorin &amp; Kommunikations&shy;designerin aus Hamburg.</p>
+  <p>Mit meinem geschulten Auge für Komposition, Bildsprache und Details übersetze ich deine Marke in nahbaren Content, der deine Zielgruppe emotional erreicht, das Engagement steigert und eine Community aufbaut.</p>
+  <br>
+  <p><strong>Das bringe ich mit:</strong></p>
+  <div style="margin-top: 0.5rem;">
+    <div class="balance" style="margin-bottom: 0.6rem;">
+      <strong>Strategische Markenästhetik</strong><br>Visuelle Konzepte passend zu deiner Brand&nbsp;Identity
     </div>
+    <div class="balance" style="margin-bottom: 0.6rem;">
+      <strong>Designwissen</strong><br>Starkes Gespür für Layout, Typografie &amp; Storytelling
+    </div>
+    <div class="balance" style="margin-bottom: 0.6rem;">
+      <strong>Fokus-Nischen</strong><br>Lifestyle&nbsp;·&nbsp;Beauty&nbsp;·&nbsp;Food&nbsp;·&nbsp;Travel
+    </div>
+  </div>
+</div>
 
     <div class="intro-img-wrap split-img-wrap">
       <img src="bilder/intro.jpg" alt="Hannah">
@@ -1412,8 +1416,15 @@
       if (rect.top < window.innerHeight * 0.85) {
         timeline.classList.add('in-view');
       }
-    });
+      document.querySelectorAll('a[href="#kontakt"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const bar = document.querySelector('.closing-bar');   // gelbe Kontaktzeile
+    const bottom = bar.getBoundingClientRect().bottom + window.scrollY;
+    window.scrollTo({ top: bottom - window.innerHeight, behavior: 'smooth' });
   });
+});
+
 </script>
 
 </body>
