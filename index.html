@@ -924,6 +924,21 @@
         padding-top: 2rem;
       }
 
+      /* Why-UGC-Bild mobil: vollständig sichtbar, mit Luft nach unten */
+      #warum-ugc { padding-bottom: 2.5rem !important; }
+      #warum-ugc .split-img-wrap {
+        padding: 1.5rem 1.5rem 0 !important;
+        height: auto !important;
+        min-height: 0 !important;
+        aspect-ratio: auto !important;
+        overflow: visible !important;
+      }
+      #warum-ugc .split-img-wrap img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+      }
+
       .text-videos-desktop { display: none; }
       .text-videos-mobile { display: block; text-align: left; }
 
@@ -1432,6 +1447,31 @@
       const bottom = bar.getBoundingClientRect().bottom + window.scrollY;
       window.scrollTo({ top: bottom - window.innerHeight, behavior: 'smooth' });
     });
+  });
+
+  /* Flattersatz mobil: Textbreite so weit verengen, dass die Zeilenzahl gleich bleibt
+     -> alle Zeilen ungefähr gleich lang, rechter Rand annähernd auf einer Linie */
+  function balanceMobileText() {
+    const els = document.querySelectorAll('.text-mobile p, .text-mobile .balance');
+    els.forEach(el => {
+      el.style.maxWidth = '';
+      if (window.innerWidth > 768 || el.offsetParent === null) return;
+      const targetHeight = el.offsetHeight;
+      let lo = 0, hi = el.clientWidth;
+      while (hi - lo > 1) {
+        const mid = Math.floor((lo + hi) / 2);
+        el.style.maxWidth = mid + 'px';
+        if (el.offsetHeight > targetHeight) { lo = mid; } else { hi = mid; }
+      }
+      el.style.maxWidth = hi + 'px';
+    });
+  }
+  window.addEventListener('load', balanceMobileText);
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(balanceMobileText); }
+  let balanceTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(balanceTimer);
+    balanceTimer = setTimeout(balanceMobileText, 120);
   });
 </script>
 
