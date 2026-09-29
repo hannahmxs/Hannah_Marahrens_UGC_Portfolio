@@ -559,10 +559,35 @@
     .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 20px; color: #222; }
     .workflow-step li { margin-bottom: 0.4rem; }
 
-    /* ---------- GALERIE STRIP ---------- */
+    /* ---------- GALERIE (UGC FOTOS) – versetztes Layout ---------- */
     .gallery-section { max-width: 1100px; margin: 6.5rem auto; padding: 0 1.5rem; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    .gallery-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #eee; display: block; }
+
+    .gallery-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+    .gallery-row + .gallery-row { margin-top: 1.5rem; }
+
+    /* Reihe 2 endet – wie in der Vorlage – etwas kürzer als Reihe 1.
+       Für bündigen Abschluss einfach auf 100% setzen. */
+    .gallery-row-2 { width: 97.8%; }
+
+    /* Jedes Bild bekommt flex-grow = Seitenverhältnis (Breite/Höhe).
+       Dadurch sind alle Bilder einer Reihe automatisch gleich hoch. */
+    .gallery-row img {
+      display: block;
+      min-width: 0;
+      height: auto;
+      object-fit: cover;
+      background: #eee;
+    }
+    .g1 { flex: 1.414 1 0; aspect-ratio: 1.414 / 1; }  /* Tee – quer */
+    .g2 { flex: 0.715 1 0; aspect-ratio: 0.715 / 1; }  /* Frau rote Wand – hoch */
+    .g3 { flex: 1.465 1 0; aspect-ratio: 1.465 / 1; }  /* Armband Sand – quer */
+    .g4 { flex: 1.5   1 0; aspect-ratio: 1.5 / 1; }    /* Armbänder – quer */
+    .g5 { flex: 0.715 1 0; aspect-ratio: 0.715 / 1; }  /* Frau mit Tuch – hoch */
+    .g6 { flex: 0.715 1 0; aspect-ratio: 0.715 / 1; }  /* Body Spray – hoch */
 
     /* ---------- TRIO PORTRAIT ---------- */
     .trio-wrapper { max-width: 100%; margin: 4rem auto 0 auto; padding: 0; }
@@ -884,7 +909,22 @@
       .closing-bar a {
         font-size: 20px !important;
       }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+      /* GALERIE MOBIL: alle Bilder untereinander, Originalformat bleibt erhalten */
+      .gallery-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        gap: 1rem !important;
+      }
+      .gallery-row + .gallery-row { margin-top: 1rem !important; }
+      .gallery-row img {
+        flex: none !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: auto !important;
+        object-fit: contain !important;
+      }
     }
     @media (max-width: 768px) {
       .hero-contact-left,
@@ -1296,19 +1336,19 @@
   </div>
 </section>
 
-<!-- ===================== 11. GALERIE STRIP ===================== -->
+<!-- ===================== 11. GALERIE (UGC FOTOS) ===================== -->
 <section class="gallery-section" id="ugc-fotos">
-  <div class="gallery-grid" style="margin-bottom: 1.5rem;">
-    <img src="bilder/beispiel1.jpg" alt="UGC Beispiel 1">
-    <img src="bilder/beispiel2.jpg" alt="UGC Beispiel 2">
-    <img src="bilder/beispiel3.jpg" alt="UGC Beispiel 3">
-    <img src="bilder/beispiel4.jpg" alt="UGC Beispiel 4">
+  <!-- Reihe 1: quer – hoch – quer (alle gleich hoch) -->
+  <div class="gallery-row gallery-row-1">
+    <img class="g1" src="bilder/beispiel1.jpg" alt="UGC Beispiel 1 – Tee">
+    <img class="g2" src="bilder/beispiel2.jpg" alt="UGC Beispiel 2 – Fashion vor roter Wand">
+    <img class="g3" src="bilder/beispiel3.jpg" alt="UGC Beispiel 3 – Armband im Sand">
   </div>
-  <div class="gallery-grid">
-    <img src="bilder/beispiel5.jpg" alt="UGC Beispiel 5">
-    <img src="bilder/beispiel6.jpg" alt="UGC Beispiel 6">
-    <img src="bilder/beispiel7.jpg" alt="UGC Beispiel 7">
-    <img src="bilder/beispiel8.jpg" alt="UGC Beispiel 8">
+  <!-- Reihe 2: quer – hoch – hoch (alle gleich hoch) -->
+  <div class="gallery-row gallery-row-2">
+    <img class="g4" src="bilder/beispiel4.jpg" alt="UGC Beispiel 4 – Armbänder">
+    <img class="g5" src="bilder/beispiel5.jpg" alt="UGC Beispiel 5 – Tuch am Strand">
+    <img class="g6" src="bilder/beispiel6.jpg" alt="UGC Beispiel 6 – Body Spray">
   </div>
 </section>
 
