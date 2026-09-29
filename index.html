@@ -916,26 +916,23 @@
 
       /* GALERIE MOBIL: Volle Bildschirmbreite */
       .gallery-section {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 auto !important;
-        padding: 0 !important;
-        gap: 0 !important;
+        height: auto !important;
+        margin: 3rem 0 !important;
+        gap: 10px !important;
       }
       .gallery-row {
+        flex: none !important;
         flex-direction: column !important;
         align-items: stretch !important;
-        width: 100% !important;
-        gap: 0 !important;
-        padding: 0 !important;
+        gap: 10px !important;
       }
-      .gallery-row img {
+      .gallery-row img,
+      .gallery-row-2 .g5,
+      .gallery-row-2 .g6 {
         flex: none !important;
         width: 100% !important;
         height: auto !important;
-        aspect-ratio: auto !important;
-        object-fit: cover !important;
-        background: transparent !important;
+        object-fit: contain !important;
       }
     }
     @media (max-width: 768px) {
@@ -1033,9 +1030,12 @@
     #dienstleistungen {
       scroll-margin-top: calc(50vh - 450px);
     }
-    #workflow,
-    #ugc-fotos {
+      #workflow {
       scroll-margin-top: 140px;
+    }
+    /* Galerie beginnt direkt unter der Menüleiste und füllt den Rest des Fensters */
+    #ugc-fotos {
+      scroll-margin-top: var(--nav-h);
     }
     #kontakt {
       scroll-margin-top: 0;
@@ -1339,18 +1339,47 @@
 </section>
 
 <!-- ===================== 11. GALERIE (UGC FOTOS) – Volle Bildschirmbreite ===================== -->
-<section class="gallery-section" id="ugc-fotos">
-  <div class="gallery-row">
-    <img class="g1" src="bilder/beispiel1.jpg" alt="UGC Beispiel 1 – Tee">
-    <img class="g2" src="bilder/beispiel2.jpg" alt="UGC Beispiel 2 – Fashion vor roter Wand">
-    <img class="g3" src="bilder/beispiel3.jpg" alt="UGC Beispiel 3 – Armband im Sand">
-  </div>
-  <div class="gallery-row">
-    <img class="g4" src="bilder/beispiel4.jpg" alt="UGC Beispiel 4 – Armbänder">
-    <img class="g5" src="bilder/beispiel5.jpg" alt="UGC Beispiel 5 – Tuch am Strand">
-    <img class="g6" src="bilder/beispiel6.jpg" alt="UGC Beispiel 6 – Body Spray">
-  </div>
-</section>
+    .gallery-section {
+      width: 100%;
+      max-width: none;
+      margin: 5rem 0;
+      padding: 0;
+      /* Fensterhöhe abzüglich Menüleiste; nach unten begrenzt, nach oben gedeckelt,
+         damit die Bilder auf sehr hohen/schmalen Fenstern nicht übermäßig beschnitten werden */
+      height: max(420px, min(calc(100vh - var(--nav-h)), 66vw));
+      display: flex;
+      flex-direction: column;
+      gap: 10px;                     /* Abstand zwischen den Reihen */
+    }
+
+    .gallery-row {
+      display: flex;
+      gap: 10px;                     /* Abstand zwischen den Bildern */
+      min-height: 0;
+      align-items: stretch;
+    }
+    .gallery-row-1 { flex: 44 1 0; } /* Reihe 1 = ca. 44 % der Höhe */
+    .gallery-row-2 { flex: 56 1 0; align-items: flex-start; } /* Reihe 2 = ca. 56 % */
+
+    .gallery-row img {
+      display: block;
+      min-width: 0;
+      height: 100%;
+      object-fit: cover;
+      background: #eee;
+    }
+
+    /* Breiten-Verhältnis der Bilder innerhalb einer Reihe */
+    .g1 { flex: 1.414 1 0; }   /* Tee – quer */
+    .g2 { flex: 0.715 1 0; }   /* Frau rote Wand – hoch */
+    .g3 { flex: 1.465 1 0; }   /* Armband Sand – quer */
+    .g4 { flex: 2.242 1 0; }   /* Armbänder – quer, reicht links bis zum Rand und ist höher */
+    .g5 { flex: 1 1 0; }       /* Frau mit Tuch – hoch */
+    .g6 { flex: 1 1 0; }       /* Body Spray – hoch, schließt rechts am Rand ab */
+
+    /* Bild 5 und 6 sind etwas niedriger als Bild 4 (wie in deinem Screenshot) */
+    .gallery-row-2 .g5,
+    .gallery-row-2 .g6 { height: 94%; }
 
 <!-- ===================== 12. TRIO PORTRAIT ===================== -->
 <div class="trio-wrapper">
