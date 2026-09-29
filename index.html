@@ -1052,9 +1052,12 @@
       scroll-margin-top: 0;
       scroll-margin-bottom: 0;
     }
-     img {
-      -webkit-touch-callout: none;
-      pointer-events: none;
+    img {
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     user-select: none;
+     /* Verhindert das "Ziehen" des Bildes (Drag & Drop), lässt aber das Layout intakt */
+     -webkit-user-drag: none; 
     }
     video {
       -webkit-touch-callout: none;
