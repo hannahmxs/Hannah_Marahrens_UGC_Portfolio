@@ -559,37 +559,57 @@
     .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 20px; color: #222; }
     .workflow-step li { margin-bottom: 0.4rem; }
 
-    /* ---------- GALERIE (UGC FOTOS) – Volle Breite / Rand zu Rand ---------- */
+    /* ---------- GALERIE (UGC FOTOS) – exakt angepasst an Screenshot ---------- */
     .gallery-section { 
       width: 100%; 
-      max-width: 100%; 
-      margin: 6.5rem 0; 
-      padding: 0; 
+      max-width: 100vw; 
+      height: calc(100vh + 8px);
+      min-height: 770px;
+      margin: 0; 
+      padding: 3rem 0; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.2rem;
+      overflow: hidden;
     }
 
     .gallery-row {
       display: flex;
-      align-items: flex-start;
+      align-items: stretch;
       gap: 1.2rem;
       width: 100%;
     }
-    .gallery-row + .gallery-row { margin-top: 1.5rem; }
 
-    .gallery-row-2 { width: 100%; }
+    /* Reihe 1 (1 bis 3): Kompakter, mit Abstand links und bündig rechts */
+    .gallery-row-1 {
+      padding-left: 5vw;
+      padding-right: 5vw;
+      justify-content: flex-start;
+    }
+
+    /* Reihe 2 (4 bis 6): Ersteres sehr breit (linksbündig an Reihe 1 ausgerichtet), 5 und 6 stehen rechts ab */
+    .gallery-row-2 {
+      padding-left: 5vw;
+      padding-right: 0; /* Steht rechts über/aus dem Rand heraus */
+      justify-content: flex-start;
+    }
 
     .gallery-row img {
       display: block;
-      min-width: 0;
       height: auto;
       object-fit: cover;
       background: #eee;
     }
-    .g1 { flex: 1.414 1 0; aspect-ratio: 1.414 / 1; }  /* Tee – quer */
-    .g2 { flex: 0.715 1 0; aspect-ratio: 0.715 / 1; }  /* Frau rote Wand – hoch */
-    .g3 { flex: 1.465 1 0; aspect-ratio: 1.465 / 1; }  /* Armband Sand – quer */
-    .g4 { flex: 1.5   1 0; aspect-ratio: 1.5 / 1; }    /* Armbänder – quer */
-    .g5 { flex: 0.715 1 0; aspect-ratio: 0.715 / 1; }  /* Frau mit Tuch – hoch */
-    .g6 { flex: 0.715 1 0; aspect-ratio: 0.715 / 1; }  /* Body Spray – hoch */
+
+    /* Individuelle Proportionen & Größen exakt wie auf dem Screenshot */
+    .g1 { flex: 0 0 35%; aspect-ratio: 1.414 / 1; }  /* Tee – quer */
+    .g2 { flex: 0 0 20%; aspect-ratio: 0.715 / 1; }  /* Frau rote Wand – hoch */
+    .g3 { flex: 0 0 32%; aspect-ratio: 1.465 / 1; }  /* Armband Sand – quer */
+
+    .g4 { flex: 0 0 46%; aspect-ratio: 1.5 / 1; }    /* Armbänder – quer */
+    .g5 { flex: 0 0 21%; aspect-ratio: 0.715 / 1; }  /* Frau mit Tuch – hoch */
+    .g6 { flex: 0 0 25%; aspect-ratio: 0.715 / 1; }  /* Body Spray – hoch (steht rechts über) */
 
     /* ---------- TRIO PORTRAIT ---------- */
     .trio-wrapper { max-width: 100%; margin: 4rem auto 0 auto; padding: 0; }
@@ -914,16 +934,20 @@
 
       /* GALERIE MOBIL: alle Bilder untereinander, unangeschnitten im Originalformat */
       .gallery-section {
+        height: auto !important;
+        min-height: auto !important;
         width: 100% !important;
         max-width: 100% !important;
         margin: 4rem 0 !important;
         padding: 0 !important;
+        gap: 0 !important;
       }
       .gallery-row {
         flex-direction: column !important;
         align-items: stretch !important;
         width: 100% !important;
         gap: 0 !important;
+        padding: 0 !important;
       }
       .gallery-row + .gallery-row { margin-top: 0 !important; }
       .gallery-row img {
@@ -1347,13 +1371,13 @@
 
 <!-- ===================== 11. GALERIE (UGC FOTOS) ===================== -->
 <section class="gallery-section" id="ugc-fotos">
-  <!-- Reihe 1: quer – hoch – quer (alle gleich hoch) -->
+  <!-- Reihe 1: Tee, Frau rote Wand, Armband Sand -->
   <div class="gallery-row gallery-row-1">
     <img class="g1" src="bilder/beispiel1.jpg" alt="UGC Beispiel 1 – Tee">
     <img class="g2" src="bilder/beispiel2.jpg" alt="UGC Beispiel 2 – Fashion vor roter Wand">
     <img class="g3" src="bilder/beispiel3.jpg" alt="UGC Beispiel 3 – Armband im Sand">
   </div>
-  <!-- Reihe 2: quer – hoch – hoch (alle gleich hoch) -->
+  <!-- Reihe 2: Armbänder, Frau mit Tuch, Body Spray (steht rechts über) -->
   <div class="gallery-row gallery-row-2">
     <img class="g4" src="bilder/beispiel4.jpg" alt="UGC Beispiel 4 – Armbänder">
     <img class="g5" src="bilder/beispiel5.jpg" alt="UGC Beispiel 5 – Tuch am Strand">
