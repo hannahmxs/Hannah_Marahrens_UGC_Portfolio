@@ -559,22 +559,24 @@
     .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 20px; color: #222; }
     .workflow-step li { margin-bottom: 0.4rem; }
 
-    /* ---------- GALERIE (UGC FOTOS) – versetztes Layout ---------- */
-    .gallery-section { max-width: 1100px; margin: 6.5rem auto; padding: 0 1.5rem; }
+    /* ---------- GALERIE (UGC FOTOS) – Volle Breite / Rand zu Rand ---------- */
+    .gallery-section { 
+      width: 100%; 
+      max-width: 100%; 
+      margin: 6.5rem 0; 
+      padding: 0; 
+    }
 
     .gallery-row {
       display: flex;
       align-items: flex-start;
       gap: 1.2rem;
+      width: 100%;
     }
     .gallery-row + .gallery-row { margin-top: 1.5rem; }
 
-    /* Reihe 2 endet – wie in der Vorlage – etwas kürzer als Reihe 1.
-       Für bündigen Abschluss einfach auf 100% setzen. */
-    .gallery-row-2 { width: 97.8%; }
+    .gallery-row-2 { width: 100%; }
 
-    /* Jedes Bild bekommt flex-grow = Seitenverhältnis (Breite/Höhe).
-       Dadurch sind alle Bilder einer Reihe automatisch gleich hoch. */
     .gallery-row img {
       display: block;
       min-width: 0;
@@ -910,20 +912,27 @@
         font-size: 20px !important;
       }
 
-      /* GALERIE MOBIL: alle Bilder untereinander, Originalformat bleibt erhalten */
+      /* GALERIE MOBIL: alle Bilder untereinander, unangeschnitten im Originalformat */
+      .gallery-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 4rem 0 !important;
+        padding: 0 !important;
+      }
       .gallery-row {
         flex-direction: column !important;
         align-items: stretch !important;
         width: 100% !important;
-        gap: 1rem !important;
+        gap: 0 !important;
       }
-      .gallery-row + .gallery-row { margin-top: 1rem !important; }
+      .gallery-row + .gallery-row { margin-top: 0 !important; }
       .gallery-row img {
         flex: none !important;
         width: 100% !important;
         height: auto !important;
         aspect-ratio: auto !important;
         object-fit: contain !important;
+        background: transparent !important;
       }
     }
     @media (max-width: 768px) {
