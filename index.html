@@ -559,47 +559,39 @@
     .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 20px; color: #222; }
     .workflow-step li { margin-bottom: 0.4rem; }
 
-       /* ---------- GALERIE (UGC FOTOS) – randlos, füllt die Fensterhöhe ---------- */
+        /* ---------- GALERIE (UGC FOTOS) – Layout nach InDesign-Vorlage ---------- */
     .gallery-section {
       width: 100%;
       max-width: none;
-      margin: 5rem 0;
+      margin: 4rem 0;
       padding: 0;
-      /* Fensterhöhe abzüglich Menüleiste, nach unten und oben begrenzt */
-      height: max(420px, min(calc(100vh - var(--nav-h)), 66vw));
-      display: flex;
-      flex-direction: column;
-      gap: 10px;                     /* Abstand zwischen den Reihen */
     }
 
     .gallery-row {
       display: flex;
-      gap: 10px;                     /* Abstand zwischen den Bildern */
-      min-height: 0;
-      align-items: stretch;
+      align-items: flex-start;
+      gap: 1.05%;                    /* Abstand zwischen den Bildern (in % der Breite) */
     }
-    .gallery-row-1 { flex: 44 1 0; } /* Reihe 1 = ca. 44 % der Höhe */
-    .gallery-row-2 { flex: 56 1 0; align-items: flex-start; } /* Reihe 2 = ca. 56 % */
+    .gallery-row-2 { margin-top: 1.55%; }  /* Abstand zwischen den Reihen */
 
+    /* Keine feste Höhe, kein Zuschnitt: Höhe ergibt sich aus dem Originalformat */
     .gallery-row img {
       display: block;
-      min-width: 0;
-      height: 100%;
-      object-fit: cover;
+      flex: 0 0 auto;
+      height: auto;
       background: #eee;
     }
 
-    /* Breiten-Verhältnis der Bilder innerhalb einer Reihe */
-    .g1 { flex: 1.414 1 0; }   /* Tee – quer */
-    .g2 { flex: 0.715 1 0; }   /* Frau rote Wand – hoch */
-    .g3 { flex: 1.465 1 0; }   /* Armband Sand – quer */
-    .g4 { flex: 2.242 1 0; }   /* Armbänder – quer, links am Rand, etwas höher */
-    .g5 { flex: 1 1 0; }       /* Frau mit Tuch – hoch */
-    .g6 { flex: 1 1 0; }       /* Body Spray – hoch, rechts am Rand */
+    /* Reihe 1: Abstand links, Bild 3 schließt rechts am Rand ab */
+    .g1 { width: 36.7%;  margin-left: 6.25%; }  /* Tee */
+    .g2 { width: 18%; }                          /* Frau vor roter Wand */
+    .g3 { width: 36.95%; }                       /* Armband im Sand */
 
-    /* Bild 5 und 6 sind etwas niedriger als Bild 4 (wie im Screenshot) */
-    .gallery-row-2 .g5,
-    .gallery-row-2 .g6 { height: 94%; }
+    /* Reihe 2: Bild 4 links am Rand, Bild 5 + 6 kleiner mit Abstand rechts */
+    .g4 { width: 48.95%; }                       /* Armbänder */
+    .g5 { width: 23.4%; }                        /* Frau mit Tuch */
+    .g6 { width: 23.4%; }                        /* Body Spray */
+
     
     /* ---------- TRIO PORTRAIT ---------- */
     .trio-wrapper { max-width: 100%; margin: 0 auto; padding: 0; }
@@ -921,25 +913,23 @@
         font-size: 20px !important;
       }
 
-      /* GALERIE MOBIL: Volle Bildschirmbreite */
+          /* GALERIE MOBIL: alle Bilder untereinander, Originalformat, volle Breite */
       .gallery-section {
-        height: auto !important;
         margin: 3rem 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
         gap: 10px !important;
       }
       .gallery-row {
-        flex: none !important;
         flex-direction: column !important;
         align-items: stretch !important;
         gap: 10px !important;
+        margin: 0 !important;
       }
-      .gallery-row img,
-      .gallery-row-2 .g5,
-      .gallery-row-2 .g6 {
-        flex: none !important;
+      .gallery-row img {
         width: 100% !important;
         height: auto !important;
-        object-fit: contain !important;
+        margin: 0 !important;
       }
     }
     @media (max-width: 768px) {
