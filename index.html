@@ -559,19 +559,15 @@
     .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 20px; color: #222; }
     .workflow-step li { margin-bottom: 0.4rem; }
 
-    /* ---------- GALERIE (UGC FOTOS) – exakt angepasst an Screenshot ---------- */
+    /* ---------- KORRIGIERTE GALERIE (UGC FOTOS) – Fester Viewport-Container ohne Zoom/Sprengung ---------- */
     .gallery-section { 
       width: 100%; 
-      max-width: 100vw; 
-      height: calc(100vh + 8px);
-      min-height: 770px;
-      margin: 0; 
-      padding: 3rem 0; 
+      max-width: 1100px; 
+      margin: 0 auto; 
+      padding: 3rem 1.5rem; 
       display: flex;
       flex-direction: column;
-      justify-content: center;
       gap: 1.2rem;
-      overflow: hidden;
     }
 
     .gallery-row {
@@ -581,35 +577,22 @@
       width: 100%;
     }
 
-    /* Reihe 1 (1 bis 3): Kompakter, mit Abstand links und bündig rechts */
-    .gallery-row-1 {
-      padding-left: 5vw;
-      padding-right: 5vw;
-      justify-content: flex-start;
-    }
-
-    /* Reihe 2 (4 bis 6): Ersteres sehr breit (linksbündig an Reihe 1 ausgerichtet), 5 und 6 stehen rechts ab */
-    .gallery-row-2 {
-      padding-left: 5vw;
-      padding-right: 0; /* Steht rechts über/aus dem Rand heraus */
-      justify-content: flex-start;
-    }
-
     .gallery-row img {
       display: block;
+      width: 100%;
       height: auto;
       object-fit: cover;
       background: #eee;
     }
 
-    /* Individuelle Proportionen & Größen exakt wie auf dem Screenshot */
-    .g1 { flex: 0 0 35%; aspect-ratio: 1.414 / 1; }  /* Tee – quer */
-    .g2 { flex: 0 0 20%; aspect-ratio: 0.715 / 1; }  /* Frau rote Wand – hoch */
-    .g3 { flex: 0 0 32%; aspect-ratio: 1.465 / 1; }  /* Armband Sand – quer */
+    /* Proportionsgetreue Flex-Aufteilung für die Desktop-Galerie */
+    .g1 { flex: 0 0 35%; aspect-ratio: 1.414 / 1; }
+    .g2 { flex: 0 0 20%; aspect-ratio: 0.715 / 1; }
+    .g3 { flex: 0 0 32%; aspect-ratio: 1.465 / 1; }
 
-    .g4 { flex: 0 0 46%; aspect-ratio: 1.5 / 1; }    /* Armbänder – quer */
-    .g5 { flex: 0 0 21%; aspect-ratio: 0.715 / 1; }  /* Frau mit Tuch – hoch */
-    .g6 { flex: 0 0 25%; aspect-ratio: 0.715 / 1; }  /* Body Spray – hoch (steht rechts über) */
+    .g4 { flex: 0 0 46%; aspect-ratio: 1.5 / 1; }
+    .g5 { flex: 0 0 21%; aspect-ratio: 0.715 / 1; }
+    .g6 { flex: 0 0 25%; aspect-ratio: 0.715 / 1; }
 
     /* ---------- TRIO PORTRAIT ---------- */
     .trio-wrapper { max-width: 100%; margin: 4rem auto 0 auto; padding: 0; }
@@ -793,7 +776,6 @@
         justify-content: center !important;
       }
 
-      /* Spezifische Anpassung für Why-UGC Sektion auf Mobile */
       #warum-ugc.fullscreen-slide {
         height: auto !important;
         min-height: auto !important;
@@ -932,24 +914,21 @@
         font-size: 20px !important;
       }
 
-      /* GALERIE MOBIL: alle Bilder untereinander, unangeschnitten im Originalformat */
+      /* GALERIE MOBIL: Untereinander */
       .gallery-section {
-        height: auto !important;
-        min-height: auto !important;
         width: 100% !important;
         max-width: 100% !important;
         margin: 4rem 0 !important;
-        padding: 0 !important;
-        gap: 0 !important;
+        padding: 0 1.5rem !important;
+        gap: 1.2rem !important;
       }
       .gallery-row {
         flex-direction: column !important;
         align-items: stretch !important;
         width: 100% !important;
-        gap: 0 !important;
+        gap: 1.2rem !important;
         padding: 0 !important;
       }
-      .gallery-row + .gallery-row { margin-top: 0 !important; }
       .gallery-row img {
         flex: none !important;
         width: 100% !important;
@@ -970,14 +949,14 @@
         font-weight: 300 !important;
       }
       .intro-text p {
-        hyphens: manual;               /* Silbentrennung nur an den &shy;-Stellen */
+        hyphens: manual;               
         -webkit-hyphens: manual;
         word-break: normal;
         overflow-wrap: break-word;
-        text-wrap: pretty;             /* vermeidet Einzelwörter in der letzten Zeile */
+        text-wrap: pretty;             
       }
       .text-mobile .balance {
-        text-wrap: balance;            /* möglichst gleich lange Zeilen */
+        text-wrap: balance;            
       }
       
       .bg-lime.section, .split > div {
@@ -997,7 +976,6 @@
         padding-top: 2rem;
       }
 
-      /* Why-UGC-Bild mobil: vollständig sichtbar, mit Luft nach unten */
       #warum-ugc { padding-bottom: 2.5rem !important; }
       #warum-ugc .split-img-wrap {
         padding: 1.5rem 1.5rem 0 !important;
@@ -1018,7 +996,6 @@
       .footer-bottom-bar .text-desktop { display: none; }
       .footer-bottom-bar .text-mobile { display: block; }
     }
-    /* ---------- INTRO-TEXT: Mobil-Variante statt Desktop-Variante ---------- */
     @media (max-width: 800px) {
       .intro-text .text-desktop { display: none !important; }
       .intro-text .text-mobile  { display: block !important; }
@@ -1048,18 +1025,11 @@
       padding: 0;
     }
 
-    /* ---------- SPRUNGZIELE DER MENÜLEISTE ---------- */
     :root { --nav-h: 49px; }
 
-    /* Unterkante der Menüleiste = Oberkante des Intro-Bildes
-       (das Bild beginnt 3rem unterhalb des Section-Anfangs) */
     #intro { scroll-margin-top: calc(var(--nav-h) - 3rem); }
-
     #arbeit { scroll-margin-top: 0; }
-
-    /* Unterkante der Menüleiste = Oberkante des Why-UGC-Bildes */
     #warum-ugc { scroll-margin-top: var(--nav-h); }
-
     #dienstleistungen {
       scroll-margin-top: calc(50vh - 450px);
     }
@@ -1169,7 +1139,7 @@
           </div>
         </div>
       </div>
-    </div><!-- /intro-text -->
+    </div>
 
     <div class="intro-img-wrap split-img-wrap">
       <img src="bilder/intro.jpg" alt="Hannah">
@@ -1369,16 +1339,14 @@
   </div>
 </section>
 
-<!-- ===================== 11. GALERIE (UGC FOTOS) ===================== -->
+<!-- ===================== 11. GALERIE (UGC FOTOS) – Korrigiert im Layoutcontainer ===================== -->
 <section class="gallery-section" id="ugc-fotos">
-  <!-- Reihe 1: Tee, Frau rote Wand, Armband Sand -->
-  <div class="gallery-row gallery-row-1">
+  <div class="gallery-row">
     <img class="g1" src="bilder/beispiel1.jpg" alt="UGC Beispiel 1 – Tee">
     <img class="g2" src="bilder/beispiel2.jpg" alt="UGC Beispiel 2 – Fashion vor roter Wand">
     <img class="g3" src="bilder/beispiel3.jpg" alt="UGC Beispiel 3 – Armband im Sand">
   </div>
-  <!-- Reihe 2: Armbänder, Frau mit Tuch, Body Spray (steht rechts über) -->
-  <div class="gallery-row gallery-row-2">
+  <div class="gallery-row">
     <img class="g4" src="bilder/beispiel4.jpg" alt="UGC Beispiel 4 – Armbänder">
     <img class="g5" src="bilder/beispiel5.jpg" alt="UGC Beispiel 5 – Tuch am Strand">
     <img class="g6" src="bilder/beispiel6.jpg" alt="UGC Beispiel 6 – Body Spray">
@@ -1441,7 +1409,6 @@
     <p style="margin-top: 1rem;"><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong></p>
    <p>Hannah Marahrens<br>c/o Impressumservice Dein-Impressum<br>Stettiner Str. 41<br>35410 Hungen</p>
 
-    </p>
     <p><strong>Verbraucherstreitbeilegung / Universalschlichtungsstelle</strong><br>
     Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
     Verbraucherschlichtungsstelle teilzunehmen.
@@ -1510,12 +1477,11 @@
   const workflowTimelines = document.querySelectorAll('.workflow-timeline');
   const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-/* Nach dem Abspielen: Video zurücksetzen und Titelbild (Poster) wieder anzeigen */
-document.querySelectorAll('.phone-screen video').forEach(video => {
-  video.addEventListener('ended', () => {
-    video.load(); // setzt das Video auf Anfang und blendet das Poster wieder ein
+  document.querySelectorAll('.phone-screen video').forEach(video => {
+    video.addEventListener('ended', () => {
+      video.load(); 
+    });
   });
-});
   
   window.addEventListener('scroll', () => {
     const scrollPos = window.scrollY;
@@ -1541,8 +1507,6 @@ document.querySelectorAll('.phone-screen video').forEach(video => {
     });
   });
 
-  /* "Kontakt" im Menü: so scrollen, dass die gelbe Kontaktzeile
-     voll sichtbar ist und der lila Footer knapp außerhalb liegt */
   document.querySelectorAll('a[href="#kontakt"]').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -1552,8 +1516,6 @@ document.querySelectorAll('.phone-screen video').forEach(video => {
     });
   });
 
-  /* Flattersatz mobil: Textbreite so weit verengen, dass die Zeilenzahl gleich bleibt
-     -> alle Zeilen ungefähr gleich lang, rechter Rand annähernd auf einer Linie */
   function balanceMobileText() {
     const els = document.querySelectorAll('.text-mobile p, .text-mobile .balance');
     els.forEach(el => {
