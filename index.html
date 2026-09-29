@@ -560,10 +560,13 @@
     .workflow-step li { margin-bottom: 0.4rem; }
 
         /* ---------- GALERIE (UGC FOTOS) – Layout nach InDesign-Vorlage ---------- */
-    .gallery-section {
-      width: 100%;
+      .gallery-section {
+      /* Breite aus der Fensterhöhe berechnet: Die Galerie reicht dann von der
+         Unterkante der Menüleiste bis zur Fensterunterkante (Bild 5 + 6).
+         Ist das Fenster sehr schmal, füllt sie einfach die volle Breite. */
+      width: min(100%, calc((100vh - var(--nav-h)) * 1.673));
       max-width: none;
-      margin: 4rem 0;
+      margin: 4rem auto;   /* auto = mittig, links/rechts entsteht der Abstand */
       padding: 0;
     }
 
@@ -914,7 +917,8 @@
       }
 
           /* GALERIE MOBIL: alle Bilder untereinander, Originalformat, volle Breite */
-      .gallery-section {
+           .gallery-section {
+        width: 100% !important;          /* <- neue Zeile */
         margin: 3rem 0 !important;
         display: flex !important;
         flex-direction: column !important;
