@@ -559,41 +559,48 @@
     .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 20px; color: #222; }
     .workflow-step li { margin-bottom: 0.4rem; }
 
-    /* ---------- GALERIE (UGC FOTOS) – Volle Bildschirmbreite wie Trio Porträts ---------- */
-    .gallery-section { 
-      width: 100%; 
-      max-width: 100%; 
-      margin: 4rem auto 0 auto; 
-      padding: 0; 
+       /* ---------- GALERIE (UGC FOTOS) – randlos, füllt die Fensterhöhe ---------- */
+    .gallery-section {
+      width: 100%;
+      max-width: none;
+      margin: 5rem 0;
+      padding: 0;
+      /* Fensterhöhe abzüglich Menüleiste, nach unten und oben begrenzt */
+      height: max(420px, min(calc(100vh - var(--nav-h)), 66vw));
       display: flex;
       flex-direction: column;
-      gap: 0; /* Nahtlos ohne Lücken, genau wie das Trio */
+      gap: 10px;                     /* Abstand zwischen den Reihen */
     }
 
     .gallery-row {
       display: flex;
+      gap: 10px;                     /* Abstand zwischen den Bildern */
+      min-height: 0;
       align-items: stretch;
-      gap: 0;
-      width: 100%;
     }
+    .gallery-row-1 { flex: 44 1 0; } /* Reihe 1 = ca. 44 % der Höhe */
+    .gallery-row-2 { flex: 56 1 0; align-items: flex-start; } /* Reihe 2 = ca. 56 % */
 
     .gallery-row img {
       display: block;
-      width: 100%;
-      height: auto;
+      min-width: 0;
+      height: 100%;
       object-fit: cover;
       background: #eee;
     }
 
-    /* Proportionsgetreue Flex-Aufteilung für die Desktop-Galerie über die volle Bildschirmbreite */
-    .g1 { flex: 0 0 35%; aspect-ratio: 1.414 / 1; }
-    .g2 { flex: 0 0 20%; aspect-ratio: 0.715 / 1; }
-    .g3 { flex: 0 0 45%; aspect-ratio: 1.465 / 1; }
+    /* Breiten-Verhältnis der Bilder innerhalb einer Reihe */
+    .g1 { flex: 1.414 1 0; }   /* Tee – quer */
+    .g2 { flex: 0.715 1 0; }   /* Frau rote Wand – hoch */
+    .g3 { flex: 1.465 1 0; }   /* Armband Sand – quer */
+    .g4 { flex: 2.242 1 0; }   /* Armbänder – quer, links am Rand, etwas höher */
+    .g5 { flex: 1 1 0; }       /* Frau mit Tuch – hoch */
+    .g6 { flex: 1 1 0; }       /* Body Spray – hoch, rechts am Rand */
 
-    .g4 { flex: 0 0 46%; aspect-ratio: 1.5 / 1; }
-    .g5 { flex: 0 0 21%; aspect-ratio: 0.715 / 1; }
-    .g6 { flex: 0 0 33%; aspect-ratio: 0.715 / 1; }
-
+    /* Bild 5 und 6 sind etwas niedriger als Bild 4 (wie im Screenshot) */
+    .gallery-row-2 .g5,
+    .gallery-row-2 .g6 { height: 94%; }
+    
     /* ---------- TRIO PORTRAIT ---------- */
     .trio-wrapper { max-width: 100%; margin: 0 auto; padding: 0; }
     .trio-portrait { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; width: 100%; }
@@ -1338,49 +1345,23 @@
   </div>
 </section>
 
-<!-- ===================== 11. GALERIE (UGC FOTOS) – Volle Bildschirmbreite ===================== -->
-    .gallery-section {
-      width: 100%;
-      max-width: none;
-      margin: 5rem 0;
-      padding: 0;
-      /* Fensterhöhe abzüglich Menüleiste; nach unten begrenzt, nach oben gedeckelt,
-         damit die Bilder auf sehr hohen/schmalen Fenstern nicht übermäßig beschnitten werden */
-      height: max(420px, min(calc(100vh - var(--nav-h)), 66vw));
-      display: flex;
-      flex-direction: column;
-      gap: 10px;                     /* Abstand zwischen den Reihen */
-    }
+<!-- ===================== 11. GALERIE (UGC FOTOS) ===================== -->
 
-    .gallery-row {
-      display: flex;
-      gap: 10px;                     /* Abstand zwischen den Bildern */
-      min-height: 0;
-      align-items: stretch;
-    }
-    .gallery-row-1 { flex: 44 1 0; } /* Reihe 1 = ca. 44 % der Höhe */
-    .gallery-row-2 { flex: 56 1 0; align-items: flex-start; } /* Reihe 2 = ca. 56 % */
-
-    .gallery-row img {
-      display: block;
-      min-width: 0;
-      height: 100%;
-      object-fit: cover;
-      background: #eee;
-    }
-
-    /* Breiten-Verhältnis der Bilder innerhalb einer Reihe */
-    .g1 { flex: 1.414 1 0; }   /* Tee – quer */
-    .g2 { flex: 0.715 1 0; }   /* Frau rote Wand – hoch */
-    .g3 { flex: 1.465 1 0; }   /* Armband Sand – quer */
-    .g4 { flex: 2.242 1 0; }   /* Armbänder – quer, reicht links bis zum Rand und ist höher */
-    .g5 { flex: 1 1 0; }       /* Frau mit Tuch – hoch */
-    .g6 { flex: 1 1 0; }       /* Body Spray – hoch, schließt rechts am Rand ab */
-
-    /* Bild 5 und 6 sind etwas niedriger als Bild 4 (wie in deinem Screenshot) */
-    .gallery-row-2 .g5,
-    .gallery-row-2 .g6 { height: 94%; }
-
+  <section class="gallery-section" id="ugc-fotos">
+  <!-- Reihe 1: quer – hoch – quer -->
+  <div class="gallery-row gallery-row-1">
+    <img class="g1" src="bilder/beispiel1.jpg" alt="UGC Beispiel 1 – Tee">
+    <img class="g2" src="bilder/beispiel2.jpg" alt="UGC Beispiel 2 – Fashion vor roter Wand">
+    <img class="g3" src="bilder/beispiel3.jpg" alt="UGC Beispiel 3 – Armband im Sand">
+  </div>
+  <!-- Reihe 2: quer – hoch – hoch -->
+  <div class="gallery-row gallery-row-2">
+    <img class="g4" src="bilder/beispiel4.jpg" alt="UGC Beispiel 4 – Armbänder">
+    <img class="g5" src="bilder/beispiel5.jpg" alt="UGC Beispiel 5 – Tuch am Strand">
+    <img class="g6" src="bilder/beispiel6.jpg" alt="UGC Beispiel 6 – Body Spray">
+  </div>
+</section>
+  
 <!-- ===================== 12. TRIO PORTRAIT ===================== -->
 <div class="trio-wrapper">
   <div class="trio-portrait">
