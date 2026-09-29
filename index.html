@@ -1052,12 +1052,9 @@
       scroll-margin-top: 0;
       scroll-margin-bottom: 0;
     }
-    img {
-     -webkit-touch-callout: none;
-     -webkit-user-select: none;
-     user-select: none;
-     /* Verhindert das "Ziehen" des Bildes (Drag & Drop), lässt aber das Layout intakt */
-     -webkit-user-drag: none; 
+     img {
+      -webkit-touch-callout: none;
+      pointer-events: none;
     }
     video {
       -webkit-touch-callout: none;
@@ -1365,6 +1362,7 @@
     <img src="bilder/ugc-5.jpg" alt="UGC Beispiel 5" class="g5">
     <img src="bilder/ugc-6.jpg" alt="UGC Beispiel 6" class="g6">
   </div>
+</div>
 </section>
 
 <!-- ===================== 12. TRIO PORTRAIT ===================== -->
@@ -1423,6 +1421,7 @@
     <p style="margin-top: 1rem;"><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong></p>
    <p>Hannah Marahrens<br>c/o Impressumservice Dein-Impressum<br>Stettiner Str. 41<br>35410 Hungen</p>
 
+    </p>
     <p><strong>Verbraucherstreitbeilegung / Universalschlichtungsstelle</strong><br>
     Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
     Verbraucherschlichtungsstelle teilzunehmen.
