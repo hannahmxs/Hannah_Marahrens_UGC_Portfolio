@@ -559,12 +559,12 @@
     .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 20px; color: #222; }
     .workflow-step li { margin-bottom: 0.4rem; }
 
-        /* ---------- GALERIE (UGC FOTOS) – Layout nach InDesign-Vorlage ---------- */
-      .gallery-section {
+    /* ---------- GALERIE (UGC FOTOS) – Layout nach InDesign-Vorlage ---------- */
+    .gallery-section {
       /* Breite aus der Fensterhöhe berechnet: Die Galerie reicht dann von der
          Unterkante der Menüleiste bis zur Fensterunterkante (Bild 5 + 6).
          Ist das Fenster sehr schmal, füllt sie einfach die volle Breite. */
-      width: min(100%, calc((100vh - var(--nav-h)) * 1.673));
+      width: min(100%, calc((100vh - var(--nav-h)) * 1.735));
       max-width: none;
       margin: 4rem auto;   /* auto = mittig, links/rechts entsteht der Abstand */
       padding: 0;
@@ -575,26 +575,26 @@
       align-items: flex-start;
       gap: 1.05%;                    /* Abstand zwischen den Bildern (in % der Breite) */
     }
-    .gallery-row-2 { margin-top: 1.05%%; }  /* Abstand zwischen den Reihen */
+    .gallery-row-2 { margin-top: 1.55%; }  /* Abstand zwischen den Reihen */
 
-    /* Keine feste Höhe, kein Zuschnitt: Höhe ergibt sich aus dem Originalformat */
     .gallery-row img {
       display: block;
-      flex: 0 0 auto;
+      min-width: 0;
       height: auto;
       background: #eee;
     }
 
-    /* Reihe 1: Abstand links, Bild 3 schließt rechts am Rand ab */
-    .g1 { width: 36.7%;  margin-left: 6.25%; }  /* Tee */
-    .g2 { width: 18%; }                          /* Frau vor roter Wand */
-    .g3 { width: 36.95%; }                       /* Armband im Sand */
+    /* Reihe 1: alle drei Bilder exakt gleich hoch.
+       Die flex-Werte entsprechen dem Seitenverhältnis (Breite/Höhe) der Bilder:
+       dadurch verteilen sich die Breiten so, dass die Höhe identisch ist. */
+    .g1 { flex: 1.443 1 0; aspect-ratio: 1.443 / 1; object-fit: cover; margin-left: 6.25%; }  /* Tee */
+    .g2 { flex: 0.715 1 0; aspect-ratio: 0.715 / 1; object-fit: cover; }                      /* Frau vor roter Wand */
+    .g3 { flex: 1.463 1 0; aspect-ratio: 1.463 / 1; object-fit: cover; }                      /* Armband im Sand */
 
-    /* Reihe 2: Bild 4 links am Rand, Bild 5 + 6 kleiner mit Abstand rechts */
-    .g4 { width: 48.95%; }                       /* Armbänder */
-    .g5 { width: 23.4%; }                        /* Frau mit Tuch */
-    .g6 { width: 23.4%; }                        /* Body Spray */
-
+    /* Reihe 2: Bild 4 links am Rand, Bild 5 + 6 kleiner, rechts bleibt Abstand */
+    .g4 { flex: 0 0 auto; width: 48.95%; }   /* Armbänder */
+    .g5 { flex: 0 0 auto; width: 22%; }      /* Frau mit Tuch */
+    .g6 { flex: 0 0 auto; width: 22%; }      /* Body Spray */
     
     /* ---------- TRIO PORTRAIT ---------- */
     .trio-wrapper { max-width: 100%; margin: 0 auto; padding: 0; }
@@ -930,7 +930,10 @@
         gap: 10px !important;
         margin: 0 !important;
       }
-      .gallery-row img {
+          .gallery-row img {
+        flex: none !important;            /* neu */
+        aspect-ratio: auto !important;    /* neu */
+        object-fit: contain !important;   /* neu */
         width: 100% !important;
         height: auto !important;
         margin: 0 !important;
