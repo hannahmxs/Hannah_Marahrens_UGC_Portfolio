@@ -564,7 +564,7 @@
       /* Breite aus der Fensterhöhe berechnet: Die Galerie reicht dann von der
          Unterkante der Menüleiste bis zur Fensterunterkante (Bild 5 + 6).
          Ist das Fenster sehr schmal, füllt sie einfach die volle Breite. */
-      width: min(100%, calc((100vh - var(--nav-h)) * 1.735));
+      width: min(100%, calc((100vh - var(--nav-h)) * 1.778));
       max-width: none;
       margin: 4rem auto;   /* auto = mittig, links/rechts entsteht der Abstand */
       padding: 0;
@@ -593,8 +593,8 @@
 
     /* Reihe 2: Bild 4 links am Rand, Bild 5 + 6 kleiner, rechts bleibt Abstand */
     .g4 { flex: 0 0 auto; width: 48.95%; }   /* Armbänder */
-    .g5 { flex: 0 0 auto; width: 22%; }      /* Frau mit Tuch */
-    .g6 { flex: 0 0 auto; width: 22%; }      /* Body Spray */
+    .g5 { flex: 0 0 auto; width: 20%; }      /* Frau mit Tuch */
+    .g6 { flex: 0 0 auto; width: 20%; }      /* Body Spray */
     
     /* ---------- TRIO PORTRAIT ---------- */
     .trio-wrapper { max-width: 100%; margin: 0 auto; padding: 0; }
@@ -1029,7 +1029,7 @@
     :root { --nav-h: 49px; }
 
     #intro { scroll-margin-top: calc(var(--nav-h) - 3rem); }
-    #arbeit { scroll-margin-top: 0; }
+    #arbeit { scroll-margin-top: 30; }
     #warum-ugc { scroll-margin-top: var(--nav-h); }
     #dienstleistungen {
       scroll-margin-top: calc(50vh - 450px);
