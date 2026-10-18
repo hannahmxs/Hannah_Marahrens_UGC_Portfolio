@@ -459,21 +459,18 @@
     
   /* ---------- GALERIE (UGC FOTOS) – Layout nach InDesign-Vorlage ---------- */
     .gallery-section {
-      /* Breite aus der Fensterhöhe berechnet: Die Galerie reicht dann von der
-         Unterkante der Menüleiste bis zur Fensterunterkante (Bild 5 + 6).
-         Ist das Fenster sehr schmal, füllt sie einfach die volle Breite. */
       width: min(100%, calc((100vh - var(--nav-h)) * 1.778));
       max-width: none;
-      margin: 4rem auto;   /* auto = mittig, links/rechts entsteht der Abstand */
+      margin: 4rem auto;   
       padding: 0;
     }
 
     .gallery-row {
       display: flex;
       align-items: flex-start;
-      gap: 1.05%;                    /* Abstand zwischen den Bildern (in % der Breite) */
+      gap: 1.05%;                    
     }
-    .gallery-row-2 { margin-top: 1.05%; }  /* Abstand zwischen den Reihen */
+    .gallery-row-2 { margin-top: 1.05%; }  
 
     .gallery-row img {
       display: block;
@@ -482,17 +479,13 @@
       background: #eee;
     }
 
-    /* Reihe 1: alle drei Bilder exakt gleich hoch.
-       Die flex-Werte entsprechen dem Seitenverhältnis (Breite/Höhe) der Bilder:
-       dadurch verteilen sich die Breiten so, dass die Höhe identisch ist. */
-    .g1 { flex: 1.443 1 0; aspect-ratio: 1.443 / 1; object-fit: cover; margin-left: 6.25%; }  /* Tee */
-    .g2 { flex: 0.715 1 0; aspect-ratio: 0.715 / 1; object-fit: cover; }                      /* Frau vor roter Wand */
-    .g3 { flex: 1.463 1 0; aspect-ratio: 1.463 / 1; object-fit: cover; }                      /* Armband im Sand */
+    .g1 { flex: 1.443 1 0; aspect-ratio: 1.443 / 1; object-fit: cover; margin-left: 6.25%; }  
+    .g2 { flex: 0.715 1 0; aspect-ratio: 0.715 / 1; object-fit: cover; }                     
+    .g3 { flex: 1.463 1 0; aspect-ratio: 1.463 / 1; object-fit: cover; }                     
 
-    /* Reihe 2: Bild 4 links am Rand, Bild 5 + 6 kleiner, rechts bleibt Abstand */
-    .g4 { flex: 0 0 auto; width: 48.95%; }   /* Armbänder */
-    .g5 { flex: 0 0 auto; width: 20%; }      /* Frau mit Tuch */
-    .g6 { flex: 0 0 auto; width: 20%; }      /* Body Spray */
+    .g4 { flex: 0 0 auto; width: 48.95%; }   
+    .g5 { flex: 0 0 auto; width: 20%; }      
+    .g6 { flex: 0 0 auto; width: 20%; }      
    }
 
     /* ---------- DIENSTLEISTUNGEN ---------- */
@@ -947,11 +940,11 @@
         font-weight: 300 !important;
       }
       .intro-text p {
-        hyphens: manual;               
+        hyphens: manual;                  
         -webkit-hyphens: manual;
         word-break: normal;
         overflow-wrap: break-word;
-        text-wrap: pretty;             
+        text-wrap: pretty;            
       }
       .text-mobile .balance {
         text-wrap: balance;            
@@ -1029,10 +1022,12 @@
     #intro { margin-bottom: 2rem; }
     #arbeit { scroll-margin-top: max(0px, calc(50vh - 410px)); }
     #warum-ugc { scroll-margin-top: var(--nav-h); }
+    
+    /* Sauberer Sprunganker für Dienstleistungen korrigiert */
     #dienstleistungen {
-      scroll-margin-top: calc(50vh - 450px);
+      scroll-margin-top: var(--nav-h);
     }
-      #workflow {
+    #workflow {
       scroll-margin-top: 140px;
     }
     /* Galerie beginnt direkt unter der Menüleiste und füllt den Rest des Fensters */
@@ -1051,6 +1046,7 @@
       -webkit-touch-callout: none;
       pointer-events: auto;
     }
+    
     /* Dienstleistungen Breiten-Anpassung für Tablet & Desktop */
     .services-wrapper {
       max-width: 1100px !important;
@@ -1085,13 +1081,14 @@
     </a>
   </div>
   
+  <!-- Richtige Reihenfolge im Menü angepasst -->
   <div class="top-nav-links">
     <a href="#intro">WARUM ICH</a>
     <a href="#arbeit">MEINE ARBEIT</a>
     <a href="#warum-ugc">WARUM UGC</a>
-    <a href="#ugc-fotos">UGC FOTOS</a>
     <a href="#dienstleistungen">DIENST</a>
     <a href="#workflow">WORKFLOW</a>
+    <a href="#ugc-fotos">UGC FOTOS</a>
     <a href="#kontakt">KONTAKT</a>
   </div>
 </nav>
