@@ -684,6 +684,7 @@
     .scroll-top-btn:hover { opacity: 0.7; background: rgba(255, 255, 255, 0.5); }
 
     .mobile-br { display: none; }
+    .amp-m { display: none; }
     .text-videos-desktop { display: block; }
     .text-videos-mobile { display: none; }
     .footer-bottom-bar .text-desktop { display: block; }
@@ -737,6 +738,8 @@
 
       .split-img-wrap { width: 100% !important; aspect-ratio: 4 / 5 !important; min-height: 380px !important; background: transparent !important; }
       .split-img-wrap img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: top center !important; }
+      .intro-img-wrap { aspect-ratio: 4 / 5.4 !important; margin-bottom: calc(-1 * min(10vw, 2.5rem)) !important; }
+      .intro-text { padding-bottom: 0 !important; }
 
       .phone-row { grid-template-columns: 1fr !important; gap: 1.8rem !important; margin-top: 1rem !important; }
       .phone-card { max-width: 100% !important; width: 100% !important; display: flex; flex-direction: column; align-items: flex-start !important; text-align: left !important; padding-left: 0.8rem !important; }
@@ -784,6 +787,14 @@
       #warum-ugc .split-img-wrap img { width: 100% !important; height: auto !important; object-fit: contain !important; }
       .text-videos-desktop { display: none; }
       .text-videos-mobile { display: block; text-align: left; }
+      .amp-d { display: none; }
+      .amp-m { display: inline; }
+      .wr-title { display: block; }
+      .wr-mid { display: block; text-wrap: balance; }
+      .wr-br { display: none; }
+      .wr-days { display: block; }
+      .footer-bottom-bar { align-items: flex-start; padding: 1.5rem; }
+      .footer-bottom-bar .text-mobile { text-align: left; }
       .footer-bottom-bar .text-desktop { display: none; }
       .footer-bottom-bar .text-mobile { display: block; }
     }
@@ -1048,12 +1059,12 @@
       </div>
       
       <div class="service-card bg-lavender service-card-inset">
-        <h3>Extras &amp; Lizenzen</h3>
+        <h3><span class="amp-d">Extras &amp; Lizenzen</span><span class="amp-m">Extras und Lizenzen</span></h3>
         <ul style="margin-top: 0.6rem;">
           <li><strong>Rohmaterial</strong> (Raw Material / B-Roll)</li>
           <li>Zusätzliche <strong>Hooks u. CTAs</strong></li>
           <li>Verlängerung der<strong> organischen Nutzung</strong></li>
-          <li><strong>Werberechte (Paid Ads):</strong> Flexible Schaltung<br>nach Laufzeit (30 / 60 / 90 Tage)</li>
+          <li><strong class="wr-title">Werberechte (Paid Ads):</strong> <span class="wr-mid">Flexible Schaltung<br class="wr-br"> nach Laufzeit</span> <span class="wr-days">(30 / 60 / 90 Tage)</span></li>
         </ul>
       </div>
     </div>
@@ -1063,7 +1074,7 @@
         <p>Benötigst du mehr Videos? Kontaktiere mich für monatliche Pakete.</p>
       </div>
       <div class="text-videos-mobile">
-        <p>Benötigst du mehr Videos?<br>Kontaktiere mich für monatliche Pakete.</p>
+        <p>Benötigst du mehr Videos?<br>Kontaktiere mich für monatliche<br>Pakete.</p>
       </div>      
       <a class="btn" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#103;&#99;&#46;&#104;&#97;&#110;&#110;&#97;&#104;&#95;&#109;&#97;&#114;&#97;&#104;&#114;&#101;&#110;&#115;&#64;&#103;&#109;&#120;&#46;&#100;&#101;">Kontakt aufnehmen</a>
     </div>
