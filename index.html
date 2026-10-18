@@ -577,13 +577,6 @@
 
   /* ---------- ABSCHLUSS & FOOTER ---------- */
     .closing-card { width: 100%; background: var(--paper); margin-top: 0; position: relative; }
-    .closing-card::before {
-      content: "";
-      display: block;
-      height: 60px; /* Hier kannst du die Dicke des weißen Balkens anpassen */
-      background: var(--paper);
-    }
-
     .closing-img {
       position: relative;
       width: 100%;
@@ -632,11 +625,10 @@
     .footer-bottom-bar {
       background: var(--lavender);
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem clamp(1rem, 3vw, 2.5rem);
+      justify-content: center;
+      padding: 1.5rem 2rem;
       gap: 0.8rem;
     }
     .legal-links { display: flex; gap: 2rem; }
@@ -792,7 +784,6 @@
       #warum-ugc .split-img-wrap img { width: 100% !important; height: auto !important; object-fit: contain !important; }
       .text-videos-desktop { display: none; }
       .text-videos-mobile { display: block; text-align: left; }
-      .footer-bottom-bar { flex-direction: column; justify-content: center; text-align: center; }
       .footer-bottom-bar .text-desktop { display: none; }
       .footer-bottom-bar .text-mobile { display: block; }
     }
@@ -850,7 +841,7 @@
 <section class="fullscreen-slide" id="intro"> 
   <div class="intro split"> 
     <div class="intro-text"> 
-      <h2>Warum ich?</h2>
+      <h2 style="font-size:36px;">Warum ich?</h2>
       
       <div class="text-desktop">   
         <p>Moin,<br>ich bin Hannah (22), Creatorin &amp;<br>Kommunikationsdesignerin aus Hamburg.</p>
