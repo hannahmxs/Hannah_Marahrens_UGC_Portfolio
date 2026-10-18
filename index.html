@@ -518,6 +518,232 @@
       display: inline-block;
     }
     .btn:hover { background: #000; color: #fff; }
+
+    /* =====================================================
+       NACHGETRAGENE STYLES (fehlten im ursprünglichen Code)
+       ===================================================== */
+
+    /* ---------- DESKTOP / MOBILE TEXT-UMSCHALTUNG ---------- */
+    .text-mobile,
+    .text-videos-mobile { display: none; }
+    .text-desktop,
+    .text-videos-desktop { display: block; }
+    .text-videos-desktop p,
+    .text-videos-mobile p { margin: 0; }
+
+    /* ---------- WORKFLOW ---------- */
+    .workflow-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    .workflow-container h2 { font-size: 36px; margin-bottom: 2rem; }
+
+    .workflow-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+    .workflow-timeline::before {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--ink);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1s ease;
+    }
+    .workflow-timeline.in-view::before { transform: scaleX(1); }
+
+    .workflow-step {
+      position: relative;
+      padding-top: 2.2rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .workflow-step::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--lime);
+      border: 2px solid var(--ink);
+    }
+    .workflow-step:nth-child(even)::before { background: var(--lavender); }
+
+    .workflow-timeline.in-view .workflow-step { opacity: 1; transform: none; }
+    .workflow-timeline.in-view .workflow-step:nth-child(2) { transition-delay: 0.15s; }
+    .workflow-timeline.in-view .workflow-step:nth-child(3) { transition-delay: 0.3s; }
+    .workflow-timeline.in-view .workflow-step:nth-child(4) { transition-delay: 0.45s; }
+
+    .workflow-step h3 { font-size: 22px; margin-bottom: 0.8rem; }
+    .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 19px; }
+    .workflow-step li { margin-bottom: 0.3rem; }
+
+    /* ---------- ABSCHLUSS-KARTE ---------- */
+    .closing-card { width: 100%; margin-top: 2rem; }
+    .closing-img {
+      position: relative;
+      height: 70vh;
+      min-height: 420px;
+      background: url('bilder/closing.jpg') center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .closing-text-box {
+      background: var(--lime);
+      padding: 2rem 3rem;
+      text-align: center;
+      font-size: clamp(26px, 4vw, 48px);
+      line-height: 1.2;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .closing-bar {
+      background: var(--lavender);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem clamp(1.5rem, 6vw, 5rem);
+      padding: 1.2rem 1.5rem;
+      font-size: 20px;
+    }
+    .closing-bar a { display: inline-flex; align-items: center; }
+
+    /* ---------- FOOTER-LEISTE ---------- */
+    .footer-bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      padding: 1.2rem clamp(1rem, 3vw, 2.5rem);
+      background: var(--paper);
+      font-size: 16px;
+    }
+    .legal-links { display: flex; gap: 1.5rem; }
+    .legal-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      letter-spacing: inherit;
+      color: var(--ink);
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .closing-copyright { margin: 0; color: var(--muted); font-size: 16px; }
+
+    /* ---------- MODALS ---------- */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.55);
+      overflow-y: auto;
+      padding: 2rem 1rem;
+    }
+    .modal.active { display: block; }
+    .modal-content {
+      position: relative;
+      background: var(--paper);
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 2rem;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    .modal-content h2 { font-size: 30px; }
+    .modal-content a { text-decoration: underline; word-break: break-word; }
+    .modal-close {
+      position: absolute;
+      top: 0.6rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 34px;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--ink);
+    }
+
+    /* ---------- SCROLL-TO-TOP ---------- */
+    .scroll-top-btn {
+      position: fixed;
+      right: 1.2rem;
+      bottom: 1.2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .scroll-top-btn.visible { opacity: 1; pointer-events: auto; }
+
+    /* ---------- MOBILE-ZUSATZLINK IM HERO ---------- */
+    .mobile-only-insta { display: none; }
+
+    /* ---------- TABLET / MOBILE ---------- */
+    @media (max-width: 800px) {
+      body { font-size: 18px; }
+
+      .text-desktop,
+      .text-videos-desktop { display: none; }
+      .text-mobile,
+      .text-videos-mobile { display: block; }
+
+      .hero-top { left: 1.5rem; right: 1.5rem; top: 5.5rem; }
+      .hero-top .eyebrow { font-size: 1.1rem; }
+
+      .fullscreen-slide { height: auto; min-height: 0; padding: 3rem 0; }
+
+      .split { grid-template-columns: 1fr; }
+      .split-img-wrap { height: 380px; }
+      .intro-text { padding-bottom: 2rem; }
+
+      .phone-row { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .gallery-section { width: 100%; padding: 0 1rem; }
+      .g1 { margin-left: 0; }
+
+      .services-grid,
+      .services-lower { grid-template-columns: 1fr; }
+
+      .workflow-timeline { grid-template-columns: 1fr; gap: 2rem; }
+      .workflow-timeline::before {
+        top: 0; bottom: 0; left: 9px; right: auto;
+        width: 2px; height: auto;
+        transform: scaleY(0); transform-origin: top;
+      }
+      .workflow-timeline.in-view::before { transform: scaleY(1); }
+      .workflow-step { padding: 0 0 0 2.6rem; }
+
+      .closing-img { height: 50vh; min-height: 320px; }
+      .closing-text-box { padding: 1.5rem 2rem; }
+
+      .footer-bottom-bar { flex-direction: column; text-align: center; }
+
+      .mobile-only-insta { display: inline-block; }
+    }
   </style>
 </head>
 <body>
