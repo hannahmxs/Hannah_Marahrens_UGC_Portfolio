@@ -403,6 +403,36 @@
       padding-left: 0.9rem; 
       text-align: left; 
     }
+     /* ---------- GALERIE (UGC FOTOS) ---------- */
+    .gallery-section {
+      width: min(100%, calc((100vh - var(--nav-h)) * 1.778));
+      max-width: none;
+      margin: 4rem auto;   
+      padding: 0;
+    }
+
+    .gallery-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.05%;                    
+    }
+    .gallery-row-2 { margin-top: 1.05%; }  
+
+    .gallery-row img {
+      display: block;
+      min-width: 0;
+      height: auto;
+      background: #eee;
+    }
+
+    .g1 { flex: 1.443 1 0; aspect-ratio: 1.443 / 1; object-fit: cover; margin-left: 6.25%; }  
+    .g2 { flex: 0.715 1 0; aspect-ratio: 0.715 / 1; object-fit: cover; }                     
+    .g3 { flex: 1.463 1 0; aspect-ratio: 1.463 / 1; object-fit: cover; }                     
+
+    .g4 { flex: 0 0 auto; width: 48.95%; }   
+    .g5 { flex: 0 0 auto; width: 20%; }      
+    .g6 { flex: 0 0 auto; width: 20%; }      
+    }
     
     /* ---------- FARBIGE SECTIONS & SPLIT ---------- */
     .bg-lime { background: var(--lime); }
@@ -443,36 +473,7 @@
       font-weight: 700;
     }
     
-    /* ---------- GALERIE (UGC FOTOS) ---------- */
-    .gallery-section {
-      width: min(100%, calc((100vh - var(--nav-h)) * 1.778));
-      max-width: none;
-      margin: 4rem auto;   
-      padding: 0;
-    }
-
-    .gallery-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.05%;                    
-    }
-    .gallery-row-2 { margin-top: 1.05%; }  
-
-    .gallery-row img {
-      display: block;
-      min-width: 0;
-      height: auto;
-      background: #eee;
-    }
-
-    .g1 { flex: 1.443 1 0; aspect-ratio: 1.443 / 1; object-fit: cover; margin-left: 6.25%; }  
-    .g2 { flex: 0.715 1 0; aspect-ratio: 0.715 / 1; object-fit: cover; }                     
-    .g3 { flex: 1.463 1 0; aspect-ratio: 1.463 / 1; object-fit: cover; }                     
-
-    .g4 { flex: 0 0 auto; width: 48.95%; }   
-    .g5 { flex: 0 0 auto; width: 20%; }      
-    .g6 { flex: 0 0 auto; width: 20%; }      
-
+   
     /* ---------- DIENSTLEISTUNGEN ---------- */
     .services-wrapper {
       max-width: 1100px;
@@ -979,6 +980,21 @@
     </div>
   </div>
 </div>
+
+  
+  <!-- ===================== 11. GALERIE (UGC FOTOS) ===================== -->
+<section class="gallery-section" id="ugc-fotos">
+  <div class="gallery-row gallery-row-1">
+    <img class="g1" src="bilder/beispiel1.jpg" alt="UGC Beispiel 1 – Tee">
+    <img class="g2" src="bilder/beispiel2.jpg" alt="UGC Beispiel 2 – Fashion vor roter Wand">
+    <img class="g3" src="bilder/beispiel3.jpg" alt="UGC Beispiel 3 – Armband im Sand">
+  </div>
+  <div class="gallery-row gallery-row-2">
+    <img class="g4" src="bilder/beispiel4.jpg" alt="UGC Beispiel 4 – Armbänder">
+    <img class="g5" src="bilder/beispiel5.jpg" alt="UGC Beispiel 5 – Tuch am Strand">
+    <img class="g6" src="bilder/beispiel6.jpg" alt="UGC Beispiel 6 – Body Spray">
+  </div>
+</section>
   
 <!-- ===================== 8. WHY UGC? ===================== -->
 <section class="bg-lavender" id="warum-ugc" style="padding: 0; overflow: hidden;">
@@ -1008,19 +1024,6 @@
   </div>
 </section>
 
-  <!-- ===================== 11. GALERIE (UGC FOTOS) ===================== -->
-<section class="gallery-section" id="ugc-fotos">
-  <div class="gallery-row gallery-row-1">
-    <img class="g1" src="bilder/beispiel1.jpg" alt="UGC Beispiel 1 – Tee">
-    <img class="g2" src="bilder/beispiel2.jpg" alt="UGC Beispiel 2 – Fashion vor roter Wand">
-    <img class="g3" src="bilder/beispiel3.jpg" alt="UGC Beispiel 3 – Armband im Sand">
-  </div>
-  <div class="gallery-row gallery-row-2">
-    <img class="g4" src="bilder/beispiel4.jpg" alt="UGC Beispiel 4 – Armbänder">
-    <img class="g5" src="bilder/beispiel5.jpg" alt="UGC Beispiel 5 – Tuch am Strand">
-    <img class="g6" src="bilder/beispiel6.jpg" alt="UGC Beispiel 6 – Body Spray">
-  </div>
-</section>
   
 <!-- ===================== 9. DIENSTLEISTUNGEN ===================== -->
 <section class="fullscreen-slide" id="dienstleistungen" style="padding-top: 5rem; padding-bottom: 3rem; height: auto !important; min-height: auto !important;">
