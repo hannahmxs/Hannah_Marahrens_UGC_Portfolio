@@ -456,7 +456,44 @@
       font-family: 'NobelBold', sans-serif;
       font-weight: 700;
     }
+    
+  /* ---------- GALERIE (UGC FOTOS) – Layout nach InDesign-Vorlage ---------- */
+    .gallery-section {
+      /* Breite aus der Fensterhöhe berechnet: Die Galerie reicht dann von der
+         Unterkante der Menüleiste bis zur Fensterunterkante (Bild 5 + 6).
+         Ist das Fenster sehr schmal, füllt sie einfach die volle Breite. */
+      width: min(100%, calc((100vh - var(--nav-h)) * 1.778));
+      max-width: none;
+      margin: 4rem auto;   /* auto = mittig, links/rechts entsteht der Abstand */
+      padding: 0;
+    }
 
+    .gallery-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.05%;                    /* Abstand zwischen den Bildern (in % der Breite) */
+    }
+    .gallery-row-2 { margin-top: 1.05%; }  /* Abstand zwischen den Reihen */
+
+    .gallery-row img {
+      display: block;
+      min-width: 0;
+      height: auto;
+      background: #eee;
+    }
+
+    /* Reihe 1: alle drei Bilder exakt gleich hoch.
+       Die flex-Werte entsprechen dem Seitenverhältnis (Breite/Höhe) der Bilder:
+       dadurch verteilen sich die Breiten so, dass die Höhe identisch ist. */
+    .g1 { flex: 1.443 1 0; aspect-ratio: 1.443 / 1; object-fit: cover; margin-left: 6.25%; }  /* Tee */
+    .g2 { flex: 0.715 1 0; aspect-ratio: 0.715 / 1; object-fit: cover; }                      /* Frau vor roter Wand */
+    .g3 { flex: 1.463 1 0; aspect-ratio: 1.463 / 1; object-fit: cover; }                      /* Armband im Sand */
+
+    /* Reihe 2: Bild 4 links am Rand, Bild 5 + 6 kleiner, rechts bleibt Abstand */
+    .g4 { flex: 0 0 auto; width: 48.95%; }   /* Armbänder */
+    .g5 { flex: 0 0 auto; width: 20%; }      /* Frau mit Tuch */
+    .g6 { flex: 0 0 auto; width: 20%; }      /* Body Spray */
+   }
 
     /* ---------- DIENSTLEISTUNGEN ---------- */
     .services-wrapper {
@@ -559,43 +596,6 @@
     .workflow-step ul { margin: 0; padding-left: 1.1rem; font-size: 20px; color: #222; }
     .workflow-step li { margin-bottom: 0.4rem; }
 
-    /* ---------- GALERIE (UGC FOTOS) – Layout nach InDesign-Vorlage ---------- */
-    .gallery-section {
-      /* Breite aus der Fensterhöhe berechnet: Die Galerie reicht dann von der
-         Unterkante der Menüleiste bis zur Fensterunterkante (Bild 5 + 6).
-         Ist das Fenster sehr schmal, füllt sie einfach die volle Breite. */
-      width: min(100%, calc((100vh - var(--nav-h)) * 1.778));
-      max-width: none;
-      margin: 4rem auto;   /* auto = mittig, links/rechts entsteht der Abstand */
-      padding: 0;
-    }
-
-    .gallery-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.05%;                    /* Abstand zwischen den Bildern (in % der Breite) */
-    }
-    .gallery-row-2 { margin-top: 1.05%; }  /* Abstand zwischen den Reihen */
-
-    .gallery-row img {
-      display: block;
-      min-width: 0;
-      height: auto;
-      background: #eee;
-    }
-
-    /* Reihe 1: alle drei Bilder exakt gleich hoch.
-       Die flex-Werte entsprechen dem Seitenverhältnis (Breite/Höhe) der Bilder:
-       dadurch verteilen sich die Breiten so, dass die Höhe identisch ist. */
-    .g1 { flex: 1.443 1 0; aspect-ratio: 1.443 / 1; object-fit: cover; margin-left: 6.25%; }  /* Tee */
-    .g2 { flex: 0.715 1 0; aspect-ratio: 0.715 / 1; object-fit: cover; }                      /* Frau vor roter Wand */
-    .g3 { flex: 1.463 1 0; aspect-ratio: 1.463 / 1; object-fit: cover; }                      /* Armband im Sand */
-
-    /* Reihe 2: Bild 4 links am Rand, Bild 5 + 6 kleiner, rechts bleibt Abstand */
-    .g4 { flex: 0 0 auto; width: 48.95%; }   /* Armbänder */
-    .g5 { flex: 0 0 auto; width: 20%; }      /* Frau mit Tuch */
-    .g6 { flex: 0 0 auto; width: 20%; }      /* Body Spray */
-    
   
     /* ---------- ABSCHLUSS & FOOTER ---------- */
     .closing-card { width: 100%; background: var(--lime); margin-top: 0; position: relative; }
@@ -1277,7 +1277,24 @@
     </div>
   </div>
 </section>
+  
+<!-- ===================== 11. GALERIE (UGC FOTOS) ===================== -->
 
+  <section class="gallery-section" id="ugc-fotos">
+  <!-- Reihe 1: quer – hoch – quer -->
+  <div class="gallery-row gallery-row-1">
+    <img class="g1" src="bilder/beispiel1.jpg" alt="UGC Beispiel 1 – Tee">
+    <img class="g2" src="bilder/beispiel2.jpg" alt="UGC Beispiel 2 – Fashion vor roter Wand">
+    <img class="g3" src="bilder/beispiel3.jpg" alt="UGC Beispiel 3 – Armband im Sand">
+  </div>
+  <!-- Reihe 2: quer – hoch – hoch -->
+  <div class="gallery-row gallery-row-2">
+    <img class="g4" src="bilder/beispiel4.jpg" alt="UGC Beispiel 4 – Armbänder">
+    <img class="g5" src="bilder/beispiel5.jpg" alt="UGC Beispiel 5 – Tuch am Strand">
+    <img class="g6" src="bilder/beispiel6.jpg" alt="UGC Beispiel 6 – Body Spray">
+  </div>
+</section>
+  
 <!-- ===================== 9. DIENSTLEISTUNGEN ===================== -->
 <section class="fullscreen-slide" id="dienstleistungen" style="padding-top: 7.5rem; padding-bottom: 2rem; height: auto !important; min-height: auto !important;">
   <div class="services-wrapper">
@@ -1376,23 +1393,7 @@
   </div>
 </section>
 
-<!-- ===================== 11. GALERIE (UGC FOTOS) ===================== -->
 
-  <section class="gallery-section" id="ugc-fotos">
-  <!-- Reihe 1: quer – hoch – quer -->
-  <div class="gallery-row gallery-row-1">
-    <img class="g1" src="bilder/beispiel1.jpg" alt="UGC Beispiel 1 – Tee">
-    <img class="g2" src="bilder/beispiel2.jpg" alt="UGC Beispiel 2 – Fashion vor roter Wand">
-    <img class="g3" src="bilder/beispiel3.jpg" alt="UGC Beispiel 3 – Armband im Sand">
-  </div>
-  <!-- Reihe 2: quer – hoch – hoch -->
-  <div class="gallery-row gallery-row-2">
-    <img class="g4" src="bilder/beispiel4.jpg" alt="UGC Beispiel 4 – Armbänder">
-    <img class="g5" src="bilder/beispiel5.jpg" alt="UGC Beispiel 5 – Tuch am Strand">
-    <img class="g6" src="bilder/beispiel6.jpg" alt="UGC Beispiel 6 – Body Spray">
-  </div>
-</section>
-  
 
 <!-- ===================== 13. ABSCHLUSS & FOOTER ===================== -->
 <div class="closing-card">
